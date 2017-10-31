@@ -7,4 +7,4 @@ export const LOGIN_CONFIG: any = {
     secretId: "smjwxkpzmpwgw4ksgggw0wwg84w48scw08s8sgw0oo8o0gsgo",
     grantType: "password",
     redirectURL: "localhost"
-}
+};
