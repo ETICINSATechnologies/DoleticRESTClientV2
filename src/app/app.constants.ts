@@ -1,0 +1,1 @@
+export const API_SERVER: string = 'http://localhost:8000/api/';

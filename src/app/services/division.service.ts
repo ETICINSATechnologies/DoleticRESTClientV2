@@ -3,13 +3,14 @@ import { Headers, Http} from '@angular/http';
 
 import { Division } from '../entities/division';
 import { NewDivision } from '../entities/division.new';
+import { API_SERVER } from '../app.constants';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DivisionService {
 
-    private divisionApiUrl = 'http://localhost:8000/api/kernel/division';
+    private divisionApiUrl = API_SERVER + 'kernel/division';
     private headers = new Headers({'Content-Type': 'application/json'});
 
 
@@ -42,6 +43,19 @@ export class DivisionService {
             .get(this.divisionApiUrl + "/" + divisionId)
             .toPromise()
             .then(res => {
+                return res.json().division as Division;
+            })
+            .catch(this.handleError);
+    }
+
+    update(division: Division): Promise<Division>{
+        return this.http
+            .post(this.divisionApiUrl + "/" + division.id, {
+                label: division.label,
+                detail: division.detail
+            }, {headers: this.headers})
+            .toPromise()
+            .then(res=>{
                 return res.json().division as Division;
             })
             .catch(this.handleError);
