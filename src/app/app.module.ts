@@ -9,6 +9,7 @@ import {DivisionService} from "./services/division.service";
 import {LoginService} from "./services/login.service";
 import {GenderService} from "./services/gender.service";
 import {CountryService} from "./services/country.service";
+import {PositionService} from "./services/position.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {CountryService} from "./services/country.service";
       DivisionService,
       LoginService,
       GenderService,
-      CountryService
+      CountryService,
+      PositionService
   ],
   bootstrap: [AppComponent]
 })
