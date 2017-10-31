@@ -1,27 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http} from '@angular/http';
+import { Http} from '@angular/http';
 
 import { Division } from '../entities/division';
 import { NewDivision } from '../entities/division.new';
 import { API_SERVER } from '../app.constants';
 
 import 'rxjs/add/operator/toPromise';
+import {AuthenticationService} from "./auth.service";
 
 @Injectable()
 export class DivisionService {
+    constructor(private http: Http, private authService: AuthenticationService){}
 
     private divisionApiUrl = API_SERVER.kernel + 'division';
-    private headers = new Headers({'Content-Type': 'application/json'});
-
-
-    constructor(private http: Http){}
+    private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred in DivisionService: ', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
 
-    create(division: NewDivision): Promise<Division> {
+    create(division: NewDivision):Promise<Division> {
         return this.http
             .post(this.divisionApiUrl, JSON.stringify(division), {headers: this.headers})
             .toPromise()
@@ -33,14 +32,14 @@ export class DivisionService {
 
     remove(divisionId:string):Promise<>{
         return this.http
-            .delete(this.divisionApiUrl+divisionId)
+            .delete(this.divisionApiUrl+divisionId, {headers: this.headers})
             .toPromise()
             .catch(this.handleError);
     }
 
     getById(divisionId:string):Promise<Division>{
         return this.http
-            .get(this.divisionApiUrl + "/" + divisionId)
+            .get(this.divisionApiUrl + "/" + divisionId, {headers: this.headers})
             .toPromise()
             .then(res => {
                 return res.json().division as Division;
@@ -63,7 +62,7 @@ export class DivisionService {
 
     disable(divisionId: string): Promise<Division>{
         return this.http
-            .post(this.divisionApiUrl + "/" + divisionId + "/disable", {})
+            .post(this.divisionApiUrl + "/" + divisionId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().division as Division;
@@ -73,7 +72,7 @@ export class DivisionService {
 
     enable(divisionId: string): Promise<Division>{
         return this.http
-            .post(this.divisionApiUrl + "/" + divisionId + "/enable", {})
+            .post(this.divisionApiUrl + "/" + divisionId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().division as Division;
@@ -83,7 +82,7 @@ export class DivisionService {
 
     getByLabel(divisionLabel: string): Promise<Division>{
         return this.http
-            .get(this.divisionApiUrl + "/" + divisionLabel)
+            .get(this.divisionApiUrl + "/" + divisionLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().division as Division;
@@ -93,7 +92,7 @@ export class DivisionService {
 
     getAll(): Promise<Array<Division>>{
         return this.http
-            .get(this.divisionApiUrl + "s")
+            .get(this.divisionApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().divisions as Array<Division>;
@@ -103,7 +102,7 @@ export class DivisionService {
 
     getAllEnabled(): Promise<Array<Division>>{
         return this.http
-            .get(this.divisionApiUrl + "s/enabled")
+            .get(this.divisionApiUrl + "s/enabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().divisions as Array<Division>;
