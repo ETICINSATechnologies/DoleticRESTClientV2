@@ -60,4 +60,54 @@ export class DivisionService {
             })
             .catch(this.handleError);
     }
+
+    disable(divisionId: string): Promise<Division>{
+        return this.http
+            .post(this.divisionApiUrl + "/" + divisionId + "/disable", {})
+            .toPromise()
+            .then(res=>{
+                return res.json().division as Division;
+            })
+            .catch(this.handleError);
+    }
+
+    enable(divisionId: string): Promise<Division>{
+        return this.http
+            .post(this.divisionApiUrl + "/" + divisionId + "/enable", {})
+            .toPromise()
+            .then(res=>{
+                return res.json().division as Division;
+            })
+            .catch(this.handleError);
+    }
+
+    getByLabel(divisionLabel: string): Promise<Division>{
+        return this.http
+            .get(this.divisionApiUrl + "/" + divisionLabel)
+            .toPromise()
+            .then(res=>{
+                return res.json().division as Division;
+            })
+            .catch(this.handleError);
+    }
+
+    getAll(): Promise<Array<Division>>{
+        return this.http
+            .get(this.divisionApiUrl + "s")
+            .toPromise()
+            .then(res=>{
+                return res.json().divisions as Array<Division>;
+            })
+            .catch(this.handleError);
+    }
+
+    getAllEnabled(): Promise<Array<Division>>{
+        return this.http
+            .get(this.divisionApiUrl + "s/enabled")
+            .toPromise()
+            .then(res=>{
+                return res.json().divisions as Array<Division>;
+            })
+            .catch(this.handleError);
+    }
 }
