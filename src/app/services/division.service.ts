@@ -20,24 +20,24 @@ export class DivisionService {
         return Promise.reject(error.message || error);
     }
 
-    createDivision(division: NewDivision): Promise<Division> {
+    create(division: NewDivision): Promise<Division> {
         return this.http
             .post(this.divisionApiUrl, JSON.stringify(division), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json() as Division;
+                return res.json().division as Division;
             })
             .catch(this.handleError);
     }
 
-    deleteDivision(divisionId:string):Promise<>{
+    remove(divisionId:string):Promise<>{
         return this.http
             .delete(this.divisionApiUrl+divisionId)
             .toPromise()
             .catch(this.handleError);
     }
 
-    getByIdDivision(divisionId:string):Promise<Division>{
+    getById(divisionId:string):Promise<Division>{
         return this.http
             .get(this.divisionApiUrl + "/" + divisionId)
             .toPromise()
