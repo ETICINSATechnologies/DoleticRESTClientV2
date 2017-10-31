@@ -10,7 +10,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class DivisionService {
 
-    private divisionApiUrl = API_SERVER + 'kernel/division';
+    private divisionApiUrl = API_SERVER.kernel + 'division';
     private headers = new Headers({'Content-Type': 'application/json'});
 
 
