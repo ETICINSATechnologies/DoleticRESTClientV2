@@ -33,7 +33,7 @@ export class GenderService {
 
     remove(genderId:string):Promise<>{
         return this.http
-            .delete(this.genderApiUrl+genderId, {headers: this.headers})
+            .delete(this.genderApiUrl+"/"+genderId, {headers: this.headers})
             .toPromise()
             .catch(this.handleError);
     }

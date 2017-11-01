@@ -1,13 +1,14 @@
-import { Amendment } from '../entities/amendment';
-import { Consultant } from '../entities/consultant';
-import { Firm } from '../entities/firm';
-import { ProjectContact } from '../entities/project-contact';
-import { ProjectDocument } from '../entities/project-document';
-import { ProjectField } from '../entities/project-field';
-import { ProjectFile } from '../entities/project-file';
-import { ProjectOrigin } from '../entities/project-origin';
-import { Task } from '../entities/task';
-import { User } from '../entities/user';
+
+import {Amendment} from 'amendment';
+import { Consultant } from 'consultant';
+import { Contact } from 'contact';
+import { Firm } from 'firm';
+import { ProjectDocument } from 'projectdocument';
+import { ProjectField } from 'projectfield';
+import { ProjectFile } from 'projectfile';
+import { ProjectOrigin } from 'projectorigin';
+import { Task } from 'task';
+import { User } from 'user';
 
 export class Project {
   constructor(
@@ -33,16 +34,16 @@ export class Project {
     public archivedSince?:string,
     public firm?:Firm,
     public auditor?:User,
-    public managers?:User[],
-    public contacts?:ProjectContact[],
-    public consultants?:Consultant[],
-    public field?:ProjectField[],
-    public origin?:ProjectOrigin[],
+    public managers?:Array<User>,
+    public contacts?:Array<Contact>,
+    public consultants?:Array<Consultant>,
+    public field?:Array<ProjectField>,
+    public origin?:Array<ProjectOrigin>,
     public status?:string,
-    public tasks?:Task[],
-    public amendments?:Amendment[],
-    public documents?:ProjectDocument[],
-    public files?:ProjectFile[],
+    public tasks?:Array<Task>,
+    public amendments?:Array<Amendment>,
+    public documents?:Array<ProjectDocument>,
+    public files?:Array<ProjectFile>,
     public userHasRights?:boolean
   ) {}
 }

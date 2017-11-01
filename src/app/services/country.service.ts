@@ -34,7 +34,7 @@ export class CountryService {
 
     remove(countryId:string):Promise<>{
         return this.http
-            .delete(this.countryApiUrl+countryId, {headers: this.headers})
+            .delete(this.countryApiUrl+"/"+countryId, {headers: this.headers})
             .toPromise()
             .catch(this.handleError);
     }
