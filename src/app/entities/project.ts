@@ -3,10 +3,10 @@ import {Amendment} from 'amendment';
 import { Consultant } from 'consultant';
 import { Contact } from 'contact';
 import { Firm } from 'firm';
-import { ProjectDocument } from 'projectdocument';
-import { ProjectField } from 'projectfield';
-import { ProjectFile } from 'projectfile';
-import { ProjectOrigin } from 'projectorigin';
+import { ProjectDocument } from 'project-document';
+import { ProjectField } from 'project-field';
+import { ProjectFile } from 'project-file';
+import { ProjectOrigin } from 'project-origin';
 import { Task } from 'task';
 import { User } from 'user';
 

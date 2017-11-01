@@ -85,7 +85,7 @@ export class AmendmentService {
             .catch(this.handleError);
     }
 
-    getAllByType(amendmentType: AmendmentType[]): Promise<Array<Amendment>>{
+    getAllByType(amendmentType: AmendmentType): Promise<Array<Amendment>>{
         return this.http
             .get(this.amendmentApiUrl + "s/type/" + amendmentType.id, {headers: this.headers})
             .toPromise()
