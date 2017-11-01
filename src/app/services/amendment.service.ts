@@ -14,7 +14,7 @@ import {AuthenticationService} from "./auth.service";
 export class AmendmentService {
     constructor(private http: Http, private authService: AuthenticationService){}
     
-    private amendmentApiUrl = API_SERVER.url + 'ua/amendment';
+    private amendmentApiUrl = API_SERVER.ua + 'amendment';
     private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {

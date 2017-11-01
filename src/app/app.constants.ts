@@ -1,7 +1,8 @@
 export const API_SERVER: any = {
     url: 'http://localhost:8000/api/',
     oauth: this.url + '/oauth/v2/',
-    kernel: this.url+"kernel/"
+    kernel: this.url+"kernel/",
+    ua: this.url+"ua/"
 };
 export const LOGIN_CONFIG: any = {
     clientId: "1_4fl0ub6q01wk8s080woccgo0ccwwg4s8sk8gc40sgcc0wk4g0s",
