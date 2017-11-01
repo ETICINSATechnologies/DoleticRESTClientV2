@@ -1,7 +1,10 @@
 export const API_SERVER: any = {
-    url: 'http://localhost:8000/api/',
-    oauth: this.url + '/oauth/v2/',
+    url: "http://localhost:8000/api/",
+    oauth: this.url + "/oauth/v2/",
+    grc: this.url+"grc/",
     kernel: this.url+"kernel/",
+    rh: this.url+ "rh/",
+    support: this.url+"support/",
     ua: this.url+"ua/"
 };
 export const LOGIN_CONFIG: any = {
