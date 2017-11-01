@@ -32,7 +32,7 @@ export class DivisionService {
 
     remove(divisionId:string):Promise<>{
         return this.http
-            .delete(this.divisionApiUrl+divisionId, {headers: this.headers})
+            .delete(this.divisionApiUrl+"/"+divisionId, {headers: this.headers})
             .toPromise()
             .catch(this.handleError);
     }
