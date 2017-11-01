@@ -1,15 +1,15 @@
 import { Amendement } from '../entities/amendement';
 import { Consultant } from '../entities/consultant';
-import { Contact } from '../entities/contact';
 import { Firm } from '../entities/firm';
-import { ProjectDocument } from '../entities/projectdocument';
-import { ProjectField } from '../entities/projectfield';
-import { ProjectFile } from '../entities/projectfile';
-import { ProjectOrigin } from '../entities/projectorigin';
+import { ProjectContact } from '../entities/project-contact';
+import { ProjectDocument } from '../entities/project-document';
+import { ProjectField } from '../entities/project-field';
+import { ProjectFile } from '../entities/project-file';
+import { ProjectOrigin } from '../entities/project-origin';
 import { Task } from '../entities/task';
 import { User } from '../entities/user';
 
-export class Project{
+export class Project {
   constructor(
     public id?:number,
     public number?:number,
@@ -34,7 +34,7 @@ export class Project{
     public firm?:Firm,
     public auditor?:User,
     public managers?:User[],
-    public contacts?:Contact[],
+    public contacts?:ProjectContact[],
     public consultants?:Consultant[],
     public field?:ProjectField[],
     public origin?:ProjectOrigin[],
