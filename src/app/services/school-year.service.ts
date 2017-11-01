@@ -25,7 +25,7 @@ export class SchoolYearService {
             .post(this.schoolYearApiUrl, JSON.stringify(schoolYear), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().schoolYear as SchoolYear;
+                return res.json().year as SchoolYear;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class SchoolYearService {
             .get(this.schoolYearApiUrl + "/" + schoolYearId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().schoolYear as SchoolYear;
+                return res.json().year as SchoolYear;
             })
             .catch(this.handleError);
     }
@@ -54,7 +54,7 @@ export class SchoolYearService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().schoolYear as SchoolYear;
+                return res.json().year as SchoolYear;
             })
             .catch(this.handleError);
     }
@@ -64,7 +64,7 @@ export class SchoolYearService {
             .get(this.schoolYearApiUrl + "/" + schoolYearYear, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().schoolYear as SchoolYear;
+                return res.json().year as SchoolYear;
             })
             .catch(this.handleError);
     }
@@ -74,7 +74,7 @@ export class SchoolYearService {
             .get(this.schoolYearApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().schoolYears as Array<SchoolYear>;
+                return res.json().years as Array<SchoolYear>;
             })
             .catch(this.handleError);
     }
