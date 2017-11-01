@@ -1,3 +1,4 @@
+
 import {Amendment} from 'amendment';
 import { Consultant } from 'consultant';
 import { Contact } from 'contact';
@@ -9,7 +10,7 @@ import { ProjectOrigin } from 'projectorigin';
 import { Task } from 'task';
 import { User } from 'user';
 
-export class Project{
+export class Project {
   constructor(
     public id?:number,
     public number?:number,
