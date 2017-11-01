@@ -4,12 +4,12 @@ import { User } from './user';
 
 export class ContactAction {
   constructor(
-    private id?:number,
-    private date?:string,
-    private notes?:string,
-    private replied?:boolean,
-    private type?:ContactActionType,
-    private contact?:Contact,
-    private prospector?:User,
+    public id?:number,
+    public date?:string,
+    public notes?:string,
+    public replied?:boolean,
+    public type?:ContactActionType,
+    public contact?:Contact,
+    public prospector?:User,
   ){}
 }

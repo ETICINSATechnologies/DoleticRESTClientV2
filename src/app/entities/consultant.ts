@@ -4,13 +4,13 @@ import { User } from './user';
 
 export class Consultant {
   constructor(
-    private id?:number,
-    private project?:Project,
-    private user?:User,
-    private number?:number,
-    private jehAssigned?:number,
-    private payByJeh?:number,
-    private documents?:ConsultantDocument[],
-    private consultantFullName?:string
+    public id?:number,
+    public project?:Project,
+    public user?:User,
+    public number?:number,
+    public jehAssigned?:number,
+    public payByJeh?:number,
+    public documents?:ConsultantDocument[],
+    public consultantFullName?:string
   ){}
 }
