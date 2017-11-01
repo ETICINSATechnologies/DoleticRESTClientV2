@@ -1,4 +1,4 @@
-import { Amendement } from '../entities/amendement';
+import { Amendment } from '../entities/amendment';
 import { Consultant } from '../entities/consultant';
 import { Firm } from '../entities/firm';
 import { ProjectContact } from '../entities/project-contact';
@@ -40,7 +40,7 @@ export class Project {
     public origin?:ProjectOrigin[],
     public status?:string,
     public tasks?:Task[],
-    public amendments?:Amendement[],
+    public amendments?:Amendment[],
     public documents?:ProjectDocument[],
     public files?:ProjectFile[],
     public userHasRights?:boolean
