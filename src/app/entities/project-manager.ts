@@ -7,5 +7,5 @@ export class ProjectManager {
     public project?:Project,
     public manager?:User,
     public managerFullName?:string
-  )
+  ){}
 }

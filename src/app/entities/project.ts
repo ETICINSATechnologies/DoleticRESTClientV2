@@ -1,14 +1,14 @@
 
-import {Amendment} from 'amendment';
-import { Consultant } from 'consultant';
-import { Contact } from 'contact';
-import { Firm } from 'firm';
-import { ProjectDocument } from 'project-document';
-import { ProjectField } from 'project-field';
-import { ProjectFile } from 'project-file';
-import { ProjectOrigin } from 'project-origin';
-import { Task } from 'task';
-import { User } from 'user';
+import {Amendment} from './amendment';
+import { Consultant } from './consultant';
+import { Contact } from './contact';
+import { Firm } from './firm';
+import { ProjectDocument } from './project-document';
+import { ProjectField } from './project-field';
+import { ProjectFile } from './project-file';
+import { ProjectOrigin } from './project-origin';
+import { Task } from './task';
+import { User } from './user';
 
 export class Project {
   constructor(
