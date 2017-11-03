@@ -24,7 +24,7 @@ export class TicketService {
 
     create(ticket: NewTicket): Promise<Ticket> {
         return this.http
-            .post(this.ticketApiUrl, JSON.stringify(ticket), {headers: this.headers})
+            .post(this.ticketApiUrl, ticket, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().ticket as Ticket;
@@ -51,16 +51,7 @@ export class TicketService {
 
     update(ticket: Ticket): Promise<Ticket>{
         return this.http
-            .post(this.ticketApiUrl + "/" + ticket.id, {
-                title: ticket.title,
-                content: ticket.content,
-                type: ticket.type,
-                status: ticket.status,
-                author: ticket.author,
-                archived: ticket.archived,
-                archivedSince: ticket.archivedSince,
-                creationDate: ticket.creationDate
-            }, {headers: this.headers})
+            .post(this.ticketApiUrl + "/" + ticket.id, ticket, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().ticket as Ticket;
