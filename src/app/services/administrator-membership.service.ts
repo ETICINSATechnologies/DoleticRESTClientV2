@@ -50,7 +50,7 @@ export class AdministratorMembershipService {
 
     update(administratorMembership : AdministratorMembership): Promise<AdministratorMembership>{
         return this.http
-            .post(this.administratorMembershipApiUrl + "/" + administratorMembership.id, {headers: this.headers})
+            .post(this.administratorMembershipApiUrl + "/" + administratorMembership.id, administratorMembership,{headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().administratorMembership as AdministratorMembership;
