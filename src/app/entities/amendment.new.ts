@@ -1,5 +1,5 @@
-import { Project } from 'project';
-import { AmendmentType } from 'amendment-type';
+import { Project } from './project';
+import { AmendmentType } from './amendment-type';
 
 export class NewAmendment{
     constructor(
