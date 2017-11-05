@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http} from '@angular/http';
+import { Response } from '@angular/http';
 
 import { Division } from '../entities/division';
 import { NewDivision } from '../entities/division.new';
@@ -30,7 +31,7 @@ export class DivisionService {
             .catch(this.handleError);
     }
 
-    remove(divisionId:string):Promise<>{
+    remove(divisionId:string):Promise<Response>{
         return this.http
             .delete(this.divisionApiUrl+"/"+divisionId, {headers: this.headers})
             .toPromise()

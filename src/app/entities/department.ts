@@ -4,5 +4,5 @@ export class Department {
     public label?:string,
     public detail?:string,
     public enabled?:boolean
-  )
+  ){}
 }
