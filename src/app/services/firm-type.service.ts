@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 import { FirmType } from '../entities/firm-type';
 import { NewFirmType } from '../entities/firm-type.new';
@@ -30,7 +30,7 @@ export class FirmTypeService {
             .catch(this.handleError);
     }
 
-    remove(firmTypeId:string):Promise<void>{
+    remove(firmTypeId:string):Promise<Response>{
         return this.http
             .delete(this.firmTypeApiUrl + "/" + firmTypeId, {headers: this.headers})
             .toPromise()
