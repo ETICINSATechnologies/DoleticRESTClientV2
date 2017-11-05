@@ -22,7 +22,7 @@ export class FirmTypeService {
 
     create(firmType: NewFirmType): Promise<FirmType> {
         return this.http
-            .post(this.firmTypeApiUrl, JSON.stringify(firmType), {headers: this.headers})
+            .post(this.firmTypeApiUrl, firmType, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().firm_type as FirmType;
@@ -49,10 +49,7 @@ export class FirmTypeService {
 
     update(firmType: FirmType): Promise<FirmType>{
         return this.http
-            .post(this.firmTypeApiUrl + "/" + firmType.id, {
-                label: firmType.label,
-                detail: firmType.detail
-            }, {headers: this.headers})
+            .post(this.firmTypeApiUrl + "/" + firmType.id, firmType, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().firm_type as FirmType;

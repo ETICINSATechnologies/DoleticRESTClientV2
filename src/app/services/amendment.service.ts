@@ -24,7 +24,7 @@ export class AmendmentService {
 
     create(amendment: NewAmendment): Promise<Amendment> {
         return this.http
-            .post(this.amendmentApiUrl, JSON.stringify(amendment), {headers: this.headers})
+            .post(this.amendmentApiUrl, amendment, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().amendment as Amendment;
@@ -51,13 +51,7 @@ export class AmendmentService {
 
     update(amendment: Amendment): Promise<Amendment>{
         return this.http
-            .post(this.amendmentApiUrl + "/" + amendment.id, {
-                project: amendment.project,
-                types: amendment.types,
-                content: amendment.content,
-                attributable: amendment.attributable,
-                date: amendment.date
-            }, {headers: this.headers})
+            .post(this.amendmentApiUrl + "/" + amendment.id, amendment, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().amendment as Amendment;

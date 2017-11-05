@@ -22,7 +22,7 @@ export class SchoolYearService {
 
     create(schoolYear: NewSchoolYear): Promise<SchoolYear> {
         return this.http
-            .post(this.schoolYearApiUrl, JSON.stringify(schoolYear), {headers: this.headers})
+            .post(this.schoolYearApiUrl, schoolYear, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().year as SchoolYear;
@@ -49,9 +49,7 @@ export class SchoolYearService {
 
     update(schoolYear: SchoolYear): Promise<SchoolYear>{
         return this.http
-            .post(this.schoolYearApiUrl + "/" + schoolYear.id, {
-                year: schoolYear.year
-            }, {headers: this.headers})
+            .post(this.schoolYearApiUrl + "/" + schoolYear.id, schoolYear, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().year as SchoolYear;

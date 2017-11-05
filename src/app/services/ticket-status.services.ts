@@ -22,7 +22,7 @@ export class TicketStatusService {
 
     create(ticketStatus: NewTicketStatus): Promise<TicketStatus> {
         return this.http
-            .post(this.ticketStatusApiUrl, JSON.stringify(ticketStatus), {headers: this.headers})
+            .post(this.ticketStatusApiUrl, ticketStatus, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().ticket_status as TicketStatus;
@@ -49,10 +49,7 @@ export class TicketStatusService {
 
     update(ticketStatus: TicketStatus): Promise<TicketStatus>{
         return this.http
-            .post(this.ticketStatusApiUrl + "/" + ticketStatus.id, {
-                label: ticketStatus.label,
-                detail: ticketStatus.detail
-            }, {headers: this.headers})
+            .post(this.ticketStatusApiUrl + "/" + ticketStatus.id, ticketStatus, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().ticket_status as TicketStatus;

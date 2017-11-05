@@ -22,7 +22,7 @@ export class TicketTypeService {
 
     create(ticketType: NewTicketType): Promise<TicketType> {
         return this.http
-            .post(this.ticketTypeApiUrl, JSON.stringify(ticketType), {headers: this.headers})
+            .post(this.ticketTypeApiUrl, ticketType, {headers: this.headers})
             .toPromise()
             .then(res =>{
                 return res.json().ticket_type as TicketType;
@@ -49,11 +49,7 @@ export class TicketTypeService {
 
     update(ticketType: TicketType): Promise<TicketType>{
         return this.http
-            .post(this.ticketTypeApiUrl + "/" + ticketType.id, {
-                label: ticketType.label,
-                detail: ticketType.detail,
-                enabled: ticketType.enabled
-            }, {headers: this.headers})
+            .post(this.ticketTypeApiUrl + "/" + ticketType.id, ticketType, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json().ticket_type as TicketType;
