@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 import { TicketStatus } from '../entities/ticket-status';
 import { TicketType } from '../entities/ticket-type';
@@ -32,7 +32,7 @@ export class TicketService {
             .catch(this.handleError);
     }
 
-    remove(ticketId:string):Promise<void>{
+    remove(ticketId:string):Promise<Response>{
         return this.http
             .delete(this.ticketApiUrl + "/" + ticketId, {headers: this.headers})
             .toPromise()
