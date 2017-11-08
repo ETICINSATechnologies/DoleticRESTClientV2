@@ -12,14 +12,14 @@ import {AuthenticationService} from "./auth.service";
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class GRCService {
+export class RHService {
     constructor(private http: Http, private authService: AuthenticationService){}
 
-    private grcApiUrl = API_SERVER.grc + '/rights';
+    private rhApiUrl = API_SERVER.grc + '/rights';
     private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred in GRCService: ', error); // for demo purposes only
+        console.error('An error occurred in RHService: ', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
 
@@ -28,7 +28,7 @@ export class GRCService {
      */
     getCurrentUserRights(): Promise<Right>{
         return this.http
-            .get(this.grcApiUrl, {headers: this.headers})
+            .get(this.rhApiUrl, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json() as Right;

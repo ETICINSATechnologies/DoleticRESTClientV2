@@ -1,4 +1,4 @@
-export class GRCRights {
+export class Right {
     constructor(
       public right: number
     ){}
