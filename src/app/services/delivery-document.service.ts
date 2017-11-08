@@ -15,7 +15,7 @@ import {AuthenticationService} from "./auth.service";
 export class DeliveryDocumentService {
     constructor(private http: Http, private authService: AuthenticationService){}
 
-    private deliveryDocumentApiUrl = API_SERVER.rh + 'delivery_document';
+    private deliveryDocumentApiUrl = API_SERVER.ua + 'delivery_document';
     private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {
@@ -64,16 +64,6 @@ export class DeliveryDocumentService {
         return this.http
             .get(this.deliveryDocumentApiUrl + "/" + deliveryDocumentId+ "/download", {headers: this.headers})
             .toPromise()
-            .catch(this.handleError);
-    }
-
-    enable(deliveryDocumentId: string): Promise<DeliveryDocument>{
-        return this.http
-            .post(this.deliveryDocumentApiUrl + "/" + deliveryDocumentId + "/enable", {}, {headers: this.headers})
-            .toPromise()
-            .then(res=>{
-                return res.json().deliveryDocument as DeliveryDocument;
-            })
             .catch(this.handleError);
     }
 

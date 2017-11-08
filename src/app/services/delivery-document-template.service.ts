@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class DeliveryDocumentTemplateService {
     constructor(private http: Http, private authService: AuthenticationService){}
 
-    private deliveryDocumentTemplateApiUrl = API_SERVER.kernel + 'delivery_document_template';
+    private deliveryDocumentTemplateApiUrl = API_SERVER.ua + 'delivery_document_template';
     private countriesApiUrl = this.deliveryDocumentTemplateApiUrl + 's';
     private headers = this.authService.getHeaders();
 
