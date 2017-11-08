@@ -12,14 +12,14 @@ import {AuthenticationService} from "./auth.service";
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class RHService {
+export class KernelService {
     constructor(private http: Http, private authService: AuthenticationService){}
 
-    private rhApiUrl = API_SERVER.rh + '/rights';
+    private kernelApiUrl = API_SERVER.kernel + '/rights';
     private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred in RHService: ', error); // for demo purposes only
+        console.error('An error occurred in KernelService: ', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
 
@@ -28,7 +28,7 @@ export class RHService {
      */
     getCurrentUserRights(): Promise<Right>{
         return this.http
-            .get(this.rhApiUrl, {headers: this.headers})
+            .get(this.kernelApiUrl, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json() as Right;
