@@ -61,7 +61,7 @@ export class RecruitmentEventService {
     update(recruitment_event: RecruitmentEvent): Promise<RecruitmentEvent>{
         return this.http
             .post(this.recruitment_eventApiUrl + "/" + recruitment_event.id, {
-       //         year: recruitment_event.year
+                year: recruitment_event.date
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
