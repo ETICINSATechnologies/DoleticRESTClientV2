@@ -30,7 +30,7 @@ export class PositionService {
             .catch(this.handleError);
     }
 
-    remove(positionId:string):Promise<>{
+    remove(positionId:string):Promise<Response>{
         return this.http
             .delete(this.positionApiUrl+"/"+positionId, {headers: this.headers})
             .toPromise()

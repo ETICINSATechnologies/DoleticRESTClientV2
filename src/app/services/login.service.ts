@@ -28,7 +28,7 @@ export class LoginService {
         return Promise.reject(error.message || error);
     }
 
-    login(identifiants: LoginID):Promise<>{
+    login(identifiants: LoginID):Promise<Response>{
         return this.http
             .get(this.OAuthTokenURL + this.URLParameters +
                 "&" + "username=" + identifiants.username +

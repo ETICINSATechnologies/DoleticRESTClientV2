@@ -34,7 +34,7 @@ export class AmendmentTypeService {
             .catch(this.handleError);
     }
 
-    remove(amendmentTypeId:string):Promise<>{
+    remove(amendmentTypeId:string):Promise<Response>{
         return this.http
             .delete(this.amendmentTypeApiUrl+"/"+amendmentTypeId, {headers: this.headers})
             .toPromise()
