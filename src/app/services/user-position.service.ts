@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http} from '@angular/http';
 import { Response } from '@angular/http';
 
-import { UserPosition } from '../entities/user_position';
-import { NewUserPosition } from '../entities/user_position.new';
+import { UserPosition } from '../entities/user-position';
+import { NewUserPosition } from '../entities/user-position.new';
 import { API_SERVER } from '../app.constants';
 
 import 'rxjs/add/operator/toPromise';
