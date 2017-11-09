@@ -31,7 +31,7 @@ export class GenderService {
             .catch(this.handleError);
     }
 
-    remove(genderId:string):Promise<>{
+    remove(genderId:string):Promise<Response>{
         return this.http
             .delete(this.genderApiUrl+"/"+genderId, {headers: this.headers})
             .toPromise()

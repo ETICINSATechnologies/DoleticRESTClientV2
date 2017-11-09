@@ -32,7 +32,7 @@ export class AmendmentService {
             .catch(this.handleError);
     }
 
-    remove(amendmentId:string):Promise<void>{
+    remove(amendmentId:string):Promise<Response>{
         return this.http
             .delete(this.amendmentApiUrl + "/" + amendmentId, {headers: this.headers})
             .toPromise()

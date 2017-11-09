@@ -30,7 +30,7 @@ export class TicketStatusService {
             .catch(this.handleError);
     }
 
-    remove(ticketStatusId:string):Promise<void>{
+    remove(ticketStatusId:string):Promise<Response>{
         return this.http
             .delete(this.ticketStatusApiUrl + "/" + ticketStatusId, {headers: this.headers})
             .toPromise()

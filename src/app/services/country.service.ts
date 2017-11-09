@@ -32,7 +32,7 @@ export class CountryService {
             .catch(this.handleError);
     }
 
-    remove(countryId:string):Promise<>{
+    remove(countryId:string):Promise<Response>{
         return this.http
             .delete(this.countryApiUrl+"/"+countryId, {headers: this.headers})
             .toPromise()

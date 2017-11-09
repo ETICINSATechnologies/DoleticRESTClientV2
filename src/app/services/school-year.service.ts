@@ -30,7 +30,7 @@ export class SchoolYearService {
             .catch(this.handleError);
     }
 
-    remove(schoolYearId:string):Promise<void>{
+    remove(schoolYearId:string):Promise<Response>{
         return this.http
             .delete(this.schoolYearApiUrl + "/" + schoolYearId, {headers: this.headers})
             .toPromise()
