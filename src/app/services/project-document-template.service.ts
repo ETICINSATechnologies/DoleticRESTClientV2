@@ -3,7 +3,7 @@ import { Http} from '@angular/http';
 import { Response } from '@angular/http';
 
 import { ProjectDocumentTemplate } from '../entities/project-document-template';
-import { NewProjectDocumentTemplate } from '../entities/project-document-template.new';
+//import { NewProjectDocumentTemplate } from '../entities/project-document-template.new';
 import { API_SERVER } from '../app.constants';
 
 import 'rxjs/add/operator/toPromise';
@@ -21,7 +21,7 @@ export class ProjectDocumentTemplateService {
         return Promise.reject(error.message || error);
     }
 
-    create(project_document_template: NewProjectDocumentTemplate):Promise<ProjectDocumentTemplate> {
+    /*create(project_document_template: NewProjectDocumentTemplate):Promise<ProjectDocumentTemplate> {
         return this.http
             .post(this.project_document_templateApiUrl, JSON.stringify(project_document_template), {headers: this.headers})
             .toPromise()
@@ -29,7 +29,7 @@ export class ProjectDocumentTemplateService {
                 return res.json().project_document_template as ProjectDocumentTemplate;
             })
             .catch(this.handleError);
-    }
+    }*/
 
     remove(project_document_templateId:string):Promise<Response>{
         return this.http

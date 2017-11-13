@@ -43,3 +43,5 @@ Thumbs.db
 
 # Global constants
 /src/app/app.constants.ts
+
+/semantic
