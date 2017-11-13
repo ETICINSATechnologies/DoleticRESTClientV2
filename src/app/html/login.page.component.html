@@ -1,0 +1,34 @@
+<div class="ui middle aligned center aligned grid" style="min-height: 100%;">
+    <div class="fourteen wide mobile ten wide tablet four wide large screen four wide computer column">
+        <h2 class="ui green image header">
+            <img src="assets/logo-etic1.png" class="image">
+            <div class="content">
+                Bienvenue sur Doletic
+            </div>
+        </h2>
+        <form class="ui large form">
+            <div class="ui segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" placeholder="E-mail address" [(ngModel)]="identifiants.username">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="Password" [(ngModel)]="identifiants.password">
+                    </div>
+                </div>
+                <div class="ui fluid large green submit button">Se connecter</div>
+            </div>
+        </form>
+
+        <div class="ui message">
+            {{identifiants.json()}}
+        </div>
+        <div class="ui message">
+            Mot de passe oublié ? <a href="#">Clique ici</a>
+        </div>
+    </div>
+</div>
