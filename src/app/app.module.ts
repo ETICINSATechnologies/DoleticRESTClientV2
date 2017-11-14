@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpModule} from "@angular/http";
 import {FormsModule} from '@angular/forms';
 import {SuiModule} from 'ng2-semantic-ui';
+import {AppRoutingModule} from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './pages/login.page.component';
@@ -24,7 +25,8 @@ import {DepartmentService} from "./services/department.service";
         BrowserModule,
         HttpModule,
         FormsModule,
-        SuiModule
+        SuiModule,
+        AppRoutingModule
     ],
     providers: [
         AuthenticationService,
