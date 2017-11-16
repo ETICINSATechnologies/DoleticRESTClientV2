@@ -7,6 +7,7 @@ import {AppRoutingModule} from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './pages/login.page.component';
+import {DashboardComponent} from "./components/Dashboard/dashboard.component";
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -19,7 +20,8 @@ import {DepartmentService} from "./services/department.service";
 @NgModule({
     declarations: [
         AppComponent,
-        LoginPageComponent
+        LoginPageComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,

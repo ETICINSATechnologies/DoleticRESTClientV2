@@ -3,7 +3,7 @@ import {UserService} from "../../services/user.service";
 
 @Component({
     selector: 'doletic-dashboard',
-    templateUrl: '../html/dashboard.component.html',
+    templateUrl: '../../html/dashboard.component.html',
     providers: [UserService]
 })
 
