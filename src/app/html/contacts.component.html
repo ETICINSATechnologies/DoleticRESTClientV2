@@ -1,0 +1,42 @@
+<div class="ui segment">
+    <div class="ui horizontal divider">
+        Mes clients
+    </div>
+    <p>Limiter à 
+    <sui-select class="selection" [options]="limits" #select [(ngModel)]="selectedLimit" placeholder="Limiter à">
+        <sui-select-option *ngFor="let option of select.filteredOptions" [value]="option"></sui-select-option>
+    </sui-select> éléments
+    </p>
+
+
+<table class="ui celled table">
+    
+    <thead>
+        <tr>
+            <th>
+                <div class="ui icon labeled input">
+                    <div class="ui label">Nom</div>
+                    <input [(ngModel)]="searchLastName" (keyup)="search()"  type="text">
+                    <i class="filter icon"></i>
+                </div>
+            </th>
+            <th>
+                <div class="ui icon labeled input">
+                    <div class="ui label">Prénom</div>              
+                    <input [(ngModel)]="searchFirstName" (keyup)="search()"  type="text"> 
+                    <i class="filter icon"></i>
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>   
+        <tr *ngFor="let contact of search_results | slice:0:selectedLimit">
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.firstName}}</td>
+        </tr>
+    </tbody>
+
+</table>
+
+</div>
