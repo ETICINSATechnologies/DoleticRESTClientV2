@@ -17,8 +17,9 @@ export class ContactsComponent implements OnInit {
 	search_results: Contact[];
 
 	
-	searchFirstName: string = null;
-  searchLastName: string = null;
+	searchName: string = null;
+  searchStatus: string = null;
+  statusOptions: string[] = ['Status1', 'Status2', 'Status3'];
 
   constructor(/*private contactService: ContactService*/) { }
 
@@ -34,12 +35,14 @@ export class ContactsComponent implements OnInit {
 
   search(): void {
   	let search_buffer: Contact[] = this.contacts;
-  	if(this.searchFirstName != null) {
-  		search_buffer = search_buffer.filter(contact => contact.firstName.search(new RegExp(this.searchFirstName, 'i')) != -1);
+  	if(this.searchName != null) {
+      let regex : RegExp = new RegExp(this.searchName.trim().replace(/\s+/g,'|'), 'i');
+  		search_buffer = search_buffer.filter(contact => contact.firstName.search(regex) != -1 || contact.lastName.search(regex) != -1);
   	}
-  	if(this.searchLastName != null) {
-  		search_buffer = search_buffer.filter(contact => contact.lastName.search(new RegExp(this.searchLastName, 'i')) != -1);
-  	}
+  	/*if(this.searchStatus != null) {
+      let regex : RegExp = new RegExp(this.searchStatus.trim().replace(/,+/g,'|'), 'i');
+  		search_buffer = search_buffer.filter(contact => contact.role.search(regex) != -1);
+  	}*/
 	this.search_results = search_buffer;	
   }
 

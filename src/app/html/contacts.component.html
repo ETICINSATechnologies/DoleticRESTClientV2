@@ -4,11 +4,11 @@
         <sui-select     class="selection" 
                         placeholder="Limiter à"
                         [options]="limits" 
-                        #select 
+                        #selectLimit 
                         [(ngModel)]="limit" 
                         (ngModelChange)="page=1" 
         >
-        <sui-select-option  *ngFor="let option of select.filteredOptions" 
+        <sui-select-option  *ngFor="let option of selectLimit.filteredOptions" 
                             [value]="option">
         </sui-select-option>
         </sui-select> éléments
@@ -20,15 +20,26 @@
                 <th>
                     <div class="ui icon labeled input">
                         <div class="ui label">Nom</div>
-                        <input [(ngModel)]="searchLastName" (keyup)="search()"  type="text">
+                        <input [(ngModel)]="searchName" (keyup)="search()"  type="text">
                         <i class="filter icon"></i>
                     </div>
                 </th>
                 <th>
                     <div class="ui icon labeled input">
-                        <div class="ui label">Prénom</div>              
-                        <input [(ngModel)]="searchFirstName" (keyup)="search()"  type="text"> 
-                        <i class="filter icon"></i>
+                        <div class="ui label">Statut</div>
+                        <sui-multi-select 
+                            class="selection"
+                            placeholder=" "
+                            icon=""
+                            [options]="statusOptions"
+                            #selectStatus
+                            [(ngModel)]="searchStatus"
+                            [maxSelected]="statusOptions.length"
+                            (keyup)="search()"
+                        >
+                        <sui-select-option *ngFor="let status of selectStatus.filteredOptions" [value]="status"></sui-select-option>
+                        </sui-multi-select>
+                        <i class="filter icon"></i>  
                     </div>
                 </th>
             </tr>
@@ -36,8 +47,8 @@
 
         <tbody>   
             <tr *ngFor="let contact of search_results | slice:(page-1)*limit:page*limit">
-                <td>{{contact.lastName}}</td>
-                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}} {{contact.firstName}}</td>
+                <td>{{searchStatus}}</td>
             </tr>
         </tbody>
     </table>
