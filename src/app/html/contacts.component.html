@@ -1,42 +1,51 @@
-<div class="ui segment">
-    <div class="ui horizontal divider">
-        Mes clients
-    </div>
-    <p>Limiter à 
-    <sui-select class="selection" [options]="limits" #select [(ngModel)]="selectedLimit" placeholder="Limiter à">
-        <sui-select-option *ngFor="let option of select.filteredOptions" [value]="option"></sui-select-option>
-    </sui-select> éléments
+<div class="ui segments" style="padding: 3% 0%">
+    <div class="ui horizontal divider"> Mes clients </div>
+    <p>     Limiter à 
+        <sui-select     class="selection" 
+                        placeholder="Limiter à"
+                        [options]="limits" 
+                        #select 
+                        [(ngModel)]="limit" 
+                        (ngModelChange)="page=1" 
+        >
+        <sui-select-option  *ngFor="let option of select.filteredOptions" 
+                            [value]="option">
+        </sui-select-option>
+        </sui-select> éléments
     </p>
-
-
-<table class="ui celled table">
     
-    <thead>
-        <tr>
-            <th>
-                <div class="ui icon labeled input">
-                    <div class="ui label">Nom</div>
-                    <input [(ngModel)]="searchLastName" (keyup)="search()"  type="text">
-                    <i class="filter icon"></i>
-                </div>
-            </th>
-            <th>
-                <div class="ui icon labeled input">
-                    <div class="ui label">Prénom</div>              
-                    <input [(ngModel)]="searchFirstName" (keyup)="search()"  type="text"> 
-                    <i class="filter icon"></i>
-                </div>
-            </th>
-        </tr>
-    </thead>
+    <table class="ui celled table" style="margin: 3% auto; width: 90%;">
+        <thead>
+            <tr>
+                <th>
+                    <div class="ui icon labeled input">
+                        <div class="ui label">Nom</div>
+                        <input [(ngModel)]="searchLastName" (keyup)="search()"  type="text">
+                        <i class="filter icon"></i>
+                    </div>
+                </th>
+                <th>
+                    <div class="ui icon labeled input">
+                        <div class="ui label">Prénom</div>              
+                        <input [(ngModel)]="searchFirstName" (keyup)="search()"  type="text"> 
+                        <i class="filter icon"></i>
+                    </div>
+                </th>
+            </tr>
+        </thead>
 
-    <tbody>   
-        <tr *ngFor="let contact of search_results | slice:0:selectedLimit">
-            <td>{{contact.lastName}}</td>
-            <td>{{contact.firstName}}</td>
-        </tr>
-    </tbody>
-
-</table>
-
+        <tbody>   
+            <tr *ngFor="let contact of search_results | slice:(page-1)*limit:page*limit">
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.firstName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    Affichage des éléments {{min(1+(page-1)*limit, search_results.length)}} à {{min(page*limit, search_results.length)}} parmi {{search_results.length}} élements
+    <sui-pagination [collectionSize]="ceil(search_results.length/limit)" 
+                    [(page)]="page" 
+                    [maxSize]="3" 
+                    [pageSize]="1"> 
+    </sui-pagination>
 </div>

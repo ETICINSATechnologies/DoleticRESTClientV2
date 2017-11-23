@@ -9,8 +9,9 @@ import { ContactService } from '../../services/contact.service';
   templateUrl: '../../html/contacts.component.html'
 })
 export class ContactsComponent implements OnInit {
-	limits: number[] = [1, 10, 25, 50, 100]; //TODO : supprimer 1
-	selectedLimit: number = 50;
+	limits: number[] = [5, 10, 25, 50];
+	limit: number = 5;
+  page: number = 1;
 
 	contacts: Contact[];
 	search_results: Contact[];
@@ -28,7 +29,7 @@ export class ContactsComponent implements OnInit {
   getAllByCurrentUser(): void {
   	/*this.contactService.getAllByCurrentUser()
   		.then(contacts => this.contacts = this.search_results = contacts);*/
-      this.contacts = this.search_results = [new Contact(1, 'Jane', 'Doe'), new Contact(2, 'Zacaria', 'Ane')];
+      this.contacts = this.search_results = [new Contact(1, 'Jane', 'Doe'), new Contact(2, 'Zacaria', 'Ane'), new Contact(3, 'Adrien', 'Dupalais'), new Contact(4, 'Jean', 'François'), new Contact(5, 'Janette', 'Villetier'), new Contact(6, 'John', 'Doe'), new Contact(7, 'Zaca', 'Anne'), new Contact(8, 'Adrian', 'Du'), new Contact(9, 'Jack', 'Fran'), new Contact(10, 'Jane', 'Vil')];
   }
 
   search(): void {
@@ -40,7 +41,14 @@ export class ContactsComponent implements OnInit {
   		search_buffer = search_buffer.filter(contact => contact.lastName.search(new RegExp(this.searchLastName, 'i')) != -1);
   	}
 	this.search_results = search_buffer;	
+  }
 
+  ceil(x: number): number {
+    return Math.ceil(x);
+  }
+
+  min(x: number, y: number): number {
+    return Math.min(x, y);
   }
 
 }
