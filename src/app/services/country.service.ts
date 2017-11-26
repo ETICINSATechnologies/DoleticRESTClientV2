@@ -11,22 +11,22 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CountryService {
-    constructor(private http: Http, private authService: AuthenticationService){}
 
     private countryApiUrl = API_SERVER.kernel + 'country';
     private countriesApiUrl = API_SERVER.kernel + 'countries';
     private headers = this.authService.getHeaders();
+    constructor(private http: Http, private authService: AuthenticationService){}
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred in CountryService: ', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
 
-    create(country: NewCountry):Promise<Country> {
+    create(country: NewCountry): Promise<Country> {
         return this.http
             .post(this.countryApiUrl, JSON.stringify(country), {headers: this.headers})
             .toPromise()
-            .then(res =>{
+            .then(res => {
                 return res.json().country as Country;
             })
             .catch(this.handleError);
@@ -71,11 +71,11 @@ export class CountryService {
             .catch(this.handleError);
     }
 
-    getAll(): Promise<Array<Country>>{
+    getAll(): Promise<Array<Country>> {
         return this.http
             .get(this.countriesApiUrl, {headers: this.headers})
             .toPromise()
-            .then(res=>{
+            .then(res => {
                 return res.json().countries as Array<Country>;
             })
             .catch(this.handleError);
