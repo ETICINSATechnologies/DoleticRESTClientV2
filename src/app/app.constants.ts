@@ -1,11 +1,11 @@
 export const API_SERVER: any = {
     url: "http://localhost:8000/api/",
-    oauth: this.url + "/oauth/v2/",
-    grc: this.url+"grc/",
-    kernel: this.url+"kernel/",
-    rh: this.url+ "rh/",
-    support: this.url+"support/",
-    ua: this.url+"ua/"
+    oauth: "http://localhost:8000/oauth/v2/",
+    grc: "http://localhost:8000/api/grc/",
+    kernel: "http://localhost:8000/api/kernel/",
+    rh: "http://localhost:8000/api/rh/",
+    support: "http://localhost:8000/api/support/",
+    ua: "http://localhost:8000/api/ua/"
 };
 export const LOGIN_CONFIG: any = {
     clientId: "1_4fl0ub6q01wk8s080woccgo0ccwwg4s8sk8gc40sgcc0wk4g0s",

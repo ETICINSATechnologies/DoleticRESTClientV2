@@ -20,12 +20,12 @@
                         <input type="password" name="password" placeholder="Password" [(ngModel)]="identifiants.password">
                     </div>
                 </div>
-                <div class="ui fluid large green submit button">Se connecter</div>
+                <div class="ui fluid large green submit button" (click)="login()">Se connecter</div>
             </div>
         </form>
 
         <div class="ui message">
-            {{identifiants.json()}}
+            {{identifiants | json}}
         </div>
         <div class="ui message">
             Mot de passe oublié ? <a href="#">Clique ici</a>

@@ -29,6 +29,7 @@ export class LoginService {
     }
 
     login(identifiants: LoginID):Promise<Response>{
+      console.log(API_SERVER.oauth);
         return this.http
             .get(this.OAuthTokenURL + this.URLParameters +
                 "&" + "username=" + identifiants.username +
