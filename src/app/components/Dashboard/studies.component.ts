@@ -12,7 +12,9 @@ import { Project } from '../../entities/project'
             -moz-appearance: none;
             appearance: none;
             margin: 0; 
-           }`]
+           }
+           input[type=number] {-moz-appearance: textfield;}`],
+  providers: []
 })
 export class StudiesComponent implements OnInit {
 	limits: number[] = [5, 10, 25, 50];

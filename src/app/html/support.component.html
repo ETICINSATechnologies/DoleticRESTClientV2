@@ -1,0 +1,37 @@
+<div class="ui center aligned padded grid">
+	<div class="fifteen wide column">
+		<sui-tabset *ngIf = "right_level >= 4; else other_content">
+		    <div class="ui top attached tabular menu">
+		        <a class="item" suiTabHeader="1">Administrer</a>
+		        <a class="item" suiTabHeader="2">Mes Tickets</a>
+		    </div>
+		    <div class="ui bottom attached segment" suiTabContent="1">
+		    	<div class="ui center aligned padded grid">
+		    		<div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+		        		TicketToSolve
+		        	</div>
+		    	</div>
+			</div>    
+		    <div class="ui bottom attached segment" suiTabContent="2">
+		    	<div class="ui center aligned padded grid">
+			    	<div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+			        	MyTickets
+				    </div>
+				    <div class="fifteen wide mobile fifteen wide tablet five wide large screen five wide computer column">
+				        TicketForm
+				    </div>
+				</div>
+		    </div>
+		</sui-tabset>
+	    <ng-template #other_content>
+		    <div class="ui center aligned padded grid">
+			    <div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+			        MyTickets
+				</div>
+				<div class="fifteen wide mobile fifteen wide tablet five wide large screen five wide computer column">
+				    TicketForm
+				</div>
+			</div>
+		</ng-template>    
+	</div>
+</div>

@@ -6,7 +6,8 @@ import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'doletic-contacts',
-  templateUrl: '../../html/contacts.component.html'
+  templateUrl: '../../html/contacts.component.html',
+  providers: [ContactService]
 })
 export class ContactsComponent implements OnInit {
 	limits: number[] = [5, 10, 25, 50];
