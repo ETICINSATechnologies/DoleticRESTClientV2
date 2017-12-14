@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {SupportService} from "../../services/support.service";
 
+import {MyTicketsComponent} from "./my-tickets.component"
+
 @Component({
     selector: 'doletic-support',
     templateUrl: '../../html/support.component.html',

@@ -1,0 +1,15 @@
+<div class="ui horizontal divider"> Mes tickets </div>
+
+<div class="ui padded very relaxed celled selection list">
+  	
+  	<div class="item" *ngFor = "let ticket of myTickets">
+	    <i 	class="middle aligned {{ticket.status.label}} radio big icon"
+			suiPopup popupText="{{ticket.status.detail}}">
+ 		</i>
+	    <div class="content" style="text-align: justify;">
+	      <p class="header"><a>{{ticket.title}}</a></p>
+	      <p>{{ticket.content}}</p>
+		</div>
+	</div>	
+
+</div>

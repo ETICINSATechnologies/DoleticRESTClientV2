@@ -1,0 +1,8 @@
+<div class="ui celled list">
+  <div class="item" *ngFor = "let ticket of myTickets">
+    <i class="red radio big icon link"></i>
+    <div class="content">
+      <div class="header">{{ticket.title}</div>
+      {{ticket.content}}
+	</div>
+</div>
