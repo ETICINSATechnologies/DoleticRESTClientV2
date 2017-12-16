@@ -10,6 +10,8 @@ import {LoginPageComponent} from './pages/login.page.component';
 import {DashboardComponent} from "./components/Dashboard/dashboard.component";
 import {ContactsComponent} from "./components/Dashboard/contacts.component";
 import {StudiesComponent} from "./components/Dashboard/studies.component";
+import {SupportComponent} from "./components/Support/support.component";
+import {MyTicketsComponent} from "./components/Support/my-tickets.component"
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -20,6 +22,8 @@ import {PositionService} from "./services/position.service";
 import {DepartmentService} from "./services/department.service";
 import {ContactService} from "./services/contact.service";
 //import {ProjectService} from "./services/project.service";
+import {SupportService} from "./services/support.service";
+import {TicketService} from "./services/ticket.service";
 
 @NgModule({
     declarations: [
@@ -27,7 +31,9 @@ import {ContactService} from "./services/contact.service";
         LoginPageComponent,
         DashboardComponent,
         ContactsComponent,
-        StudiesComponent
+        StudiesComponent,
+        SupportComponent,
+        MyTicketsComponent
     ],
     imports: [
         BrowserModule,
@@ -45,7 +51,9 @@ import {ContactService} from "./services/contact.service";
         PositionService,
         DepartmentService,
         ContactService,
-        //ProjectService
+        //ProjectService,
+        SupportService,
+        TicketService
     ],
     bootstrap: [AppComponent]
 })
