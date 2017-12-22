@@ -11,7 +11,8 @@ import {DashboardComponent} from "./components/Dashboard/dashboard.component";
 import {ContactsComponent} from "./components/Dashboard/contacts.component";
 import {StudiesComponent} from "./components/Dashboard/studies.component";
 import {SupportComponent} from "./components/Support/support.component";
-import {MyTicketsComponent} from "./components/Support/my-tickets.component"
+import {MyTicketsComponent} from "./components/Support/my-tickets.component";
+import {TicketsToSolveComponent} from "./components/Support/tickets-to-solve.component";
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -33,7 +34,8 @@ import {TicketService} from "./services/ticket.service";
         ContactsComponent,
         StudiesComponent,
         SupportComponent,
-        MyTicketsComponent
+        MyTicketsComponent,
+        TicketsToSolveComponent
     ],
     imports: [
         BrowserModule,

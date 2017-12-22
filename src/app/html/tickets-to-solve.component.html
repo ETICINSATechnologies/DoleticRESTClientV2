@@ -1,0 +1,58 @@
+<div class="ui horizontal divider"> 
+	<i class="red big radio icon"></i>
+	tickets ouverts : {{openedTickets.length}}
+</div>
+
+<div class="ui very relaxed divided selection list">
+  	
+  	<div class="item" *ngFor = "let ticket of openedTickets">
+  		
+  		
+      	<div class="right floated content">
+      		<button class="ui blue button" (click)="workOn(ticket)">Traiter</button>
+		</div>
+
+	    <div class="content" style="text-align: justify;">
+	      <p class="header"><a>De {{ticket.author.username}} | {{ticket.title}}</a></p>
+	      <p>{{ticket.content}}</p>
+		</div>
+
+	</div>	
+</div>
+
+
+
+<div class="ui horizontal divider"> 
+	<i class="red big spinner icon"></i>
+	tickets en cours de traitement : {{workingTickets.length}}
+</div>
+
+<div class="ui very relaxed divided selection list">
+  	
+  	<div class="item" *ngFor = "let ticket of workingTickets">
+		
+		<div class="right floated content">
+      		<button class="ui green button" (click)="resolve(ticket)">Résolu !</button>
+		</div>
+		
+	    <div class="content" style="text-align: justify;">
+	      <p class="header"><a>De {{ticket.author.username}} | {{ticket.title}}</a></p>
+	      <p>{{ticket.content}}</p>	  
+		</div>
+
+
+	</div>	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
