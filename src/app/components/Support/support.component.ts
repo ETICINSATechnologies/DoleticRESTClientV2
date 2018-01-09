@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {SupportService} from "../../services/support.service";
 
 import {MyTicketsComponent} from "./my-tickets.component"
+import {TicketsToSolveComponent} from "./tickets-to-solve.component"
 
 @Component({
     selector: 'doletic-support',
