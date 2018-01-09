@@ -26,7 +26,7 @@ export class ProjectOriginService {
             .post(this.project_originApiUrl, JSON.stringify(project_origin), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().project_origin as ProjectOrigin;
+                return res.json() as ProjectOrigin;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ProjectOriginService {
             .get(this.project_originApiUrl + "/" + project_originId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().project_origin as ProjectOrigin;
+                return res.json() as ProjectOrigin;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class ProjectOriginService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_origin as ProjectOrigin;
+                return res.json() as ProjectOrigin;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class ProjectOriginService {
             .get(this.project_originApiUrl + "/" + project_originLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_origin as ProjectOrigin;
+                return res.json() as ProjectOrigin;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class ProjectOriginService {
             .get(this.project_originApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_origins as Array<ProjectOrigin>;
+                return res.json() as Array<ProjectOrigin>;
             })
             .catch(this.handleError);
     }

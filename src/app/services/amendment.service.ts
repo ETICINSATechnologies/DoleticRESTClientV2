@@ -27,7 +27,7 @@ export class AmendmentService {
             .post(this.amendmentApiUrl, amendment, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().amendment as Amendment;
+                return res.json() as Amendment;
             })
             .catch(this.handleError);
     }
@@ -44,7 +44,7 @@ export class AmendmentService {
             .get(this.amendmentApiUrl + "/" + amendmentId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().amendment as Amendment;
+                return res.json() as Amendment;
             })
             .catch(this.handleError);
     }
@@ -54,7 +54,7 @@ export class AmendmentService {
             .post(this.amendmentApiUrl + "/" + amendment.id, amendment, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendment as Amendment;
+                return res.json() as Amendment;
             })
             .catch(this.handleError);
     }
@@ -64,7 +64,7 @@ export class AmendmentService {
             .get(this.amendmentApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendments as Array<Amendment>;
+                return res.json() as Array<Amendment>;
             })
             .catch(this.handleError);
     }
@@ -74,7 +74,7 @@ export class AmendmentService {
             .get(this.amendmentApiUrl + "s/project/" + amendmentProject.id, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendment as Array<Amendment>;
+                return res.json() as Array<Amendment>;
             })
             .catch(this.handleError);
     }
@@ -84,7 +84,7 @@ export class AmendmentService {
             .get(this.amendmentApiUrl + "s/type/" + amendmentType.id, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendment as Array<Amendment>;
+                return res.json() as Array<Amendment>;
             })
             .catch(this.handleError);
     }

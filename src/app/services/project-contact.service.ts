@@ -26,7 +26,7 @@ export class ProjectContactService {
             .post(this.project_contactApiUrl, JSON.stringify(project_contact), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().project_contact as ProjectContact;
+                return res.json() as ProjectContact;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ProjectContactService {
             .get(this.project_contactApiUrl + "/" + project_contactId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().project_contact as ProjectContact;
+                return res.json() as ProjectContact;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class ProjectContactService {
             .get(this.project_contactApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_contacts as Array<ProjectContact>;
+                return res.json() as Array<ProjectContact>;
             })
             .catch(this.handleError);
     }
@@ -63,7 +63,7 @@ export class ProjectContactService {
             .get(this.project_contactApiUrl + "s/" + project_contactId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_contacts as Array<ProjectContact>;
+                return res.json() as Array<ProjectContact>;
             })
             .catch(this.handleError);
     }

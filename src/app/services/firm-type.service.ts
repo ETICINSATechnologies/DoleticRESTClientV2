@@ -25,7 +25,7 @@ export class FirmTypeService {
             .post(this.firmTypeApiUrl, firmType, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().firm_type as FirmType;
+                return res.json() as FirmType;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class FirmTypeService {
             .get(this.firmTypeApiUrl + "/" + firmTypeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().firm_type as FirmType;
+                return res.json() as FirmType;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class FirmTypeService {
             .post(this.firmTypeApiUrl + "/" + firmType.id, firmType, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().firm_type as FirmType;
+                return res.json() as FirmType;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class FirmTypeService {
             .get(this.firmTypeApiUrl + "/" + firmTypeLabel, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().firm_type as FirmType;
+                return res.json() as FirmType;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class FirmTypeService {
             .get(this.firmTypeApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().firm_types as Array<FirmType>;
+                return res.json() as Array<FirmType>;
             })
             .catch(this.handleError);
     }

@@ -26,7 +26,7 @@ export class DepartmentService {
             .post(this.departmentApiUrl, JSON.stringify(department), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class DepartmentService {
             .get(this.departmentApiUrl + "/" + departmentId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class DepartmentService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class DepartmentService {
             .post(this.departmentApiUrl + "/" + departmentId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class DepartmentService {
             .post(this.departmentApiUrl + "/" + departmentId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -86,7 +86,7 @@ export class DepartmentService {
             .get(this.departmentApiUrl + "/" + departmentId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().department as Department;
+                return res.json() as Department;
             })
             .catch(this.handleError);
     }
@@ -96,7 +96,7 @@ export class DepartmentService {
             .get(this.departmentApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().departments as Array<Department>;
+                return res.json() as Array<Department>;
             })
             .catch(this.handleError);
     }
@@ -106,7 +106,7 @@ export class DepartmentService {
             .get(this.departmentApiUrl + "s/enabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().departments as Array<Department>;
+                return res.json() as Array<Department>;
             })
             .catch(this.handleError);
     }

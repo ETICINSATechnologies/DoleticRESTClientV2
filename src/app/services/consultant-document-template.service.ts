@@ -25,7 +25,7 @@ export class ConsultantDocumentTemplateService {
             .post(this.consultant_document_templateApiUrl, JSON.stringify(consultant_document_template), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().consultant_document_template as ConsultantDocumentTemplate;
+                return res.json() as ConsultantDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class ConsultantDocumentTemplateService {
             .get(this.consultant_document_templateApiUrl + "/" + consultant_document_templateId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant_document_template as ConsultantDocumentTemplate;
+                return res.json() as ConsultantDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class ConsultantDocumentTemplateService {
             .post(this.consultant_document_templateApiUrl + "/" + consultant_document_template.id, consultant_document_template, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_document_template as ConsultantDocumentTemplate;
+                return res.json() as ConsultantDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ConsultantDocumentTemplateService {
             .get(this.consultant_document_templateApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_document_templates as Array<ConsultantDocumentTemplate>;
+                return res.json() as Array<ConsultantDocumentTemplate>;
             })
             .catch(this.handleError);
     }

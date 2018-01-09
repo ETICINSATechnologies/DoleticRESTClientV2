@@ -27,7 +27,7 @@ export class CountryService {
             .post(this.countryApiUrl, JSON.stringify(country), {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().country as Country;
+                return res.json() as Country;
             })
             .catch(this.handleError);
     }
@@ -44,7 +44,7 @@ export class CountryService {
             .get(this.countryApiUrl + "/" + countryId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().country as Country;
+                return res.json() as Country;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class CountryService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().country as Country;
+                return res.json() as Country;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class CountryService {
             .get(this.countryApiUrl + "/" + countryLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().country as Country;
+                return res.json() as Country;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,8 @@ export class CountryService {
             .get(this.countriesApiUrl, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().countries as Array<Country>;
+                console.log(res.json());
+                return res.json() as Array<Country>;
             })
             .catch(this.handleError);
     }

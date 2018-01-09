@@ -26,7 +26,7 @@ export class TeamMemberService {
             .post(this.team_memberApiUrl, JSON.stringify(team_member), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().team_member as TeamMember;
+                return res.json() as TeamMember;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class TeamMemberService {
             .get(this.team_memberApiUrl + "/" + team_memberId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().team_member as TeamMember;
+                return res.json() as TeamMember;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class TeamMemberService {
             .get(this.team_memberApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().team_members as Array<TeamMember>;
+                return res.json() as Array<TeamMember>;
             })
             .catch(this.handleError);
     }
@@ -63,7 +63,7 @@ export class TeamMemberService {
             .get(this.team_memberApiUrl + "s/" + team_memberId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().team_members as Array<TeamMember>;
+                return res.json() as Array<TeamMember>;
             })
             .catch(this.handleError);
     }

@@ -26,7 +26,7 @@ export class DeliveryDocumentTemplateService {
             .post(this.deliveryDocumentTemplateApiUrl, JSON.stringify(deliveryDocumentTemplate), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().deliveryDocumentTemplate as DeliveryDocumentTemplate;
+                return res.json() as DeliveryDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class DeliveryDocumentTemplateService {
             .get(this.deliveryDocumentTemplateApiUrl + "/" + deliveryDocumentTemplateId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().deliveryDocumentTemplate as DeliveryDocumentTemplate;
+                return res.json() as DeliveryDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -55,7 +55,7 @@ export class DeliveryDocumentTemplateService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocumentTemplate as DeliveryDocumentTemplate;
+                return res.json() as DeliveryDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -65,7 +65,7 @@ export class DeliveryDocumentTemplateService {
             .get(this.countriesApiUrl, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().countries as Array<DeliveryDocumentTemplate>;
+                return res.json() as Array<DeliveryDocumentTemplate>;
             })
             .catch(this.handleError);
     }

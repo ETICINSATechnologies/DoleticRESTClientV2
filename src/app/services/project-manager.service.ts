@@ -26,7 +26,7 @@ export class ProjectManagerService {
             .post(this.project_managerApiUrl, JSON.stringify(project_manager), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().project_manager as ProjectManager;
+                return res.json() as ProjectManager;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ProjectManagerService {
             .get(this.project_managerApiUrl + "/" + project_managerId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().project_manager as ProjectManager;
+                return res.json() as ProjectManager;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class ProjectManagerService {
             .get(this.project_managerApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_managers as Array<ProjectManager>;
+                return res.json() as Array<ProjectManager>;
             })
             .catch(this.handleError);
     }
@@ -63,7 +63,7 @@ export class ProjectManagerService {
             .get(this.project_managerApiUrl + "s/" + project_managerId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_managers as Array<ProjectManager>;
+                return res.json() as Array<ProjectManager>;
             })
             .catch(this.handleError);
     }

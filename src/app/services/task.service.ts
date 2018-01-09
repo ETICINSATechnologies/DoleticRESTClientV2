@@ -29,7 +29,7 @@ export class TaskService {
             .post(this.taskApiUrl, JSON.stringify(task), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -46,7 +46,7 @@ export class TaskService {
             .get(this.taskApiUrl + "/" + taskId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class TaskService {
             .get(this.tasksApiUrl + "/project/" + projectId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().tasks as Array<Task>;
+                return res.json() as Array<Task>;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class TaskService {
             .post(this.taskApiUrl + "/" + task.id, task, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class TaskService {
             .get(this.taskApiUrl + "/" + taskId+ "/end", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -86,7 +86,7 @@ export class TaskService {
             .post(this.taskApiUrl + "/" + taskId + "/switch" + taskId2, {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -96,7 +96,7 @@ export class TaskService {
             .post(this.taskApiUrl + "/current", task, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -106,7 +106,7 @@ export class TaskService {
             .get(this.taskApiUrl + "/" + taskId+ "/unend", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().task as Task;
+                return res.json() as Task;
             })
             .catch(this.handleError);
     }
@@ -116,7 +116,7 @@ export class TaskService {
             .get(this.taskApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tasks as Array<Task>;
+                return res.json() as Array<Task>;
             })
             .catch(this.handleError);
     }

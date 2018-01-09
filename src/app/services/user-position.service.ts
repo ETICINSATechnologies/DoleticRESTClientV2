@@ -26,7 +26,7 @@ export class UserPositionService {
             .post(this.user_positionApiUrl, JSON.stringify(user_position), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class UserPositionService {
             .get(this.user_positionApiUrl + "/" + user_positionId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class UserPositionService {
             .get(this.user_positionApiUrl + "/user/" + userId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -63,7 +63,7 @@ export class UserPositionService {
             .post(this.user_positionApiUrl + "/" + user_positionId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -73,7 +73,7 @@ export class UserPositionService {
             .post(this.user_positionApiUrl + "/" + user_positionId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -87,7 +87,7 @@ export class UserPositionService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user_position as UserPosition;
+                return res.json() as UserPosition;
             })
             .catch(this.handleError);
     }
@@ -97,7 +97,7 @@ export class UserPositionService {
             .get(this.user_positionApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user_positions as Array<UserPosition>;
+                return res.json() as Array<UserPosition>;
             })
             .catch(this.handleError);
     }

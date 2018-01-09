@@ -26,7 +26,7 @@ export class ContactActionTypeService {
             .post(this.contact_action_typeApiUrl, JSON.stringify(contact_action_type), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().contact_action_type as ContactActionType;
+                return res.json() as ContactActionType;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ContactActionTypeService {
             .get(this.contact_action_typeApiUrl + "/" + contact_action_typeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_action_type as ContactActionType;
+                return res.json() as ContactActionType;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class ContactActionTypeService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_action_type as ContactActionType;
+                return res.json() as ContactActionType;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class ContactActionTypeService {
             .get(this.contact_action_typeApiUrl + "/" + contact_action_typeLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_action_type as ContactActionType;
+                return res.json() as ContactActionType;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class ContactActionTypeService {
             .get(this.contact_action_typeApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_action_types as Array<ContactActionType>;
+                return res.json() as Array<ContactActionType>;
             })
             .catch(this.handleError);
     }

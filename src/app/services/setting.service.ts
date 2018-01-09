@@ -26,7 +26,7 @@ export class SettingService {
             .post(this.settingApiUrl, JSON.stringify(setting), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().setting as Setting;
+                return res.json() as Setting;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class SettingService {
             .get(this.settingApiUrl + "/" + settingId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().setting as Setting;
+                return res.json() as Setting;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class SettingService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().setting as Setting;
+                return res.json() as Setting;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class SettingService {
             .get(this.settingApiUrl + "/" + settingLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().setting as Setting;
+                return res.json() as Setting;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class SettingService {
             .get(this.settingApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().settings as Array<Setting>;
+                return res.json() as Array<Setting>;
             })
             .catch(this.handleError);
     }

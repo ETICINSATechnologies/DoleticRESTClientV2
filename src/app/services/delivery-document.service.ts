@@ -28,7 +28,7 @@ export class DeliveryDocumentService {
             .post(this.deliveryDocumentApiUrl, JSON.stringify(deliveryDocument), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().deliveryDocument as DeliveryDocument;
+                return res.json() as DeliveryDocument;
             })
             .catch(this.handleError);
     }
@@ -45,7 +45,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "/" + deliveryDocumentId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().deliveryDocument as DeliveryDocument;
+                return res.json() as DeliveryDocument;
             })
             .catch(this.handleError);
     }
@@ -55,7 +55,7 @@ export class DeliveryDocumentService {
             .post(this.deliveryDocumentApiUrl + "/" + deliveryDocument.id, deliveryDocument, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocument as DeliveryDocument;
+                return res.json() as DeliveryDocument;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "s/delivery/" + deliveryId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocument as Array<DeliveryDocument>;
+                return res.json() as Array<DeliveryDocument>;
             })
             .catch(this.handleError);
     }
@@ -82,7 +82,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "s/auditor/" + userId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocument as Array<DeliveryDocument>;
+                return res.json() as Array<DeliveryDocument>;
             })
             .catch(this.handleError);
     }
@@ -92,7 +92,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "s/auditor/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocument as Array<DeliveryDocument>;
+                return res.json() as Array<DeliveryDocument>;
             })
             .catch(this.handleError);
     }
@@ -102,7 +102,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocuments as Array<DeliveryDocument>;
+                return res.json() as Array<DeliveryDocument>;
             })
             .catch(this.handleError);
     }
@@ -112,7 +112,7 @@ export class DeliveryDocumentService {
             .get(this.deliveryDocumentApiUrl + "s/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliveryDocuments as Array<DeliveryDocument>;
+                return res.json() as Array<DeliveryDocument>;
             })
             .catch(this.handleError);
     }

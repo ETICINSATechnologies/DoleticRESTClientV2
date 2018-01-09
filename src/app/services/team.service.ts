@@ -26,7 +26,7 @@ export class TeamService {
             .post(this.teamApiUrl, JSON.stringify(team), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().team as Team;
+                return res.json() as Team;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class TeamService {
             .get(this.teamApiUrl + "/" + teamId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().team as Team;
+                return res.json() as Team;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class TeamService {
             .get(this.teamApiUrl + "/" + name, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().team as Team;
+                return res.json() as Team;
             })
             .catch(this.handleError);
     }
@@ -67,7 +67,7 @@ export class TeamService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().team as Team;
+                return res.json() as Team;
             })
             .catch(this.handleError);
     }
@@ -77,7 +77,7 @@ export class TeamService {
             .get(this.teamApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().teams as Array<Team>;
+                return res.json() as Array<Team>;
             })
             .catch(this.handleError);
     }
@@ -87,7 +87,7 @@ export class TeamService {
             .get(this.teamApiUrl + "s/division/" + divisionId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().teams as Array<Team>;
+                return res.json() as Array<Team>;
             })
             .catch(this.handleError);
     }
@@ -97,7 +97,7 @@ export class TeamService {
             .get(this.teamApiUrl + "s/leader/" + userId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().teams as Array<Team>;
+                return res.json() as Array<Team>;
             })
             .catch(this.handleError);
     }
@@ -107,7 +107,7 @@ export class TeamService {
             .get(this.teamApiUrl + "s/member/" + memberId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().teams as Array<Team>;
+                return res.json() as Array<Team>;
             })
             .catch(this.handleError);
     }

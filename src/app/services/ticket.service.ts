@@ -27,7 +27,7 @@ export class TicketService {
             .post(this.ticketApiUrl, ticket, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().ticket as Ticket;
+                return res.json() as Ticket;
             })
             .catch(this.handleError);
     }
@@ -44,7 +44,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "/" + ticketId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().ticket as Ticket;
+                return res.json() as Ticket;
             })
             .catch(this.handleError);
     }
@@ -54,7 +54,7 @@ export class TicketService {
             .post(this.ticketApiUrl + "/" + ticket.id, ticket, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().ticket as Ticket;
+                return res.json() as Ticket;
             })
             .catch(this.handleError);
     }
@@ -64,7 +64,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tickets as Array<Ticket>;
+                return res.json() as Array<Ticket>;
             })
             .catch(this.handleError);
     }
@@ -74,7 +74,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "s/author/" + authorId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tickets as Array<Ticket>;
+                return res.json() as Array<Ticket>;
             })
             .catch(this.handleError);
     }
@@ -84,7 +84,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "s/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tickets as Array<Ticket>;
+                return res.json() as Array<Ticket>;
             })
             .catch(this.handleError);
     }
@@ -94,7 +94,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "s/status/" + statusId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tickets as Array<Ticket>;
+                return res.json() as Array<Ticket>;
             })
             .catch(this.handleError);
     }
@@ -104,7 +104,7 @@ export class TicketService {
             .get(this.ticketApiUrl + "s/type/" + typeId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().tickets as Array<Ticket>;
+                return res.json() as Array<Ticket>;
             })
             .catch(this.handleError);
     }

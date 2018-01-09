@@ -26,7 +26,7 @@ export class DivisionService {
             .post(this.divisionApiUrl, JSON.stringify(division), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class DivisionService {
             .get(this.divisionApiUrl + "/" + divisionId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class DivisionService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class DivisionService {
             .post(this.divisionApiUrl + "/" + divisionId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class DivisionService {
             .post(this.divisionApiUrl + "/" + divisionId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -86,7 +86,7 @@ export class DivisionService {
             .get(this.divisionApiUrl + "/" + divisionLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().division as Division;
+                return res.json() as Division;
             })
             .catch(this.handleError);
     }
@@ -96,7 +96,7 @@ export class DivisionService {
             .get(this.divisionApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().divisions as Array<Division>;
+                return res.json() as Array<Division>;
             })
             .catch(this.handleError);
     }
@@ -106,7 +106,7 @@ export class DivisionService {
             .get(this.divisionApiUrl + "s/enabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().divisions as Array<Division>;
+                return res.json() as Array<Division>;
             })
             .catch(this.handleError);
     }

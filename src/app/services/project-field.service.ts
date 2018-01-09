@@ -26,7 +26,7 @@ export class ProjectFieldService {
             .post(this.project_fieldApiUrl, JSON.stringify(project_field), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ProjectFieldService {
             .get(this.project_fieldApiUrl + "/" + project_fieldId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class ProjectFieldService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class ProjectFieldService {
             .post(this.project_fieldApiUrl + "/" + project_fieldId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class ProjectFieldService {
             .post(this.project_fieldApiUrl + "/" + project_fieldId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -86,7 +86,7 @@ export class ProjectFieldService {
             .get(this.project_fieldApiUrl + "/" + project_fieldLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_field as ProjectField;
+                return res.json() as ProjectField;
             })
             .catch(this.handleError);
     }
@@ -96,7 +96,7 @@ export class ProjectFieldService {
             .get(this.project_fieldApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_fields as Array<ProjectField>;
+                return res.json() as Array<ProjectField>;
             })
             .catch(this.handleError);
     }
@@ -106,7 +106,7 @@ export class ProjectFieldService {
             .get(this.project_fieldApiUrl + "s/enabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_fields as Array<ProjectField>;
+                return res.json() as Array<ProjectField>;
             })
             .catch(this.handleError);
     }

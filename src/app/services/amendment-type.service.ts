@@ -29,7 +29,7 @@ export class AmendmentTypeService {
             .post(this.amendmentTypeApiUrl, amendmentType, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().amendmentType as AmendmentType;
+                return res.json() as AmendmentType;
             })
             .catch(this.handleError);
     }
@@ -46,7 +46,7 @@ export class AmendmentTypeService {
             .get(this.amendmentTypeApiUrl + "/" + amendmentTypeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().amendmentType as AmendmentType;
+                return res.json() as AmendmentType;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class AmendmentTypeService {
             .post(this.amendmentTypeApiUrl + "/" + amendmentType.id, amendmentType, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendmentType as AmendmentType;
+                return res.json() as AmendmentType;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class AmendmentTypeService {
             .get(this.amendmentTypeApiUrl + "/" + amendmentTypeLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendmentType as AmendmentType;
+                return res.json() as AmendmentType;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class AmendmentTypeService {
             .get(this.amendmentTypesApiUrl, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().amendmentTypes as Array<AmendmentType>;
+                return res.json() as Array<AmendmentType>;
             })
             .catch(this.handleError);
     }

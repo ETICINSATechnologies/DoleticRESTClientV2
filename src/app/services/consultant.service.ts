@@ -25,7 +25,7 @@ export class ConsultantService {
             .post(this.consultantApiUrl, consultant, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant as Consultant;
+                return res.json() as Consultant;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class ConsultantService {
             .get(this.consultantApiUrl + "/" + consultantId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant as Consultant;
+                return res.json() as Consultant;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class ConsultantService {
             .post(this.consultantApiUrl + "/" + consultant.id, consultant, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant as Consultant;
+                return res.json() as Consultant;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ConsultantService {
             .get(this.consultantApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultants as Array<Consultant>;
+                return res.json() as Array<Consultant>;
             })
             .catch(this.handleError);
     }
@@ -73,7 +73,7 @@ export class ConsultantService {
             .get(this.consultantApiUrl + "s/project/" + projectId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultants as Array<Consultant>;
+                return res.json() as Array<Consultant>;
             })
             .catch(this.handleError);
     }
@@ -83,7 +83,7 @@ export class ConsultantService {
             .get(this.consultantApiUrl + "s/user/" + userId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultants as Array<Consultant>;
+                return res.json() as Array<Consultant>;
             })
             .catch(this.handleError);
     }

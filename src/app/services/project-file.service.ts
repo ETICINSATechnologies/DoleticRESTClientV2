@@ -27,7 +27,7 @@ export class ProjectFileService {
           .post(this.project_fileApiUrl, JSON.stringify(project_file), {headers: this.headers})
           .toPromise()
           .then(res =>{
-              return res.json().project_file as ProjectFile;
+              return res.json() as ProjectFile;
           })
           .catch(this.handleError);
   }
@@ -44,7 +44,7 @@ export class ProjectFileService {
           .get(this.project_fileApiUrl + "/" + project_fileId, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project_file as ProjectFile;
+              return res.json() as ProjectFile;
           })
           .catch(this.handleError);
   }
@@ -59,7 +59,7 @@ export class ProjectFileService {
           }, {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_file as ProjectFile;
+              return res.json() as ProjectFile;
           })
           .catch(this.handleError);
   }
@@ -69,7 +69,7 @@ export class ProjectFileService {
           .get(this.project_fileApiUrl + "s", {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_files as Array<ProjectFile>;
+              return res.json() as Array<ProjectFile>;
           })
           .catch(this.handleError);
   }
@@ -79,7 +79,7 @@ export class ProjectFileService {
             .get(this.project_fileApiUrl + "s/auditor/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_files as Array<ProjectFile>;
+                return res.json() as Array<ProjectFile>;
             })
             .catch(this.handleError);
   }
@@ -89,7 +89,7 @@ export class ProjectFileService {
           .get(this.project_fileApiUrl + "s/auditor/" + userId, {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_files as Array<ProjectFile>;
+              return res.json() as Array<ProjectFile>;
           })
           .catch(this.handleError);
   }
@@ -99,7 +99,7 @@ export class ProjectFileService {
             .get(this.project_fileApiUrl + "s/project/" + projectId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_files as Array<ProjectFile>;
+                return res.json() as Array<ProjectFile>;
             })
             .catch(this.handleError);
   }

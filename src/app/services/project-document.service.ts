@@ -26,7 +26,7 @@ export class ProjectDocumentService{
           .post(this.project_documentApiUrl, JSON.stringify(project_document), {headers: this.headers})
           .toPromise()
           .then(res =>{
-              return res.json().project_document as ProjectDocument;
+              return res.json() as ProjectDocument;
           })
           .catch(this.handleError);
   }
@@ -43,7 +43,7 @@ export class ProjectDocumentService{
           .get(this.project_documentApiUrl + "/" + project_documentId, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project_document as ProjectDocument;
+              return res.json() as ProjectDocument;
           })
           .catch(this.handleError);
   }
@@ -57,7 +57,7 @@ export class ProjectDocumentService{
           }, {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_document as ProjectDocument;
+              return res.json() as ProjectDocument;
           })
           .catch(this.handleError);
   }
@@ -74,7 +74,7 @@ export class ProjectDocumentService{
           .get(this.project_documentApiUrl + "s", {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_documents as Array<ProjectDocument>;
+              return res.json() as Array<ProjectDocument>;
           })
           .catch(this.handleError);
   }
@@ -84,7 +84,7 @@ export class ProjectDocumentService{
             .get(this.project_documentApiUrl + "s/auditor/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_documents as Array<ProjectDocument>;
+                return res.json() as Array<ProjectDocument>;
             })
             .catch(this.handleError);
   }
@@ -94,7 +94,7 @@ export class ProjectDocumentService{
           .get(this.project_documentApiUrl + "s/auditor/" + userId, {headers: this.headers})
           .toPromise()
           .then(res=>{
-              return res.json().project_documents as Array<ProjectDocument>;
+              return res.json() as Array<ProjectDocument>;
           })
           .catch(this.handleError);
   }
@@ -104,7 +104,7 @@ export class ProjectDocumentService{
             .get(this.project_documentApiUrl + "s/project/" + projectId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_documents as Array<ProjectDocument>;
+                return res.json() as Array<ProjectDocument>;
             })
             .catch(this.handleError);
   }
@@ -114,7 +114,7 @@ export class ProjectDocumentService{
             .get(this.project_documentApiUrl + "s/template/" + templateId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_documents as Array<ProjectDocument>;
+                return res.json() as Array<ProjectDocument>;
             })
             .catch(this.handleError);
   }

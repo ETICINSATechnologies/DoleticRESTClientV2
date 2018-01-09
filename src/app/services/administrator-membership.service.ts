@@ -26,7 +26,7 @@ export class AdministratorMembershipService {
             .post(this.administratorMembershipApiUrl, administratorMembership, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().administratorMembership as AdministratorMembership;
+                return res.json() as AdministratorMembership;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class AdministratorMembershipService {
             .get(this.administratorMembershipApiUrl + "/" + administratorMembershipId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().administratorMembership as AdministratorMembership;
+                return res.json() as AdministratorMembership;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class AdministratorMembershipService {
             .post(this.administratorMembershipApiUrl + "/" + administratorMembership.id, administratorMembership,{headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().administratorMembership as AdministratorMembership;
+                return res.json() as AdministratorMembership;
             })
             .catch(this.handleError);
     }
@@ -63,7 +63,7 @@ export class AdministratorMembershipService {
             .get(this.administratorMembershipsApiUrl + "/" + administratorMembershipId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().administratorMembership as AdministratorMembership;
+                return res.json() as AdministratorMembership;
             })
             .catch(this.handleError);
     }
@@ -73,7 +73,7 @@ export class AdministratorMembershipService {
             .get(this.administratorMembershipsApiUrl, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().admnistratorMemberships as Array<AdministratorMembership>;
+                return res.json() as Array<AdministratorMembership>;
             })
             .catch(this.handleError);
     }

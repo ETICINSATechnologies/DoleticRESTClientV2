@@ -25,7 +25,7 @@ export class ConsultantDocumentService {
             .post(this.consultant_documentApiUrl, JSON.stringify(consultant_document), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().consultant_document as ConsultantDocument;
+                return res.json() as ConsultantDocument;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "/" + consultant_documentId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant_document as ConsultantDocument;
+                return res.json() as ConsultantDocument;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class ConsultantDocumentService {
             .post(this.consultant_documentApiUrl + "/" + consultant_document.id, consultant_document, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_document as ConsultantDocument;
+                return res.json() as ConsultantDocument;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_documents as Array<ConsultantDocument>;
+                return res.json() as Array<ConsultantDocument>;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "s/auditor/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_documents as Array<ConsultantDocument>;
+                return res.json() as Array<ConsultantDocument>;
             })
             .catch(this.handleError);
     }
@@ -82,7 +82,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "s/auditor/" + userId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_documents as Array<ConsultantDocument>;
+                return res.json() as Array<ConsultantDocument>;
             })
             .catch(this.handleError);
     }
@@ -92,7 +92,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "s/consultant/" + consultantId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_documents as Array<ConsultantDocument>;
+                return res.json() as Array<ConsultantDocument>;
             })
             .catch(this.handleError);
     }
@@ -102,7 +102,7 @@ export class ConsultantDocumentService {
             .get(this.consultant_documentApiUrl + "s/template/" + templateId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_documents as Array<ConsultantDocument>;
+                return res.json() as Array<ConsultantDocument>;
             })
             .catch(this.handleError);
     }

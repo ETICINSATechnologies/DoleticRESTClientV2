@@ -26,7 +26,7 @@ export class GenderService {
             .post(this.genderApiUrl, JSON.stringify(gender), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class GenderService {
             .get(this.genderApiUrl + "/" + genderId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class GenderService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class GenderService {
             .post(this.genderApiUrl + "/" + genderId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class GenderService {
             .post(this.genderApiUrl + "/" + genderId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -86,7 +86,7 @@ export class GenderService {
             .get(this.genderApiUrl + "/" + genderLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().gender as Gender;
+                return res.json() as Gender;
             })
             .catch(this.handleError);
     }
@@ -96,7 +96,7 @@ export class GenderService {
             .get(this.genderApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().genders as Array<Gender>;
+                return res.json() as Array<Gender>;
             })
             .catch(this.handleError);
     }
@@ -106,7 +106,7 @@ export class GenderService {
             .get(this.genderApiUrl + "s/enabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().genders as Array<Gender>;
+                return res.json() as Array<Gender>;
             })
             .catch(this.handleError);
     }

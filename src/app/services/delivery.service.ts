@@ -25,7 +25,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl, JSON.stringify(delivery), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class DeliveryService {
             .get(this.deliveryApiUrl + "/" + deliveryId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl + "/" + delivery.id, delivery, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl + "/" + deliveryId + "/deliver", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl + "/" + deliveryId + "/undeliver", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -82,7 +82,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl + "/" + deliveryId + "/pay", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -92,7 +92,7 @@ export class DeliveryService {
             .post(this.deliveryApiUrl + "/" + deliveryId + "/unpay", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().delivery as Delivery;
+                return res.json() as Delivery;
             })
             .catch(this.handleError);
     }
@@ -102,7 +102,7 @@ export class DeliveryService {
             .get(this.deliveryApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliverys as Array<Delivery>;
+                return res.json() as Array<Delivery>;
             })
             .catch(this.handleError);
     }
@@ -112,7 +112,7 @@ export class DeliveryService {
             .get(this.deliveryApiUrl + "s/project/" + projectId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliverys as Array<Delivery>;
+                return res.json() as Array<Delivery>;
             })
             .catch(this.handleError);
     }
@@ -122,7 +122,7 @@ export class DeliveryService {
             .get(this.deliveryApiUrl + "s/task/" + taskId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().deliverys as Array<Delivery>;
+                return res.json() as Array<Delivery>;
             })
             .catch(this.handleError);
     }

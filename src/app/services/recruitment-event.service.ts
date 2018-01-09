@@ -26,7 +26,7 @@ export class RecruitmentEventService {
             .post(this.recruitment_eventApiUrl, JSON.stringify(recruitment_event), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().recruitment_event as RecruitmentEvent;
+                return res.json() as RecruitmentEvent;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class RecruitmentEventService {
             .get(this.recruitment_eventApiUrl + "/" + recruitment_eventId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().recruitment_event as RecruitmentEvent;
+                return res.json() as RecruitmentEvent;
             })
             .catch(this.handleError);
     }
@@ -53,7 +53,7 @@ export class RecruitmentEventService {
             .get(this.recruitment_eventApiUrl + "/" + recruitment_eventDate, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().recruitment_event as RecruitmentEvent;
+                return res.json() as RecruitmentEvent;
             })
             .catch(this.handleError);
     }
@@ -65,7 +65,7 @@ export class RecruitmentEventService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().recruitment_event as RecruitmentEvent;
+                return res.json() as RecruitmentEvent;
             })
             .catch(this.handleError);
     }
@@ -75,7 +75,7 @@ export class RecruitmentEventService {
             .get(this.recruitment_eventApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().recruitment_events as Array<RecruitmentEvent>;
+                return res.json() as Array<RecruitmentEvent>;
             })
             .catch(this.handleError);
     }

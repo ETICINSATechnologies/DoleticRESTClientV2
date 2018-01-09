@@ -25,7 +25,7 @@ export class PositionService {
             .post(this.positionApiUrl, JSON.stringify(position), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().position as Position;
+                return res.json() as Position;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class PositionService {
             .get(this.positionApiUrl + "/" + positionId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().position as Position;
+                return res.json() as Position;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class PositionService {
             .post(this.positionApiUrl + "/" + position.id, JSON.stringify(position), {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().position as Position;
+                return res.json() as Position;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class PositionService {
             .get(this.positionApiUrl + "/" + positionLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().position as Position;
+                return res.json() as Position;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class PositionService {
             .get(this.positionApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().positions as Array<Position>;
+                return res.json() as Array<Position>;
             })
             .catch(this.handleError);
     }

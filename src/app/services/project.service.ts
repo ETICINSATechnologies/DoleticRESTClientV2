@@ -26,7 +26,7 @@ export class ProjectService{
           .post(this.projectApiUrl, project, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project as Project;
+              return res.json() as Project;
           })
           .catch(this.handleError);
   }
@@ -36,7 +36,7 @@ export class ProjectService{
           .get(this.projectApiUrl + "/number/" + projectNumber, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project as Project;
+              return res.json() as Project;
           })
           .catch(this.handleError);
   }
@@ -53,7 +53,7 @@ export class ProjectService{
           .get(this.projectApiUrl + "/" + projectId, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project as Project;
+              return res.json() as Project;
           })
           .catch(this.handleError);
   }
@@ -63,7 +63,7 @@ export class ProjectService{
           .post(this.projectApiUrl + "/" + project.id, project, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project as Project;
+              return res.json() as Project;
           })
           .catch(this.handleError);
   }
@@ -73,7 +73,7 @@ export class ProjectService{
           .post(this.projectApiUrl + "/" + project.id + "/archive", project, {headers: this.headers})
           .toPromise()
           .then(res => {
-              return res.json().project as Project;
+              return res.json() as Project;
           })
           .catch(this.handleError);
     }
@@ -83,7 +83,7 @@ export class ProjectService{
       .post(this.projectApiUrl + "/" + project.id + "/auditor", project, {headers: this.headers})
       .toPromise()
       .then(res => {
-          return res.json().project as Project;
+          return res.json() as Project;
       })
       .catch(this.handleError);
     }
@@ -93,7 +93,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId + "/disable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -103,7 +103,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -113,7 +113,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId+ "/end", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -123,7 +123,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId+ "/sign", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -133,7 +133,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId+ "/unarchive", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -143,7 +143,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId+ "/unend", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -153,7 +153,7 @@ export class ProjectService{
             .post(this.projectApiUrl + "/" + projectId + "/unsign", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project as Project;
+                return res.json() as Project;
             })
             .catch(this.handleError);
     }
@@ -163,7 +163,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -173,7 +173,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/archived", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -183,7 +183,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/auditor/" + auditorId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -193,7 +193,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/consultant/" + consultantId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -203,7 +203,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -213,7 +213,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/disabled", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -223,7 +223,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/field/" + fieldId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -233,7 +233,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/manager/" + managerId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -243,7 +243,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/origin/" + originId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -253,7 +253,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/status/" + firmId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }
@@ -263,7 +263,7 @@ export class ProjectService{
             .get(this.projectApiUrl + "s/unsigned", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().projects as Array<Project>;
+                return res.json() as Array<Project>;
             })
             .catch(this.handleError);
     }

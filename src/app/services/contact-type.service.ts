@@ -26,7 +26,7 @@ export class ContactTypeService {
             .post(this.contact_typeApiUrl, JSON.stringify(contact_type), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().contact_type as ContactType;
+                return res.json() as ContactType;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ContactTypeService {
             .get(this.contact_typeApiUrl + "/" + contact_typeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_type as ContactType;
+                return res.json() as ContactType;
             })
             .catch(this.handleError);
     }
@@ -56,7 +56,7 @@ export class ContactTypeService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_type as ContactType;
+                return res.json() as ContactType;
             })
             .catch(this.handleError);
     }
@@ -66,7 +66,7 @@ export class ContactTypeService {
             .get(this.contact_typeApiUrl + "/" + contact_typeLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_type as ContactType;
+                return res.json() as ContactType;
             })
             .catch(this.handleError);
     }
@@ -76,7 +76,7 @@ export class ContactTypeService {
             .get(this.contact_typeApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().contact_types as Array<ContactType>;
+                return res.json() as Array<ContactType>;
             })
             .catch(this.handleError);
     }

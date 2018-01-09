@@ -25,7 +25,7 @@ export class ContactActionActionService {
             .post(this.contactActionApiUrl, contact_action_action, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_action as ContactAction;
+                return res.json() as ContactAction;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "/" + contact_actionId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_action as ContactAction;
+                return res.json() as ContactAction;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class ContactActionActionService {
             .post(this.contactActionApiUrl + "/" + contact_action.id, contact_action, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_action as ContactAction;
+                return res.json() as ContactAction;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_actions as Array<ContactAction>;
+                return res.json() as Array<ContactAction>;
             })
             .catch(this.handleError);
     }
@@ -73,7 +73,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "s/contact/" + contactId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_actions as Array<ContactAction>;
+                return res.json() as Array<ContactAction>;
             })
             .catch(this.handleError);
     }
@@ -83,7 +83,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "s/current", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_actions as Array<ContactAction>;
+                return res.json() as Array<ContactAction>;
             })
             .catch(this.handleError);
     }
@@ -93,7 +93,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "s/prospector/" + prospectorId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_actions as Array<ContactAction>;
+                return res.json() as Array<ContactAction>;
             })
             .catch(this.handleError);
     }
@@ -103,7 +103,7 @@ export class ContactActionActionService {
             .get(this.contactActionApiUrl + "s/type/" + typeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact_actions as Array<ContactAction>;
+                return res.json() as Array<ContactAction>;
             })
             .catch(this.handleError);
     }

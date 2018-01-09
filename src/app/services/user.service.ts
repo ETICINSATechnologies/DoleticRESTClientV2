@@ -31,7 +31,7 @@ export class UserService {
             .post(this.userApiUrl, JSON.stringify(user), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -48,7 +48,7 @@ export class UserService {
             .get(this.userApiUrl + "/" + userId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -58,7 +58,7 @@ export class UserService {
             .get(this.userApiUrl + "/" + userMail, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -68,7 +68,7 @@ export class UserService {
             .get(this.userApiUrl + "/" + username, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -78,7 +78,7 @@ export class UserService {
             .post(this.userApiUrl + "/" + user.id, user, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -88,7 +88,7 @@ export class UserService {
             .get(this.userApiUrl + "/" + userId+ "/disable", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -98,7 +98,7 @@ export class UserService {
             .post(this.userApiUrl + "/" + userId + "/enable", {}, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -108,7 +108,7 @@ export class UserService {
             .post(this.userApiUrl + "/current", user, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -118,7 +118,7 @@ export class UserService {
             .post(this.userApiUrl + "/current", editPass, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().user as User;
+                return res.json() as User;
             })
             .catch(this.handleError);
     }
@@ -128,7 +128,7 @@ export class UserService {
             .get(this.userApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().users as Array<User>;
+                return res.json() as Array<User>;
             })
             .catch(this.handleError);
     }
@@ -138,7 +138,7 @@ export class UserService {
             .get(this.usersApiUrl + "/current", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().users as Array<User>;
+                return res.json() as Array<User>;
             })
             .catch(this.handleError);
     }
@@ -148,7 +148,7 @@ export class UserService {
             .get(this.usersApiUrl + "/disable", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().users as Array<User>;
+                return res.json() as Array<User>;
             })
             .catch(this.handleError);
     }
@@ -158,7 +158,7 @@ export class UserService {
             .get(this.usersApiUrl + "/old", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().users as Array<User>;
+                return res.json() as Array<User>;
             })
             .catch(this.handleError);
     }

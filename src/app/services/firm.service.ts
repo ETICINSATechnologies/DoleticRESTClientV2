@@ -24,7 +24,7 @@ export class FirmService {
             .post(this.firmApiUrl, firm, {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().firm as Firm;
+                return res.json() as Firm;
             })
             .catch(this.handleError);
     }
@@ -41,7 +41,7 @@ export class FirmService {
             .get(this.firmApiUrl + "/" + firmId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().firm as Firm;
+                return res.json() as Firm;
             })
             .catch(this.handleError);
     }
@@ -51,7 +51,7 @@ export class FirmService {
             .post(this.firmApiUrl + "/" + firm.id, firm, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().firm as Firm;
+                return res.json() as Firm;
             })
             .catch(this.handleError);
     }
@@ -61,7 +61,7 @@ export class FirmService {
             .get(this.firmApiUrl + "/" + firmName, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().firm as Firm;
+                return res.json() as Firm;
             })
             .catch(this.handleError);
     }
@@ -71,7 +71,7 @@ export class FirmService {
             .get(this.firmApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().firms as Array<Firm>;
+                return res.json() as Array<Firm>;
             })
             .catch(this.handleError);
     }
@@ -81,7 +81,7 @@ export class FirmService {
       .get(this.firmApiUrl + "s/country/" + countryId, {headers: this.headers})
       .toPromise()
       .then(res=>{
-        return res.json().firms as Array<Firm>;
+        return res.json() as Array<Firm>;
       })
       .catch(this.handleError);
     }
@@ -91,7 +91,7 @@ export class FirmService {
       .get(this.firmApiUrl + "s/type/" + typeId, {headers: this.headers})
       .toPromise()
       .then(res=>{
-        return res.json().firms as Array<Firm>;
+        return res.json() as Array<Firm>;
       })
       .catch(this.handleError);
     }

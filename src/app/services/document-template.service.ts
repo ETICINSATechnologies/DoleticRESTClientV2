@@ -32,7 +32,7 @@ export class DocumentTemplateService {
             .get(this.document_templateApiUrl + "/" + document_templateId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().document_template as DocumentTemplate;
+                return res.json() as DocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class DocumentTemplateService {
             .get(this.document_templateApiUrl + "/" + document_templateLabel, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().document_template as DocumentTemplate;
+                return res.json() as DocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class DocumentTemplateService {
             .get(this.document_templateApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().document_templates as Array<DocumentTemplate>;
+                return res.json() as Array<DocumentTemplate>;
             })
             .catch(this.handleError);
     }

@@ -25,7 +25,7 @@ export class ContactService {
             .post(this.contactApiUrl, contact, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact as Contact;
+                return res.json() as Contact;
             })
             .catch(this.handleError);
     }
@@ -42,7 +42,7 @@ export class ContactService {
             .get(this.contactApiUrl + "/" + contactId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact as Contact;
+                return res.json() as Contact;
             })
             .catch(this.handleError);
     }
@@ -52,7 +52,7 @@ export class ContactService {
             .post(this.contactApiUrl + "/" + contact.id, contact, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact as Contact;
+                return res.json() as Contact;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ContactService {
             .post(this.contactApiUrl + "/" + contactId + "/type/" + typeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contact as Contact;
+                return res.json() as Contact;
             })
             .catch(this.handleError);
     }
@@ -73,7 +73,7 @@ export class ContactService {
             .get(this.contactApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contacts as Array<Contact>;
+                return res.json() as Array<Contact>;
             })
             .catch(this.handleError);
     }
@@ -84,7 +84,7 @@ export class ContactService {
             .get(this.contactApiUrl + "s/creator/" + creatorId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contacts as Array<Contact>;
+                return res.json() as Array<Contact>;
             })
             .catch(this.handleError);
     }
@@ -94,7 +94,7 @@ export class ContactService {
             .get(this.contactApiUrl + "s/current", {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contacts as Array<Contact>;
+                return res.json() as Array<Contact>;
             })
             .catch(this.handleError);
     }
@@ -104,7 +104,7 @@ export class ContactService {
             .get(this.contactApiUrl + "s/firm/" + firmId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contacts as Array<Contact>;
+                return res.json() as Array<Contact>;
             })
             .catch(this.handleError);
     }
@@ -114,7 +114,7 @@ export class ContactService {
             .get(this.contactApiUrl + "s/type/" + typeId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().contacts as Array<Contact>;
+                return res.json() as Array<Contact>;
             })
             .catch(this.handleError);
     }

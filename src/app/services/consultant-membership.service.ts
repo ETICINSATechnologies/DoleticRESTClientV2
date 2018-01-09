@@ -26,7 +26,7 @@ export class ConsultantMembershipService {
             .post(this.consultant_membershipApiUrl, JSON.stringify(consultant_membership), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().consultant_membership as ConsultantMembership;
+                return res.json() as ConsultantMembership;
             })
             .catch(this.handleError);
     }
@@ -43,7 +43,7 @@ export class ConsultantMembershipService {
             .get(this.consultant_membershipApiUrl + "/" + consultant_membershipId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().consultant_membership as ConsultantMembership;
+                return res.json() as ConsultantMembership;
             })
             .catch(this.handleError);
     }
@@ -62,7 +62,7 @@ export class ConsultantMembershipService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_membership as ConsultantMembership;
+                return res.json() as ConsultantMembership;
             })
             .catch(this.handleError);
     }
@@ -72,7 +72,7 @@ export class ConsultantMembershipService {
             .get(this.consultant_membershipApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_memberships as Array<ConsultantMembership>;
+                return res.json() as Array<ConsultantMembership>;
             })
             .catch(this.handleError);
     }
@@ -82,7 +82,7 @@ export class ConsultantMembershipService {
             .get(this.consultant_membershipApiUrl + "s/user/" + consultant_membershipId, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().consultant_memberships as Array<ConsultantMembership>;
+                return res.json() as Array<ConsultantMembership>;
             })
             .catch(this.handleError);
     }

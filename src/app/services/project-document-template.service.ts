@@ -26,7 +26,7 @@ export class ProjectDocumentTemplateService {
             .post(this.project_document_templateApiUrl, JSON.stringify(project_document_template), {headers: this.headers})
             .toPromise()
             .then(res =>{
-                return res.json().project_document_template as ProjectDocumentTemplate;
+                return res.json() as ProjectDocumentTemplate;
             })
             .catch(this.handleError);
     }*/
@@ -43,7 +43,7 @@ export class ProjectDocumentTemplateService {
             .get(this.project_document_templateApiUrl + "/" + project_document_templateId, {headers: this.headers})
             .toPromise()
             .then(res => {
-                return res.json().project_document_template as ProjectDocumentTemplate;
+                return res.json() as ProjectDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -57,7 +57,7 @@ export class ProjectDocumentTemplateService {
             }, {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_document_template as ProjectDocumentTemplate;
+                return res.json() as ProjectDocumentTemplate;
             })
             .catch(this.handleError);
     }
@@ -67,7 +67,7 @@ export class ProjectDocumentTemplateService {
             .get(this.project_document_templateApiUrl + "s", {headers: this.headers})
             .toPromise()
             .then(res=>{
-                return res.json().project_document_templates as Array<ProjectDocumentTemplate>;
+                return res.json() as Array<ProjectDocumentTemplate>;
             })
             .catch(this.handleError);
     }
