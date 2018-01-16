@@ -8,8 +8,9 @@ export const API_SERVER: any = {
     ua: "http://localhost:8000/api/ua/"
 };
 export const LOGIN_CONFIG: any = {
-    clientId: "1_4fl0ub6q01wk8s080woccgo0ccwwg4s8sk8gc40sgcc0wk4g0s",
-    secretId: "smjwxkpzmpwgw4ksgggw0wwg84w48scw08s8sgw0oo8o0gsgo",
+    //clientId: "1_4fl0ub6q01wk8s080woccgo0ccwwg4s8sk8gc40sgcc0wk4g0s",
+    clientId: "1_54evc9zukukoc4gk8ss0w0c8kkg0cwc8ok8o8wogosksg00cg0",
+    secretId: "34unu18xw6kgw48wwgc0ckcwccko4s8owwkskgws8kgk4o44w4",
     grantType: "password",
-    redirectURL: "localhost"
+    redirectURL: "localhost:4200/dashboard"
 };

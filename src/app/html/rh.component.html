@@ -1,0 +1,21 @@
+<div class="ui center aligned padded grid">
+    <div class="fifteen wide column">
+        <!--<sui-tabset *ngIf = "right_level >= 4; else other_content">-->
+        <sui-tabset>
+            <div class="ui top attached tabular menu">
+                <a class="item" suiTabHeader="1">Satatistiques</a>
+                <!--<a class="item" suiTabHeader="2">Liste des membres</a>
+                <a class="item" suiTabHeader="3">Utilisateurs inactifs</a>
+                <a class="item" suiTabHeader="4">Liste des équipes</a>-->
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="1">
+                <div class="ui center aligned padded grid">
+                    <div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+                        <!--<doletic-tickets-to-solve></doletic-tickets-to-solve>-->
+                        <doletic-chart></doletic-chart>
+                    </div>
+                </div>
+            </div>
+        </sui-tabset>
+    </div>
+</div>
