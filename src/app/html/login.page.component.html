@@ -11,22 +11,18 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address" [(ngModel)]="identifiants.username">
+                        <input type="text" name="email" placeholder="Adresse e-mail" [(ngModel)]="identifiants.username">
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password" [(ngModel)]="identifiants.password">
+                        <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="identifiants.password">
                     </div>
                 </div>
                 <div class="ui fluid large green submit button" (click)="login()">Se connecter</div>
             </div>
         </form>
-
-        <div class="ui message">
-            {{identifiants | json}}
-        </div>
         <div class="ui message">
             Mot de passe oublié ? <a href="#">Clique ici</a>
         </div>
