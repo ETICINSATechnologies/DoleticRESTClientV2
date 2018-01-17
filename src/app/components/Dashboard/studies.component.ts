@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Project } from '../../entities/project'
-//import { ProjectService } from '../../services/project.service'
+import { ProjectService } from '../../services/project.service'
 
 @Component({
   selector: 'doletic-studies',
@@ -33,7 +33,7 @@ export class StudiesComponent implements OnInit {
   roleOptions: string[] = ['Role1', 'Role2', 'Role3'];
 
 
-  constructor(/*private projectService: ProjectService*/) { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
   	this.getAllByCurrentUser();

@@ -22,7 +22,7 @@ import {CountryService} from "./services/country.service";
 import {PositionService} from "./services/position.service";
 import {DepartmentService} from "./services/department.service";
 import {ContactService} from "./services/contact.service";
-//import {ProjectService} from "./services/project.service";
+import {ProjectService} from "./services/project.service";
 import {SupportService} from "./services/support.service";
 import {TicketService} from "./services/ticket.service";
 
@@ -53,7 +53,7 @@ import {TicketService} from "./services/ticket.service";
         PositionService,
         DepartmentService,
         ContactService,
-        //ProjectService,
+        ProjectService,
         SupportService,
         TicketService
     ],
