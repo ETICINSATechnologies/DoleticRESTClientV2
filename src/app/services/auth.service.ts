@@ -56,8 +56,8 @@ export class AuthenticationService {
     getHeaders(): Headers{
         if(this.isLogged()){
             return new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': this.getTokenType() + " " + this.getAccessToken()
+                'Authorization': this.getTokenType() + " " + this.getAccessToken(),
+                'Content-Type': 'application/json'
             });
         }
         else{
