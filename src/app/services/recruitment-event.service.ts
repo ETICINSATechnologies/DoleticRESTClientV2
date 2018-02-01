@@ -21,6 +21,16 @@ export class RecruitmentEventService {
         return Promise.reject(error.message || error);
     }
 
+    getStats():Promise<Array<any>>{
+        return this.http
+            .get(this.recruitment_eventApiUrl+'s/stats', {headers: this.headers})
+            .toPromise()
+            .then(res => {
+                return res.json() as Array<any>;
+            })
+            .catch(this.handleError)
+    }
+
     create(recruitment_event: NewRecruitmentEvent):Promise<RecruitmentEvent> {
         return this.http
             .post(this.recruitment_eventApiUrl, JSON.stringify(recruitment_event), {headers: this.headers})

@@ -4,6 +4,8 @@ import {HttpModule} from "@angular/http";
 import {FormsModule} from '@angular/forms';
 import {SuiModule} from 'ng2-semantic-ui';
 import {AppRoutingModule} from "./app-routing.module";
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './pages/login.page.component';
@@ -13,6 +15,8 @@ import {StudiesComponent} from "./components/Dashboard/studies.component";
 import {SupportComponent} from "./components/Support/support.component";
 import {MyTicketsComponent} from "./components/Support/my-tickets.component";
 import {TicketsToSolveComponent} from "./components/Support/tickets-to-solve.component";
+import {RHComponent} from './components/RH/rh.component';
+import {ChartComponent} from './components/RH/chart.component';
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -25,6 +29,8 @@ import {ContactService} from "./services/contact.service";
 import {ProjectService} from "./services/project.service";
 import {SupportService} from "./services/support.service";
 import {TicketService} from "./services/ticket.service";
+import {AuthGuard} from './auth.gard';
+import {RecruitmentEventService} from './services/recruitment-event.service';
 
 @NgModule({
     declarations: [
@@ -35,14 +41,18 @@ import {TicketService} from "./services/ticket.service";
         StudiesComponent,
         SupportComponent,
         MyTicketsComponent,
-        TicketsToSolveComponent
+        TicketsToSolveComponent,
+        RHComponent,
+        ChartComponent
     ],
     imports: [
         BrowserModule,
         HttpModule,
         FormsModule,
         SuiModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgxChartsModule,
+        BrowserAnimationsModule
     ],
     providers: [
         AuthenticationService,
@@ -55,7 +65,9 @@ import {TicketService} from "./services/ticket.service";
         ContactService,
         ProjectService,
         SupportService,
-        TicketService
+        TicketService,
+        AuthGuard,
+        RecruitmentEventService
     ],
     bootstrap: [AppComponent]
 })

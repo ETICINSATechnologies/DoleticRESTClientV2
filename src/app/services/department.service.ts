@@ -21,6 +21,16 @@ export class DepartmentService {
         return Promise.reject(error.message || error);
     }
 
+    getRepatitionConsultant(): Promise<Array<any>>{
+        return this.http
+            .get(this.departmentApiUrl + 's/consultants', {headers: this.headers})
+            .toPromise()
+            .then(res =>{
+                return res.json() as Array<any>;
+            })
+            .catch(this.handleError);
+    }
+
     create(department: NewDepartment):Promise<Department> {
         return this.http
             .post(this.departmentApiUrl, JSON.stringify(department), {headers: this.headers})

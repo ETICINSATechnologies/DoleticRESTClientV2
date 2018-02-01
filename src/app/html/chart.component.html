@@ -1,0 +1,71 @@
+<div class="ui grid">
+    <div class="row">
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Répartition des membres par pôle </div>
+            <div class="ui active centered inline loader" *ngIf="!repartitionPole"></div>
+            <ngx-charts-pie-chart *ngIf="repartitionPole"
+                    [scheme]="colorTheme"
+                    [results]="repartitionPole"
+                    [legend]= true
+                    (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div>
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Adhésions administrateur invalide </div>
+            <table class="ui celled column">
+                <thead>
+                    <tr>
+                        <th>Pôle</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Répartition des consultants par département </div>
+            <div class="ui active centered inline loader" *ngIf="!repartitionConsultant"></div>
+            <ngx-charts-pie-chart *ngIf="repartitionConsultant"
+                    [scheme]="colorTheme"
+                    [results]="repartitionConsultant"
+                    [legend]= true
+                    (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div>
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Adhésions administrateur invalide </div>
+            <table class="ui celled column">
+                <thead>
+                    <tr>
+                        <th>Pôle</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Statistiques AG de recrutement </div>
+            <div class="ui active centered inline loader" *ngIf="!statsRecutement"></div>
+            <ngx-charts-area-chart *ngIf="statsRecutement"
+                    [scheme]="colorTheme"
+                    [results]="statsRecutement"
+                    [legend]= true
+                    (select)="onSelect($event)">
+            </ngx-charts-area-chart>
+        </div>
+        <div class="eight wide column">
+            <div class="ui horizontal divider"> Adhésions administrateur invalide </div>
+            <table class="ui celled column">
+                <thead>
+                    <tr>
+                        <th>Pôle</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
