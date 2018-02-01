@@ -1,99 +1,38 @@
 import {Component, OnInit} from '@angular/core';
+import {colorSets} from '@swimlane/ngx-charts/release/utils';
+import {DivisionService} from '../../services/division.service';
+import {DepartmentService} from '../../services/department.service';
+import {RecruitmentEventService} from '../../services/recruitment-event.service';
 
 
 @Component({
     selector: 'doletic-chart',
     templateUrl: '../../html/chart.component.html',
-    providers: []
+    providers: [DivisionService, DepartmentService, RecruitmentEventService]
 })
 
 export class ChartComponent implements OnInit{
 
-    single: any[];
-    multi: any[];
+    colorTheme = colorSets.filter(color => color.name === 'picnic')[0];
+    repartitionPole: Array<any>;
+    repartitionConsultant: Array<any>;
+    statsRecutement: Array<any>;
+
+    constructor(divisionService: DivisionService, departementService: DepartmentService, recruitmentService: RecruitmentEventService) {
+
+        divisionService.getRepartition().then( res => {
+            this.repartitionPole = res;
+        });
+
+        departementService.getRepatitionConsultant().then(res => {
+            this.repartitionConsultant = res;
+        })
+
+        recruitmentService.getStats().then(res =>{
+            this.statsRecutement = res;
+        })
 
 
-
-    view: any[] = [700, 400];
-
-    // options
-    showLegend = true;
-
-    colorScheme = {
-        domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-    };
-
-    // pie
-    showLabels = true;
-    explodeSlices = false;
-    doughnut = false;
-
-    constructor() {
-        var single = [
-            {
-                "name": "Germany",
-                "value": 8940000
-            },
-            {
-                "name": "USA",
-                "value": 5000000
-            },
-            {
-                "name": "France",
-                "value": 7200000
-            }
-        ];
-
-        var multi = [
-            {
-                "name": "Germany",
-                "series": [
-                    {
-                        "name": "2010",
-                        "value": 7300000
-                    },
-                    {
-                        "name": "2011",
-                        "value": 8940000
-                    }
-                ]
-            },
-
-            {
-                "name": "USA",
-                "series": [
-                    {
-                        "name": "2010",
-                        "value": 7870000
-                    },
-                    {
-                        "name": "2011",
-                        "value": 8270000
-                    }
-                ]
-            },
-
-            {
-                "name": "France",
-                "series": [
-                    {
-                        "name": "2010",
-                        "value": 5000002
-                    },
-                    {
-                        "name": "2011",
-                        "value": 5800000
-                    }
-                ]
-            }
-        ];
-        Object.assign(
-            this,
-            {
-                single,
-                multi
-            }
-        )
     }
 
     onSelect(event) {

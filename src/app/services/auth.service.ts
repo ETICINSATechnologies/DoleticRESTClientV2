@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map'
 
 import {Headers} from "@angular/http";
+import {UserService} from './user.service';
 
 @Injectable()
 

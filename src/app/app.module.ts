@@ -29,6 +29,8 @@ import {ContactService} from "./services/contact.service";
 //import {ProjectService} from "./services/project.service";
 import {SupportService} from "./services/support.service";
 import {TicketService} from "./services/ticket.service";
+import {AuthGuard} from './auth.gard';
+import {RecruitmentEventService} from './services/recruitment-event.service';
 
 @NgModule({
     declarations: [
@@ -63,7 +65,9 @@ import {TicketService} from "./services/ticket.service";
         ContactService,
         //ProjectService,
         SupportService,
-        TicketService
+        TicketService,
+        AuthGuard,
+        RecruitmentEventService
     ],
     bootstrap: [AppComponent]
 })

@@ -9,8 +9,8 @@ export const API_SERVER: any = {
 };
 export const LOGIN_CONFIG: any = {
     //clientId: "1_4fl0ub6q01wk8s080woccgo0ccwwg4s8sk8gc40sgcc0wk4g0s",
-    clientId: "1_54evc9zukukoc4gk8ss0w0c8kkg0cwc8ok8o8wogosksg00cg0",
-    secretId: "34unu18xw6kgw48wwgc0ckcwccko4s8owwkskgws8kgk4o44w4",
+    clientId: "3_1akn96dyogro4s0sswo0scc88kg4o0owswwkkck4088ok0ok0o",
+    secretId: "2y6qpa5na98gwosk088kgg0s4g4k808844cc08088wk4ocs4og",
     grantType: "password",
     redirectURL: "localhost:4200/dashboard"
 };

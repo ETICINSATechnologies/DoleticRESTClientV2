@@ -110,4 +110,14 @@ export class DivisionService {
             })
             .catch(this.handleError);
     }
+
+    getRepartition(): Promise<Array<any>>{
+        return this.http
+            .get(this.divisionApiUrl + "s/repartition", {headers: this.headers})
+            .toPromise()
+            .then(res => {
+                return res.json() as Array<any>;
+            })
+            .catch(this.handleError);
+    }
 }
