@@ -15,7 +15,7 @@ import 'rxjs/add/operator/toPromise';
 export class SupportService {
     constructor(private http: Http, private authService: AuthenticationService){}
 
-    private supportApiUrl = API_SERVER.support + '/rights';
+    private supportApiUrl = API_SERVER.support + 'rights';
     private headers = this.authService.getHeaders();
 
     private handleError(error: any): Promise<any> {

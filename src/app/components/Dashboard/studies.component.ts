@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Project } from '../../entities/project'
+
 import { ProjectService } from '../../services/project.service'
 
 @Component({
@@ -14,15 +15,15 @@ import { ProjectService } from '../../services/project.service'
             margin: 0; 
            }
            input[type=number] {-moz-appearance: textfield;}`],
-  providers: []
+  providers: [ProjectService]
 })
 export class StudiesComponent implements OnInit {
 	limits: number[] = [5, 10, 25, 50];
   limit: number = 5;
   page: number = 1;
 
-	projects: Project[]
-	search_results: Project[]
+	projects: Project[] = [];
+	search_results: Project[] = [];
 
 	searchNumber: number = null;
 	searchName: string = null;
@@ -32,17 +33,12 @@ export class StudiesComponent implements OnInit {
   statusOptions: string[] = ['Status1', 'Status2', 'Status3'];
   roleOptions: string[] = ['Role1', 'Role2', 'Role3'];
 
-
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService)
+  { }
 
   ngOnInit() {
-  	this.getAllByCurrentUser();
-  }
-
-  getAllByCurrentUser(): void {
-  	/*this.projectService.getAllByCurrentUser()
-  		.then(projects => this.projects = this.search_results = projects);*/
-      this.projects = this.search_results = [new Project(1, 1, 'projet1'), new Project(2, 2, 'projet2'), new Project(3, 3, 'projet3')];
+  	this.projectService.getAllCurrent()
+      .then(projects => this.projects = this.search_results = projects);
   }
 
   search(): void {

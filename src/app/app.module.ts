@@ -15,6 +15,7 @@ import {StudiesComponent} from "./components/Dashboard/studies.component";
 import {SupportComponent} from "./components/Support/support.component";
 import {MyTicketsComponent} from "./components/Support/my-tickets.component";
 import {TicketsToSolveComponent} from "./components/Support/tickets-to-solve.component";
+import {TicketFormComponent} from "./components/Support/ticket-form.component";
 import {RHComponent} from './components/RH/rh.component';
 import {ChartComponent} from './components/RH/chart.component';
 
@@ -29,6 +30,9 @@ import {ContactService} from "./services/contact.service";
 import {ProjectService} from "./services/project.service";
 import {SupportService} from "./services/support.service";
 import {TicketService} from "./services/ticket.service";
+import {TicketTypeService} from "./services/ticket-type.service";
+import {TicketStatusService} from "./services/ticket-status.service";
+import {UserService} from "./services/user.service";
 import {AuthGuard} from './auth.gard';
 import {RecruitmentEventService} from './services/recruitment-event.service';
 
@@ -42,6 +46,7 @@ import {RecruitmentEventService} from './services/recruitment-event.service';
         SupportComponent,
         MyTicketsComponent,
         TicketsToSolveComponent,
+        TicketFormComponent,
         RHComponent,
         ChartComponent
     ],
@@ -66,6 +71,9 @@ import {RecruitmentEventService} from './services/recruitment-event.service';
         ProjectService,
         SupportService,
         TicketService,
+        TicketTypeService,
+        TicketStatusService,
+        UserService,
         AuthGuard,
         RecruitmentEventService
     ],

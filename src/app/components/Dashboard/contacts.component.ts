@@ -14,25 +14,24 @@ export class ContactsComponent implements OnInit {
 	limit: number = 5;
   page: number = 1;
 
-	contacts: Contact[];
-	search_results: Contact[];
+	contacts: Contact[] = [];
+	search_results: Contact[] = [];
 
 	
 	searchName: string = null;
   searchStatus: string = null;
   statusOptions: string[] = ['Status1', 'Status2', 'Status3'];
 
-  constructor(/*private contactService: ContactService*/) { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
   	this.getAllByCurrentUser();
   }
 
   getAllByCurrentUser(): void {
-  	/*this.contactService.getAllByCurrentUser()
-  		.then(contacts => this.contacts = this.search_results = contacts);*/
-      this.contacts = this.search_results = [new Contact(1, 'Jane', 'Doe'), new Contact(2, 'Zacaria', 'Ane'), new Contact(3, 'Adrien', 'Dupalais'), new Contact(4, 'Jean', 'François'), new Contact(5, 'Janette', 'Villetier'), new Contact(6, 'John', 'Doe'), new Contact(7, 'Zaca', 'Anne'), new Contact(8, 'Adrian', 'Du'), new Contact(9, 'Jack', 'Fran'), new Contact(10, 'Jane', 'Vil')];
-  }
+  	this.contactService.getAllByCurrentUser()
+  		.then(contacts => this.contacts = this.search_results = contacts);
+  }  
 
   search(): void {
   	let search_buffer: Contact[] = this.contacts;

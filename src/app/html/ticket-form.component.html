@@ -1,0 +1,42 @@
+<div class="ui segments">
+	<div class="ui left aligned segment">
+		<form #ticketForm="ngForm" class="ui form">
+			<h4 class="ui top centered dividing header">Création d'un nouveau ticket</h4>
+			<div class="fields">
+				<div class="field ten wide">
+					<label for="title">Sujet</label>
+					<input type="text" id="title" name="title" placeholder="Sujet" required [(ngModel)]="ticket.title"/>
+				</div>
+				<div class="field six wide">	
+					<label for="type">Catégorie</label>
+					<sui-select class="selection"
+								style="min-width: 60px"
+								id = "type"
+								name = "type"
+								placeholder = "Choississez..."
+								required
+			                    [(ngModel)]="ticket.type"
+			                    [options]="ticketTypes"
+			                    labelField = "label"
+			                    #selectType>
+			            <sui-select-option *ngFor="let option of selectType.filteredOptions"
+			                               [value]="option">
+			            </sui-select-option>
+			        </sui-select>
+			    </div>    
+			</div>
+			<div class="field">
+				<label for="content">Contenu</label>
+				<textarea id="content" name="content" required [(ngModel)]="ticket.content"></textarea>
+			</div>
+		</form>
+	</div>
+	<div class="ui basic right aligned segment">
+		<div class="ui buttons">
+		    <button class="ui negative button" (click)="reset()">Réinitialiser</button>
+		    <div class="or" data-text="OU"></div>
+		    <button type="submit" class="ui positive button" (click)="submit()">Envoyer</button>
+		</div>
+	</div>
+	<p>{{diagnostic}}</p> <!-- TODO supprimer -->
+</div>

@@ -12,8 +12,8 @@
       		<button class="ui blue button" (click)="workOn(ticket)">Traiter</button>
 		</div>
 
-	    <div class="content" style="text-align: justify;">
-	      <p class="header"><a>De {{ticket.author.username}} | {{ticket.title}}</a></p>
+	    <div class="content" style="text-align: justify; word-break: break-all;">
+	      <p class="header"><a>De {{ticket.author.username}} | {{ticket.title}} | {{ticket.creationDate}}</a></p>
 	      <p>{{ticket.content}}</p>
 		</div>
 
@@ -35,7 +35,7 @@
       		<button class="ui green button" (click)="resolve(ticket)">Résolu !</button>
 		</div>
 		
-	    <div class="content" style="text-align: justify;">
+	    <div class="content" style="text-align: justify; word-break: break-all;">
 	      <p class="header"><a>De {{ticket.author.username}} | {{ticket.title}}</a></p>
 	      <p>{{ticket.content}}</p>	  
 		</div>

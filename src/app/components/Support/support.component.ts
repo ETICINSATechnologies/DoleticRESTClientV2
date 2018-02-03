@@ -12,13 +12,12 @@ import {TicketsToSolveComponent} from "./tickets-to-solve.component"
 })
 
 export class SupportComponent implements OnInit{
-  right_level: number;
+  right_level: number = 1;
 
   constructor(private supportService: SupportService){}
   
   ngOnInit(): void {
-    //this.supportService.getCurrentUserRights().then(right_level => this.right_level = right_level.right);
-    this.right_level = 4;
+    this.supportService.getCurrentUserRights().then(right_level => this.right_level = right_level.right);
   }
 };
 

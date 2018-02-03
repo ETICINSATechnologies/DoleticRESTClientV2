@@ -1,5 +1,6 @@
 <div class="ui center aligned padded grid">
 	<div class="fifteen wide column">
+		<p>right = {{right_level}}</p> <!-- TODO supprimmer -->
 		<sui-tabset *ngIf = "right_level >= 4; else other_content">
 		    <div class="ui top attached tabular menu">
 		        <a class="item" suiTabHeader="1">Administrer</a>
@@ -17,8 +18,8 @@
 			    	<div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
 			        	<doletic-my-tickets></doletic-my-tickets>
 				    </div>
-				    <div class="fifteen wide mobile fifteen wide tablet five wide large screen five wide computer column">
-				        TicketForm
+				    <div class="fifteen wide mobile fifteen wide tablet six wide large screen six wide computer column">
+				        <doletic-ticket-form></doletic-ticket-form>
 				    </div>
 				</div>
 		    </div>
@@ -28,8 +29,8 @@
 			    <div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
 			        <doletic-my-tickets></doletic-my-tickets>
 				</div>
-				<div class="fifteen wide mobile fifteen wide tablet five wide large screen five wide computer column">
-				    TicketForm
+				<div class="fifteen wide mobile fifteen wide tablet six wide large screen six wide computer column">
+				    <doletic-ticket-form></doletic-ticket-form>
 				</div>
 			</div>
 		</ng-template>    
