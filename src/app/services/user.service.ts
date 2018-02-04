@@ -53,6 +53,16 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    getCurrent():Promise<User>{
+        return this.http
+            .get(this.userApiUrl + "/current", {headers: this.headers})
+            .toPromise()
+            .then(res => {
+                return res.json() as User;
+            })
+            .catch(this.handleError);
+    }
+
     getByMail(userMail:string):Promise<User>{
         return this.http
             .get(this.userApiUrl + "/" + userMail, {headers: this.headers})

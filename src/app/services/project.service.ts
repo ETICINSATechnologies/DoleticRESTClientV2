@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 export class ProjectService{
   constructor(private http: Http, private authService: AuthenticationService){}
 
-  private projectApiUrl = API_SERVER.kernel + 'project';
+  private projectApiUrl = API_SERVER.ua + 'project';
   private headers = this.authService.getHeaders();
 
   private handleError(error: any): Promise<any> {
