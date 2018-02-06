@@ -45,24 +45,24 @@
         <doletic-contacts></doletic-contacts>
     </div>
 </div>
-<sui-modal [isClosable]="true" *ngIf="showModal">
+<sui-modal [isClosable]="true" *ngIf="showModal" (dismissed) = "cancel()">
   <div class="header">Edition du profil de {{user.firstName}}</div>
   <div class="content">
     <form class="ui form">
       <div class="two fields">
         <div class="field">
           <label>Prénom</label>
-          <input type="text" [(ngModel)]="user.firstName" name="prenom" placeholder="First Name">
+          <input type="text" [(ngModel)]="updatedUser.firstName" name="prenom" placeholder="First Name">
         </div>
         <div class="field">
           <label>Nom</label>
-          <input type="text" [(ngModel)]="user.lastName" name="nom" placeholder="Last Name">
+          <input type="text" [(ngModel)]="updatedUser.lastName" name="nom" placeholder="Last Name">
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Civilité</label>
-          <select  [(ngModel)]="user.gender" name="gender">
+          <select  [(ngModel)]="updatedUser.gender" name="gender">
             <option *ngFor="let gender of genders" [value]="gender.label">
               {{gender.label}}
             </option>
@@ -71,7 +71,7 @@
         <div class="field">
           <label>Date de Naissance</label>
           <div class="ui left icon input">
-            <input type="text" name="dateNaissance" [(ngModel)]="user.birthDate" placeholder="AAAA-MM-JJ">
+            <input type="text" name="dateNaissance" [(ngModel)]="updatedUser.birthDate" placeholder="AAAA-MM-JJ">
             <i class="calendar icon"></i>
           </div>
         </div>
@@ -79,30 +79,30 @@
       <div class="two fields">
         <div class="field">
           <label>Numéro de téléphone</label>
-          <input type="text" [(ngModel)]="user.tel" name="tel" placeholder="0000000000">
+          <input type="text" [(ngModel)]="updatedUser.tel" name="tel" placeholder="0000000000">
         </div>
         <div class="field">
           <label>Adresse mail</label>
-          <input type="text" [(ngModel)]="user.email" name="email" placeholder="Mail">
+          <input type="text" [(ngModel)]="updatedUser.email" name="email" placeholder="Mail">
         </div>
       </div>
       <div class="field">
         <label>Adresse</label>
-        <input type="text" [(ngModel)]="user.address" name="address" placeholder="Adresse">
+        <input type="text" [(ngModel)]="updatedUser.address" name="address" placeholder="Adresse">
       </div>
       <div class="two fields">
         <div class="field">
           <label>Code postal</label>
-          <input type="text" [(ngModel)]="user.postalCode" name="postalCode" placeholder="Code postal">
+          <input type="text" [(ngModel)]="updatedUser.postalCode" name="postalCode" placeholder="Code postal">
         </div>
         <div class="field">
           <label>Ville</label>
-          <input type="text" [(ngModel)]="user.city" name="city" placeholder="Ville">
+          <input type="text" [(ngModel)]="updatedUser.city" name="city" placeholder="Ville">
         </div>
       </div>
       <div class="field">
         <label>Pays</label>
-        <select  [(ngModel)]="user.country" name="country">
+        <select  [(ngModel)]="updatedUser.country" name="country">
           <option *ngFor="let country of countries" [value]="country.label">
             {{country.label}}
           </option>
@@ -111,7 +111,7 @@
       <div class="two fields">
         <div class="field">
           <label>Année d'étude</label>
-          <select  [(ngModel)]="user.schoolYear" name="schoolYear">
+          <select  [(ngModel)]="updatedUser.schoolYear" name="schoolYear">
             <option *ngFor="let schoolYear of schoolYears" [value]="schoolYear.year">
               {{schoolYear.year}}
             </option>
@@ -120,7 +120,7 @@
         <div class="field">
           <label></label>
           <label>Département</label>
-          <select  [(ngModel)]="user.department" name="department">
+          <select  [(ngModel)]="updatedUser.department" name="department">
             <option *ngFor="let department of departments" [value]="department.label">
               {{department.label}}
             </option>
@@ -128,9 +128,20 @@
         </div>
       </div>
     </form>
+    <div *ngIf = "formError" class="ui center aligned basic segment">
+    <div class="ui compact negative message">
+      <div class="header">Code 500 : erreur interne du serveur</div>
+      <p>La connexion au serveur n'a pas pu être établie. Veuillez réessayer ultérieurement</p>
+    </div>
+    </div>
+    <div *ngIf = "formLoading" class="ui basic segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui loader"></div>
+      </div>
+    </div>
   </div>
   <div class="actions">
-    <button class="ui red button" >Cancel</button>
-    <button class="ui green button" autofocus>OK</button>
+    <button class="ui red button" (click) = "cancel()" >Annuler</button>
+    <button class="ui green button" autofocus (click) = "submit()">OK</button>
   </div>
 </sui-modal>
