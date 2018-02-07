@@ -17,6 +17,8 @@ import {TicketType} from "../../entities/ticket-type";
 export class TicketFormComponent implements OnInit{
   ticket: NewTicket;
   ticketTypes: TicketType[] = [];
+  serverLoading: boolean = false;
+  serverError: boolean = false;
 
   constructor(private ticketService: TicketService, 
   			  private ticketTypeService: TicketTypeService,
@@ -33,15 +35,23 @@ export class TicketFormComponent implements OnInit{
 
   submit(): void
   {
+    this.serverError = false;
+    this.serverLoading = true;
   	this.ticketService.create(this.ticket).then( () => 
-  		{
-  			this.reset();
-  		}
-  	);
+		{
+			this.reset();
+		}
+  	).catch( res => 
+    {
+      this.serverLoading = false;
+      this.serverError = true;
+      console.log("Erreur dans submit : " + res);
+    });
   }
 
   reset(): void
   {
+    this.serverLoading = this.serverError = false;
   	this.ticket.title = this.ticket.type = this.ticket.content = null;
   }
 
