@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit{
     departments: Department[];
     genders: Gender[];
     user: User;
+    updatedUser: User;
 
     constructor(
       private userService: UserService,
@@ -35,22 +36,14 @@ export class DashboardComponent implements OnInit{
     ) {}
 
     ngOnInit(): void {
-      this.getUser();
+      this.loadUser();
       this.getCountries();
       this.getDepartments();
       this.getGenders();
       this.getSchoolYears();
     }
+
     loadUser() {
-      /*this.user.firstName = 'Kristy';
-      this.user.lastName = 'Test';
-      this.user.schoolYear = new SchoolYear(null, 4);
-      this.user.department = new Department(null,'IF');
-      this.user.address = '20 Avenue Albert Einstein';
-      this.user.country = new Country(null, 'France');
-      this.user.birthDate = '1996-04-13';
-      this.user.city = 'Villeurbanne';
-      this.user.postalCode = 69100;*/
       this.userService.getCurrent().then(user => 
         {
           this.user = user;
