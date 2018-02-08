@@ -30,12 +30,23 @@
 				<textarea id="content" name="content" required [(ngModel)]="ticket.content"></textarea>
 			</div>
 		</form>
+		<div *ngIf = "serverError" class="ui center aligned basic segment">
+		    <div class="ui compact negative message">
+		      <div class="header">Code 500 : erreur interne du serveur</div>
+		      <p>La connexion au serveur n'a pas pu être établie. Veuillez réessayer ultérieurement.</p>
+		    </div>
+	    </div>
+	    <div *ngIf = "serverLoading" class="ui basic segment">
+	      <div class="ui active inverted dimmer">
+	        <div class="ui loader"></div>
+	      </div>
+	    </div>
 	</div>
 	<div class="ui basic right aligned segment">
 		<div class="ui buttons">
 		    <button class="ui negative button" (click)="reset()">Réinitialiser</button>
 		    <div class="or" data-text="OU"></div>
-		    <button type="submit" class="ui positive button" (click)="submit()">Envoyer</button>
+		    <button type="submit" class="ui positive button" (click) = "submit()" [disabled] = "serverLoading || !ticketForm.form.valid">Envoyer</button>
 		</div>
 	</div>
 	<p>{{diagnostic}}</p> <!-- TODO supprimer -->
