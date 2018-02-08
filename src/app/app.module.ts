@@ -35,6 +35,7 @@ import {TicketStatusService} from "./services/ticket-status.service";
 import {UserService} from "./services/user.service";
 import {AuthGuard} from './auth.gard';
 import {RecruitmentEventService} from './services/recruitment-event.service';
+import {GRCComponent} from "./components/GRC/grc.component";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import {RecruitmentEventService} from './services/recruitment-event.service';
         TicketsToSolveComponent,
         TicketFormComponent,
         RHComponent,
-        ChartComponent
+        ChartComponent,
+        GRCComponent
     ],
     imports: [
         BrowserModule,
