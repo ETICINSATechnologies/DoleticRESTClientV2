@@ -1,0 +1,79 @@
+<div>
+    <div class="ui six item menu">
+        <a class="item" [routerLink]="['/dashboard']">Accueil</a>
+        <a class="item active" [routerLink]="['/grc']">Gestion Relations Clients</a>
+        <a class="item" [routerLink]="['/rh']">Ressources Humaines</a>
+        <a class="item" [routerLink]="['/support']">Support</a>
+        <a class="item" [routerLink]="['/outils']">Outils</a>
+        <a class="item" [routerLink]="['/ua']">Unités d'Affaires</a>
+    </div>
+</div>
+<div class="ui center aligned padded grid">
+    <div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+        <sui-tabset>
+            <div class="ui top attached tabular menu">
+                <a class="item" suiTabHeader="1">Gestion des sociétés</a>
+                <a class="item" suiTabHeader="2">Prospections à réaliser</a>
+                <a class="item" suiTabHeader="3">Résultat des prospections</a>
+                <a class="item" suiTabHeader="4">Contacts courants</a>
+                <a class="item" suiTabHeader="5">Anciens contacts</a>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="1">
+                <div class="ui  padded grid">
+                    <div class="twelve wide column">
+                        <div class="ui buttons">
+                            <button class="ui green button">Ajouter une société</button>
+                            <button class="ui olive button">Actualiser la liste</button>
+                            <button class="ui yellow button">Exporter au format Excel</button>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <sui-checkbox class="toggle">Afficher les anciennes sociétés</sui-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="2">
+                <div class="ui  padded grid">
+                    <div class="twelve wide column">
+                        <div class="ui buttons">
+                            <button class="ui green button">Ajouter une prospection</button>
+                            <button class="ui olive button">Actualiser la liste</button>
+                            <button class="ui yellow button">Exporter au format Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="3">
+                <div class="ui  padded grid">
+                    <div class="twelve wide column">
+                        <div class="ui buttons">
+                            <button class="ui olive button">Actualiser la liste</button>
+                            <button class="ui yellow button">Exporter au format Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="4">
+                <div class="ui  padded grid">
+                    <div class="twelve wide column">
+                        <div class="ui buttons">
+                            <button class="ui green button">Ajouter un contact</button>
+                            <button class="ui olive button">Actualiser la liste</button>
+                            <button class="ui yellow button">Exporter au format Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="5">
+                <div class="ui  padded grid">
+                    <div class="twelve wide column">
+                        <div class="ui buttons">
+                            <button class="ui olive button">Actualiser la liste</button>
+                            <button class="ui yellow button">Exporter au format Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </sui-tabset>
+    </div>
+</div>

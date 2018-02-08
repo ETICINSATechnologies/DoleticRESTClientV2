@@ -14,7 +14,7 @@
             <div class="image">
                 <img src="assets/no-image.jpeg">
             </div>
-            <div class="content">
+            <div class="content" *ngIf="user">
                 <a class="header">{{user.firstName}} {{user.lastName}}</a>
                 <div class="meta">
                     <span class="date">Dernière connexion le</span>
@@ -45,7 +45,7 @@
         <doletic-contacts></doletic-contacts>
     </div>
 </div>
-<sui-modal [isClosable]="true" *ngIf="showModal">
+<sui-modal [isClosable]="true" *ngIf="showModal && user">
   <div class="header">Edition du profil de {{user.firstName}}</div>
   <div class="content">
     <form class="ui form">
