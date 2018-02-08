@@ -9,6 +9,7 @@ import {SchoolYear} from "../../entities/school-year";
 import {Country} from "../../entities/country";
 import {Department} from "../../entities/department";
 import {Gender} from "../../entities/gender";
+import {AlertService} from '../../services/alert.service';
 
 @Component({
     selector: 'doletic-dashboard',

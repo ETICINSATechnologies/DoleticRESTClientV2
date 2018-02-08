@@ -1,0 +1,9 @@
+<sui-message *ngFor="let message of messages" [class]="'icon ' + message.type">
+    <i class="{{message.icon}} icon"></i>
+    <div class="content">
+        <div class="header">
+            {{message.title}}
+        </div>
+        <p>{{message.text}}</p>
+    </div>
+</sui-message>
