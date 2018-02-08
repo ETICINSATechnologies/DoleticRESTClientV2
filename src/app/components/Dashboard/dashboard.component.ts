@@ -17,7 +17,9 @@ import {Gender} from "../../entities/gender";
 })
 
 export class DashboardComponent implements OnInit{
-    showModal = false;
+    showModal: boolean = false;
+    formError: boolean = false;
+    formLoading: boolean = false;
     schoolYears: SchoolYear[];
     countries: Country[];
     departments: Department[];
@@ -39,13 +41,21 @@ export class DashboardComponent implements OnInit{
       this.getGenders();
       this.getSchoolYears();
     }
-
-    getUser(){
-        this.userService.getCurrent()
-            .catch()
-            .then(res => {
-                this.user = res;
-            })
+    loadUser() {
+      /*this.user.firstName = 'Kristy';
+      this.user.lastName = 'Test';
+      this.user.schoolYear = new SchoolYear(null, 4);
+      this.user.department = new Department(null,'IF');
+      this.user.address = '20 Avenue Albert Einstein';
+      this.user.country = new Country(null, 'France');
+      this.user.birthDate = '1996-04-13';
+      this.user.city = 'Villeurbanne';
+      this.user.postalCode = 69100;*/
+      this.userService.getCurrent().then(user => 
+        {
+          this.user = user;
+          this.updatedUser = Object.assign({}, user);
+        }).catch( res => console.log('Error in loadUser' + res));
     }
 
     getCountries(): void {
@@ -94,6 +104,28 @@ export class DashboardComponent implements OnInit{
             this.departments = <Department[]>res;
           }
         )
+    }
+
+    submit(): void
+    {
+      this.formError = false;
+      this.formLoading = true;
+      this.userService.update(this.updatedUser).then(user => 
+      {
+        this.user = user;
+        this.cancel();
+      }).catch( () => 
+      {
+        this.formLoading = false;
+        this.formError = true
+      });  
+
+    }
+
+    cancel(): void
+    {
+      this.updatedUser = Object.assign({}, this.user);
+      this.showModal = this.formLoading = this.formError = false;
     }
 }
 
