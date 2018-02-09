@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule} from "@angular/http";
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuiModule} from 'ng2-semantic-ui';
 import {AppRoutingModule} from "./app-routing.module";
 import {NgxChartsModule} from '@swimlane/ngx-charts';
@@ -18,6 +18,7 @@ import {TicketsToSolveComponent} from "./components/Support/tickets-to-solve.com
 import {TicketFormComponent} from "./components/Support/ticket-form.component";
 import {RHComponent} from './components/RH/rh.component';
 import {ChartComponent} from './components/RH/chart.component';
+import {AlertComponent} from './components/alert.component';
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -36,6 +37,7 @@ import {UserService} from "./services/user.service";
 import {AuthGuard} from './auth.gard';
 import {RecruitmentEventService} from './services/recruitment-event.service';
 import {GRCComponent} from "./components/GRC/grc.component";
+import {AlertService} from './services/alert.service';
 
 @NgModule({
     declarations: [
@@ -50,7 +52,8 @@ import {GRCComponent} from "./components/GRC/grc.component";
         TicketFormComponent,
         RHComponent,
         ChartComponent,
-        GRCComponent
+        GRCComponent,
+        AlertComponent
     ],
     imports: [
         BrowserModule,
@@ -59,7 +62,8 @@ import {GRCComponent} from "./components/GRC/grc.component";
         SuiModule,
         AppRoutingModule,
         NgxChartsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        ReactiveFormsModule
     ],
     providers: [
         AuthenticationService,
@@ -77,7 +81,8 @@ import {GRCComponent} from "./components/GRC/grc.component";
         TicketStatusService,
         UserService,
         AuthGuard,
-        RecruitmentEventService
+        RecruitmentEventService,
+        AlertService
     ],
     bootstrap: [AppComponent]
 })

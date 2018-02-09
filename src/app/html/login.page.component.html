@@ -6,21 +6,21 @@
                 Bienvenue sur Doletic
             </div>
         </h2>
-        <form class="ui large form">
+        <form [formGroup]="loginForm" class="ui large form" (ngSubmit)="loginForm.valid && login()" [ngClass]="{loading: loading}" novalidate>
             <div class="ui segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="Adresse e-mail" [(ngModel)]="identifiants.username">
+                        <input type="text" id="email" name="email" placeholder="Pseudo" formControlName="email" [(ngModel)]="identifiants.username" required>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="identifiants.password">
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" formControlName="password" [(ngModel)]="identifiants.password" required>
                     </div>
                 </div>
-                <div class="ui fluid large green submit button" (click)="login()">Se connecter</div>
+                <input class="ui fluid large green submit button" type="submit" value="Se connecter" [ngClass]="{disabled: !loginForm.valid}"/>
             </div>
         </form>
         <div class="ui message">
