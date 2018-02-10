@@ -19,6 +19,8 @@ import {TicketFormComponent} from "./components/Support/ticket-form.component";
 import {RHComponent} from './components/RH/rh.component';
 import {ChartComponent} from './components/RH/chart.component';
 import {AlertComponent} from './components/alert.component';
+import {GRCComponent} from "./components/GRC/grc.component";
+import {CompanyTableComponent} from './components/GRC/company-table.component';
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -36,8 +38,9 @@ import {TicketStatusService} from "./services/ticket-status.service";
 import {UserService} from "./services/user.service";
 import {AuthGuard} from './auth.gard';
 import {RecruitmentEventService} from './services/recruitment-event.service';
-import {GRCComponent} from "./components/GRC/grc.component";
 import {AlertService} from './services/alert.service';
+import {FirmService} from "./services/firm.service";
+
 
 @NgModule({
     declarations: [
@@ -53,7 +56,8 @@ import {AlertService} from './services/alert.service';
         RHComponent,
         ChartComponent,
         GRCComponent,
-        AlertComponent
+        AlertComponent,
+        CompanyTableComponent
     ],
     imports: [
         BrowserModule,
@@ -81,8 +85,9 @@ import {AlertService} from './services/alert.service';
         TicketStatusService,
         UserService,
         AuthGuard,
-        RecruitmentEventService,
-        AlertService
+        RecruitmentEventService, 
+        AlertService,
+        FirmService
     ],
     bootstrap: [AppComponent]
 })

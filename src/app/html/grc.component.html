@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="ui center aligned padded grid">
-    <div class="fifteen wide mobile fifteen wide tablet ten wide large screen ten wide computer column">
+    <div class="fifteen wide mobile fifteen wide tablet fifteen wide large screen twelve wide computer column">
         <sui-tabset>
             <div class="ui top attached tabular menu">
                 <a class="item" suiTabHeader="1">Gestion des sociétés</a>
@@ -30,6 +30,9 @@
                     <div class="four wide column">
                         <sui-checkbox class="toggle">Afficher les anciennes sociétés</sui-checkbox>
                     </div>
+                    <div class="sixteen wide column">
+                        <doletic-company-table></doletic-company-table>
+                    </div>    
                 </div>
             </div>
             <div class="ui bottom attached segment" suiTabContent="2">
