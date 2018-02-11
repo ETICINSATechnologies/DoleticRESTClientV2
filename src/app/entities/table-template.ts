@@ -24,13 +24,13 @@ export class TableTemplate implements OnInit {
       .then(remoteData => 
       {
         this.data = remoteData;
-        this.refreshData();
+        this.refreshView();
       }); */
       this.data = this.service.getTableData();
-      this.refreshData();
+      this.refreshView();
   }
 
-  refreshData(): void
+  refreshView(): void
   {
     if(this.sorted_column >= 0) 
     { // sorts the table if needed when data is re-fetched
