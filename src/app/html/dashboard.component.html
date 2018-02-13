@@ -62,7 +62,7 @@
       <div class="two fields">
         <div class="field">
           <label>Civilité</label>
-          <select  [(ngModel)]="updatedUser.gender" name="gender">
+          <select  [(ngModel)]="updatedUser.gender.label" name="gender">
             <option *ngFor="let gender of genders" [value]="gender.label">
               {{gender.label}}
             </option>
@@ -71,7 +71,7 @@
         <div class="field">
           <label>Date de Naissance</label>
           <div class="ui left icon input">
-            <input type="text" name="dateNaissance" [(ngModel)]="updatedUser.birthDate" placeholder="AAAA-MM-JJ">
+            <input type="text" name="dateNaissance" [(ngModel)]="updatedUser.birthDate" placeholder="dd/MM/YYYY">
             <i class="calendar icon"></i>
           </div>
         </div>
@@ -102,7 +102,7 @@
       </div>
       <div class="field">
         <label>Pays</label>
-        <select  [(ngModel)]="updatedUser.country" name="country">
+        <select  [(ngModel)]="updatedUser.country.label" name="country">
           <option *ngFor="let country of countries" [value]="country.label">
             {{country.label}}
           </option>
@@ -111,7 +111,7 @@
       <div class="two fields">
         <div class="field">
           <label>Année d'étude</label>
-          <select  [(ngModel)]="updatedUser.schoolYear" name="schoolYear">
+          <select  [(ngModel)]="updatedUser.schoolYear.year" name="schoolYear">
             <option *ngFor="let schoolYear of schoolYears" [value]="schoolYear.year">
               {{schoolYear.year}}
             </option>
@@ -120,7 +120,7 @@
         <div class="field">
           <label></label>
           <label>Département</label>
-          <select  [(ngModel)]="updatedUser.department" name="department">
+          <select  [(ngModel)]="updatedUser.department.label" name="department">
             <option *ngFor="let department of departments" [value]="department.label">
               {{department.label}}
             </option>

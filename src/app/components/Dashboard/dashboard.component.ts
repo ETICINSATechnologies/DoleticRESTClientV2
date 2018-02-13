@@ -44,10 +44,23 @@ export class DashboardComponent implements OnInit{
       this.getSchoolYears();
     }
 
+    normalizeUser(): void {
+        let date = new Date(this.user.birthDate);
+        if(date) this.user.birthDate= date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+    }
+
+    normalizeSelects(): void{
+        if(!this.updatedUser.country && this.countries) this.updatedUser.country = this.countries[0];
+        if(!this.updatedUser.department && this.departments) this.updatedUser.department = this.departments[0];
+        if(!this.updatedUser.schoolYear && this.schoolYears) this.updatedUser.schoolYear = this.schoolYears[0];
+        if(!this.updatedUser.gender && this.genders) this.updatedUser.gender = this.genders[0];
+    }
+
     loadUser() {
       this.userService.getCurrent().then(user => 
         {
           this.user = user;
+          this.normalizeUser();
           this.updatedUser = Object.assign({}, user);
         }).catch( res => console.log('Error in loadUser' + res));
     }
@@ -60,6 +73,7 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.countries = <Country[]>res;
+            this.normalizeSelects();
           }
         )
     }
@@ -72,6 +86,7 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.genders = <Gender[]>res;
+              this.normalizeSelects();
           }
         )
     }
@@ -84,6 +99,7 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.schoolYears = <SchoolYear[]>res;
+              this.normalizeSelects();
           }
         )
     }
@@ -96,23 +112,26 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.departments = <Department[]>res;
+              this.normalizeSelects();
           }
         )
     }
 
     submit(): void
     {
-      this.formError = false;
+        setTimeout(this.normalizeUpdatedUser(), 4000);
+        this.formError = false;
       this.formLoading = true;
-      this.userService.update(this.updatedUser).then(user => 
+      this.userService.update(this.updatedUser).then(user =>
       {
         this.user = user;
+          this.normalizeUser();
         this.cancel();
-      }).catch( () => 
+      }).catch( () =>
       {
         this.formLoading = false;
         this.formError = true
-      });  
+      });
 
     }
 
@@ -120,6 +139,53 @@ export class DashboardComponent implements OnInit{
     {
       this.updatedUser = Object.assign({}, this.user);
       this.showModal = this.formLoading = this.formError = false;
+    }
+
+    normalizeUpdatedUser(): void{
+        if(this.updatedUser.gender){
+            let i=0;
+            let find = false;
+            while(i<this.genders.length && !find){
+                if(this.genders[i].label == this.updatedUser.gender.label){
+                    find = true;
+                    this.updatedUser.gender = this.genders[i].id;
+                }
+                i++;
+            }
+        }
+        if(this.updatedUser.country) {
+            let i=0;
+            let find = false;
+            while(i<this.countries.length && !find){
+                if(this.countries[i].label == this.updatedUser.country.label){
+                    find = true;
+                    this.updatedUser.country = this.countries[i].id;
+                }
+                i++;
+            }
+        }
+        if(this.updatedUser.department) {
+            let i=0;
+            let find = false;
+            while(i<this.departments.length && !find){
+                if(this.departments[i].label == this.updatedUser.department.label){
+                    find = true;
+                    this.updatedUser.department = this.departments[i].id;
+                }
+                i++;
+            }
+        }
+        if(this.updatedUser.schoolYear) {
+            let i=0;
+            let find = false;
+            while(i<this.schoolYears.length && !find){
+                if(this.schoolYears[i].year == this.updatedUser.schoolYear.year){
+                    find = true;
+                    this.updatedUser.schoolYear = this.schoolYears[i].id;
+                }
+                i++;
+            }
+        }
     }
 }
 

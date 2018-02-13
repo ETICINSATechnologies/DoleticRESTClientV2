@@ -76,7 +76,6 @@ export class CountryService {
             .get(this.countriesApiUrl, {headers: this.headers})
             .toPromise()
             .then(res => {
-                console.log(res.json());
                 return res.json() as Array<Country>;
             })
             .catch(this.handleError);
