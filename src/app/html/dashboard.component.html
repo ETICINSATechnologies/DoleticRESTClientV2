@@ -29,7 +29,7 @@
                     Modifier mon profil
                 </a>
                 <br>
-                <a>
+                <a (click)="showModal2=!showModal2">
                     <i class="privacy icon"></i>
                     Modifier mon mot de passe
                 </a>
@@ -144,4 +144,38 @@
     <button class="ui red button" (click) = "cancel()" >Annuler</button>
     <button class="ui green button" autofocus (click) = "submit()" [disabled] = "formLoading">Envoyer</button>
   </div>
+</sui-modal>
+<sui-modal [isClosable]="true" *ngIf="showModal2" (dismissed) = "cancel2()">
+    <div class="header">Edition du mot de passe de {{user.firstName}}</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>Ancien mot de passe</label>
+                <input type="password" [(ngModel)]="editPassword.old" name="old" placeholder="">
+            </div>
+            <div class="field">
+                <label>Nouveau mot de passe</label>
+                <input type="password" [(ngModel)]="editPassword.newPass.first" name="first" placeholder="">
+            </div>
+            <div class="field">
+                <label>Confirmation du nouveau mot de passe</label>
+                <input type="password" [(ngModel)]="editPassword.newPass.second" name="second" placeholder="">
+            </div>
+        </form>
+        <div *ngIf = "formError2" class="ui center aligned basic segment">
+            <div class="ui compact negative message">
+                <div class="header">Code 500 : erreur interne du serveur</div>
+                <p>La connexion au serveur n'a pas pu être établie. Veuillez réessayer ultérieurement.</p>
+            </div>
+        </div>
+        <div *ngIf = "formLoading2" class="ui basic segment">
+            <div class="ui active inverted dimmer">
+                <div class="ui loader"></div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui red button" (click) = "cancel2()" >Annuler</button>
+        <button class="ui green button" autofocus (click) = "submit2()" [disabled] = "formLoading2">Envoyer</button>
+    </div>
 </sui-modal>

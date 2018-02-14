@@ -10,6 +10,8 @@ import {Country} from "../../entities/country";
 import {Department} from "../../entities/department";
 import {Gender} from "../../entities/gender";
 import {AlertService} from '../../services/alert.service';
+import {EditPassword} from "../../entities/edit-password";
+import {NewPassword} from "../../entities/password.new";
 
 @Component({
     selector: 'doletic-dashboard',
@@ -21,12 +23,22 @@ export class DashboardComponent implements OnInit{
     showModal: boolean = false;
     formError: boolean = false;
     formLoading: boolean = false;
+    showModal2: boolean = false;
+    formError2: boolean = false;
+    formLoading2: boolean = false;
     schoolYears: SchoolYear[];
     countries: Country[];
     departments: Department[];
     genders: Gender[];
     user: User;
     updatedUser: User;
+    editPassword: EditPassword = {
+        old: "",
+        newPass: {
+            first: "",
+            second: ""
+        }
+    };
 
     constructor(
       private userService: UserService,
@@ -135,10 +147,30 @@ export class DashboardComponent implements OnInit{
 
     }
 
+    submit2(): void
+    {
+        this.formError2 = false;
+        this.formLoading2 = true;
+        this.userService.editCurrentPassword(this.editPassword).then(user =>
+        {
+            this.cancel2();
+        }).catch( () =>
+        {
+            this.formLoading2 = false;
+            this.formError2 = true
+        });
+    }
+
+
     cancel(): void
     {
       this.updatedUser = Object.assign({}, this.user);
       this.showModal = this.formLoading = this.formError = false;
+    }
+
+    cancel2(): void
+    {
+        this.showModal2 = this.formLoading2 = this.formError2 = false;
     }
 
     normalizeUpdatedUser(): void{

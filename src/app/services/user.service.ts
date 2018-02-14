@@ -125,7 +125,7 @@ export class UserService {
 
     editCurrentPassword(editPass:EditPassword): Promise<User>{
         return this.http
-            .post(this.userApiUrl + "/current", editPass, {headers: this.headers})
+            .post(this.userApiUrl + "/current/password", editPass, {headers: this.headers})
             .toPromise()
             .then(res=>{
                 return res.json() as User;
