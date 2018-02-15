@@ -18,5 +18,18 @@ export class CompanyTableComponent extends TableTemplate {
     super(service);
   }
 
+  loadData(d: any): void
+  {
+    for(let i = d.length-1; i>=0; i--)
+    {
+        this.data.push(
+          [
+            d[i].name, d[i].siret, d[i].type.label,
+            d[i].adress, d[i].postalCode, d[i].city,
+            d[i].country.label, d[i].id
+          ]);
+    } 
+  }
+
  
 }

@@ -10,7 +10,7 @@ export class Firm {
     public postalCode?:string,
     public city?:string,
     public lastContact?:string,
-    public type?:FirmType[],
+    public type?:FirmType,
     public country?:Country
   ){}
 }

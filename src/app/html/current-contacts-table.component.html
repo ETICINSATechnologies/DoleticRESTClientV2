@@ -1,0 +1,88 @@
+<p> Limiter à 
+    <sui-select     class="selection" 
+                    placeholder="Limiter à"
+                    style="min-width: 60px"
+                    [options]="PAGE_LENGTHS" 
+                    #selectPageLength 
+                    [(ngModel)]="page_length" 
+                    (ngModelChange)="page_no=1" 
+    >
+    <sui-select-option  *ngFor="let option of selectPageLength.filteredOptions" 
+                        [value]="option">
+    </sui-select-option>
+    </sui-select> éléments
+</p>
+<table class="ui very basic celled table">
+    <thead>
+        <tr>
+<!-- headers avant ici -->
+            <th></th>
+<!-- headers avant ici /-->
+            <th *ngFor = "let header of headers; let i = index">
+                <div (click)="sortData(i)" style="cursor: pointer">
+                    {{header}}
+                    <i class="small sort icon" 
+                        [ngClass]="{'ascending' : i==sorted_column && sort_order== 1, 
+                                    'descending': i==sorted_column && sort_order==-1}"
+                    ></i>
+                </div>
+                <div class="ui icon input">
+                        <input [(ngModel)]="filter_criteria[i]" type="text" style="width: 50%" (keyup)="filterData()">
+                        <i class="filter icon"></i>
+                </div>   
+            </th>
+<!-- headers après ici -->
+            <th>Actions
+                <div>
+                    <button class="small ui violet icon button" suiPopup popupText="Effacer les filtres" (click)="resetFilters()"> 
+                        <i class="erase icon"></i> 
+                    </button> 
+                </div>
+            </th>
+<!-- headers après ici /-->
+        </tr>
+    </thead>
+    <tbody *ngIf = "data; else load">   
+    <tr *ngFor = "let tuple of filtered_data | slice:(page_no-1)*page_length:page_no*page_length; trackBy: getId;">
+<!-- colonne avant ici -->
+        <td>
+            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+            <button class="ui teal icon button" suiPopup popupText="Détails du contact"> 
+                <i class="user icon"></i> 
+            </button> 
+        </td>
+        <td>
+            <h4>{{tuple[spareColumns.name]}}</h4>
+            <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">tuple[spareColumns.mail]</a>
+        </td>
+<!-- colonne avant ici /-->
+        <td *ngFor = "let column of loopedColumns">
+            {{tuple[column]}}
+        </td>
+<!-- colonne après ici -->
+        <td> 
+            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+            <div class="ui icon buttons">
+                <button class="ui blue icon button" suiPopup popupText="Modifier"> 
+                    <i class="write icon"></i> 
+                </button> 
+                <button class="ui yellow icon button" suiPopup popupText="Marquer comme ancien"> 
+                    <i class="student icon"></i> 
+                </button>
+            </div>
+        </td> 
+<!-- colonne après ici /-->
+    </tr> 
+    </tbody>
+    <ng-template #load>
+        <tbody class="ui active inverted dimmer">
+            <tr class="ui loader"></tr>
+        </tbody>
+    </ng-template>    
+</table>
+<p>Affichage des éléments {{min(1+(page_no-1)*page_length, filtered_data.length)}} à {{min(page_no*page_length, filtered_data.length)}} parmi {{filtered_data.length}} élements</p>
+<sui-pagination [collectionSize]="ceil(filtered_data.length/page_length)" 
+                [(page)]="page_no" 
+                [maxSize]="3" 
+                [pageSize]="1"> 
+</sui-pagination>
