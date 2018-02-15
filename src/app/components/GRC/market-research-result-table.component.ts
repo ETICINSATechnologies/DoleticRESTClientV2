@@ -14,19 +14,9 @@ export class MarketResearchResultTableComponent extends TableTemplate {
   loopedColumns: number[] = [1, 2, 3, 4];
   spareColumns = {name: 6, mail: 7, prospectorId: 8};
 
-  constructor(service: ContactService) 
+  constructor(protected service: ContactService) 
   {
-    super(service);
-  }
-
-  ngOnInit()
-  {
-    this.service.getTableData("4")
-      .then(remoteData => 
-      {
-        this.loadData(remoteData);
-        this.refreshView();
-      });
+    super(service, "4");
   }
 
   loadData(d: any): void

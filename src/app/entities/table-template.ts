@@ -16,16 +16,16 @@ export abstract class TableTemplate implements OnInit {
   filtered_data: string[][] = [];
   filter_criteria: string[] = [];
 
-  constructor(protected service: any) { } // overridden in subclass 
+  constructor(protected service: any, protected serviceArg?: string) { } // overridden in subclass 
 
   ngOnInit()
   {
-  	this.service.getTableData()
-      .then(remoteData => 
-      {
-        this.loadData(remoteData);
-        this.refreshView();
-      });
+  	let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
+    promise.then(remoteData => 
+    {
+      this.loadData(remoteData);
+      this.refreshView();
+    });
       /*this.data = this.service.getTableData();
       this.refreshView();*/
   }

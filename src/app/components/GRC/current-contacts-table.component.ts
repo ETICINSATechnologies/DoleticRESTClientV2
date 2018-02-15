@@ -14,19 +14,9 @@ export class CurrentContactsTableComponent extends TableTemplate {
   loopedColumns: number[] = [1, 2, 3, 4, 5];
   spareColumns = {name: 6, mail: 7};
 
-  constructor(service: ContactService) 
+  constructor(protected service: ContactService) 
   {
     super(service);
-  }
-
-  ngOnInit()
-  {
-    this.service.getTableData("2")
-      .then(remoteData => 
-      {
-        this.loadData(remoteData);
-        this.refreshView();
-      });
   }
 
   loadData(d: any): void

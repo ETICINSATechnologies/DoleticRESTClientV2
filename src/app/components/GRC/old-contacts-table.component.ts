@@ -11,14 +11,10 @@ import { ContactService } from '../../services/contact.service'
 })
 export class OldContactsTableComponent extends CurrentContactsTableComponent {
 
-  ngOnInit()
+  constructor(protected service: ContactService) 
   {
-    this.service.getTableData("1")
-      .then(remoteData => 
-      {
-        this.loadData(remoteData);
-        this.refreshView();
-      });
+    super(service);
+    this.serviceArg = "1";
   }
 
 }
