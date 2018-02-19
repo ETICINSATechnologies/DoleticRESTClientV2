@@ -24,10 +24,10 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
   firmTypes: FirmType[];
 
   constructor(
-    service: FirmService,
+    private firmService: FirmService,
     private firmTypeService: FirmTypeService)
   {
-    super(service)
+    super(firmService)
   }
 
   ngOnInit(): void {
@@ -35,8 +35,8 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
     this.loadFirmTypes();
   }
 
-  startEditFirm(id : number) {
-    this.service.getById(id).then(firm => {
+  startEditFirm(id : string) {
+    this.firmService.getById(id).then(firm => {
       this.activeFirm = firm;
       this.showEditFirm = true;
     }).catch(res => console.log('Error in startEditFirm : ' + res));

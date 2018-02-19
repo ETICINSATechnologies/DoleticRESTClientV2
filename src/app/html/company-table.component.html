@@ -88,7 +88,7 @@
       <div class="field">
         <label></label>
         <label>Type de société</label>
-        <select  [(ngModel)]="activeFirm.type" name="type">
+        <select  [(ngModel)]="activeFirm.type.label" name="type">
           <option *ngFor="let type of firmTypes" [value]="type.label">
             {{type.label}}
           </option>
