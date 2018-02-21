@@ -21,6 +21,10 @@ import {ChartComponent} from './components/RH/chart.component';
 import {AlertComponent} from './components/alert.component';
 import {GRCComponent} from "./components/GRC/grc.component";
 import {CompanyTableComponent} from './components/GRC/company-table.component';
+import {MarketResearchToDoTableComponent} from './components/GRC/market-research-to-do-table.component';
+import {MarketResearchResultTableComponent} from './components/GRC/market-research-result-table.component';
+import {CurrentContactsTableComponent} from './components/GRC/current-contacts-table.component';
+import {OldContactsTableComponent} from './components/GRC/old-contacts-table.component';
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -57,7 +61,11 @@ import {FirmService} from "./services/firm.service";
         ChartComponent,
         GRCComponent,
         AlertComponent,
-        CompanyTableComponent
+        CompanyTableComponent,
+        MarketResearchToDoTableComponent,
+        MarketResearchResultTableComponent,
+        CurrentContactsTableComponent,
+        OldContactsTableComponent
     ],
     imports: [
         BrowserModule,

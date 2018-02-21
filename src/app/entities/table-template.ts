@@ -1,6 +1,6 @@
 import { OnInit } from '@angular/core';
 
-export class TableTemplate implements OnInit {
+export abstract class TableTemplate implements OnInit {
 	PAGE_LENGTHS: number[] = [5, 10, 25, 50];
   page_length: number = 5;
 
@@ -10,25 +10,28 @@ export class TableTemplate implements OnInit {
   sort_order: number = 0; /*1 : lower comes first (ascending sort) 
                           -1 : greater comes first (descending sort)*/ 
 
-  headers: string[]; // overridden in subclass
+  abstract headers: string[] = []; 
 	data: string[][]; // headers + id
 
   filtered_data: string[][] = [];
   filter_criteria: string[] = [];
 
-  constructor(private service: any) { } // overridden in subclass 
+  constructor(protected service: any, protected serviceArg?: string) { } // overridden in subclass 
 
   ngOnInit()
   {
-  	/*this.service.getTableData()
-      .then(remoteData => 
-      {
-        this.data = remoteData;
-        this.refreshView();
-      }); */
-      this.data = this.service.getTableData();
+  	let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
+    promise.then(remoteData => 
+    {
+      this.loadData(remoteData);
       this.refreshView();
+    });
+      /*this.data = this.service.getTableData();
+      this.refreshView();*/
   }
+  
+  /* Converts the json remoteData into a string[][] and load it into data*/
+  abstract loadData(remoteData: any): void;
 
   refreshView(): void
   {
