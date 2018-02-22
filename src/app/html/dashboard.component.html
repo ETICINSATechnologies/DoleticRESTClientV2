@@ -20,7 +20,7 @@
                     <span class="date">Dernière connexion le</span>
                 </div>
                 <div class="description">
-                    Junior DSI
+                    {{user.mainPosition.label}}
                 </div>
             </div>
             <div class="extra content">
@@ -41,8 +41,8 @@
         </div>
     </div>
     <div class="fifteen wide mobile fifteen wide tablet eleven wide large screen eleven wide computer column">
-        <doletic-studies></doletic-studies>
-        <doletic-contacts></doletic-contacts>
+        <doletic-studies [consultantId]="user.id" *ngIf="user"></doletic-studies>
+        <doletic-contacts [creatorId]="user.id" *ngIf="user"></doletic-contacts>
     </div>
 </div>
 <sui-modal [isClosable]="true" *ngIf="showModal" (dismissed) = "cancel()">

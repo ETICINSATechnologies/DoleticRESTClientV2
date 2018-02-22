@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Project } from '../../entities/project'
 
@@ -18,6 +18,10 @@ import { ProjectService } from '../../services/project.service'
   providers: [ProjectService]
 })
 export class StudiesComponent implements OnInit {
+
+    @Input() consultantId : number ;
+
+    ready: boolean = false;
 	limits: number[] = [5, 10, 25, 50];
   limit: number = 5;
   page: number = 1;
@@ -37,8 +41,11 @@ export class StudiesComponent implements OnInit {
   { }
 
   ngOnInit() {
-  	this.projectService.getAllCurrent()
-      .then(projects => this.projects = this.search_results = projects);
+  	this.projectService.getAllByConsultant(this.consultantId)
+      .then(projects => {
+          this.projects = this.search_results = projects;
+          this.ready = true;
+      });
   }
 
   search(): void {

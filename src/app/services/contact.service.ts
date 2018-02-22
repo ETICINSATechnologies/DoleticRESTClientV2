@@ -79,7 +79,7 @@ export class ContactService {
     }
 
 
-    getAllByCreator(creatorId: string): Promise<Array<Contact>> {
+    getAllByCreator(creatorId: number): Promise<Array<Contact>> {
         return this.http
             .get(this.contactApiUrl + "s/creator/" + creatorId, {headers: this.headers})
             .toPromise()
@@ -89,7 +89,7 @@ export class ContactService {
             .catch(this.handleError);
     }
 
-    getAllByCurrentUser(): Promise<Array<Contact>> {
+    getAllCurrent(): Promise<Array<Contact>> {
         return this.http
             .get(this.contactApiUrl + "s/current", {headers: this.headers})
             .toPromise()

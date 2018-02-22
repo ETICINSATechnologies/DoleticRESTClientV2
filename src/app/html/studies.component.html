@@ -14,6 +14,9 @@
         </sui-select-option>
         </sui-select> éléments
     </p>
+    <div class="ui active inverted dimmer" *ngIf="!ready">
+        <div class="ui loader"></div>
+    </div>
     <table class="ui celled table" style="margin: 3% auto; width: 95%; table-layout: fixed;">
         <thead>
             <tr>
@@ -72,7 +75,8 @@
             </tr>
         </thead>
 
-        <tbody>   
+        <tbody>
+            <tr *ngIf="search_results.length == 0"><td colspan="4">Pas de résultat trouvé</td></tr>
             <tr *ngFor="let project of search_results | slice:(page-1)*limit:page*limit">
                 <td>{{project.number}}</td>
                 <td>{{project.name}}</td>
@@ -81,10 +85,12 @@
             </tr>
         </tbody>
     </table>
-    <p>Affichage des éléments {{min(1+(page-1)*limit, search_results.length)}} à {{min(page*limit, search_results.length)}} parmi {{search_results.length}} élements</p>
-    <sui-pagination [collectionSize]="ceil(search_results.length/limit)" 
-                    [(page)]="page" 
-                    [maxSize]="3" 
-                    [pageSize]="1"> 
-    </sui-pagination>
+    <div *ngIf="search_results.length > limit">
+        <p>Affichage des éléments {{min(1+(page-1)*limit, search_results.length)}} à {{min(page*limit, search_results.length)}} parmi {{search_results.length}} élements</p>
+        <sui-pagination [collectionSize]="ceil(search_results.length/limit)"
+                        [(page)]="page"
+                        [maxSize]="3"
+                        [pageSize]="1">
+        </sui-pagination>
+    </div>
 </div>
