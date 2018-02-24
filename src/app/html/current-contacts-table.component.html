@@ -52,8 +52,8 @@
             </button> 
         </td>
         <td>
-            <h4>{{tuple[spareColumns.name]}}</h4>
-            <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">tuple[spareColumns.mail]</a>
+            <b>{{tuple[spareColumns.name]}}</b>
+            <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">{{tuple[spareColumns.mail]}}</a>
         </td>
 <!-- colonne avant ici /-->
         <td *ngFor = "let column of loopedColumns">
@@ -80,8 +80,11 @@
         </tbody>
     </ng-template>    
 </table>
+
+<p *ngIf="filtered_data.length == 0"><b>Aucun résultat</b></p>
 <p>Affichage des éléments {{min(1+(page_no-1)*page_length, filtered_data.length)}} à {{min(page_no*page_length, filtered_data.length)}} parmi {{filtered_data.length}} élements</p>
-<sui-pagination [collectionSize]="ceil(filtered_data.length/page_length)" 
+<sui-pagination *ngIf="filtered_data.length > 0"
+                [collectionSize]="ceil(filtered_data.length/page_length)" 
                 [(page)]="page_no" 
                 [maxSize]="3" 
                 [pageSize]="1"> 

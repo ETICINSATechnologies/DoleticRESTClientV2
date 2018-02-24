@@ -16,21 +16,20 @@ export class CurrentContactsTableComponent extends TableTemplate {
 
   constructor(protected service: ContactService) 
   {
-    super(service);
+    super(service, "2");
   }
 
   loadData(d: any): void
   {
     for(let i = d.length-1; i>=0; i--)
     {
-        const name: string = d[i].firstName + " " + d[i].lastName;
-        const nameAndMail: string = name + " " + d[i].email; 
+        const nameAndMail: string = d[i].fullName + " " + d[i].email; 
         const prospected: string = d[i].fromProspecting ? "Oui":"Non";
         this.data.push(
           [
             nameAndMail, d[i].phone, d[i].cellPhone, 
             d[i].firm.name, d[i].role, prospected, 
-            name, d[i].email, d[i].id
+            d[i].fullName, d[i].email, d[i].id
           ]);
     } 
   } 

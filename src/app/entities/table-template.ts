@@ -23,6 +23,7 @@ export abstract class TableTemplate implements OnInit {
   	let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
     promise.then(remoteData => 
     {
+      this.data = [];
       this.loadData(remoteData);
       this.refreshView();
     });
