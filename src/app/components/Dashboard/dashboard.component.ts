@@ -22,6 +22,7 @@ import {NewPassword} from "../../entities/password.new";
 export class DashboardComponent implements OnInit{
     showModal: boolean = false;
     formError: boolean = false;
+    ready: Array<boolean> = [false, false, false, false, false];
     formLoading: boolean = false;
     showModal2: boolean = false;
     formError2: boolean = false;
@@ -32,13 +33,7 @@ export class DashboardComponent implements OnInit{
     genders: Gender[];
     user: User;
     updatedUser: User;
-    editPassword: EditPassword = {
-        old: "",
-        newPass: {
-            first: "",
-            second: ""
-        }
-    };
+    editPassword: EditPassword = new EditPassword("", new NewPassword("", ""));
 
     constructor(
       private userService: UserService,
@@ -47,6 +42,10 @@ export class DashboardComponent implements OnInit{
       private schoolYearService: SchoolYearService,
       private departmentService: DepartmentService
     ) {}
+
+    get formReady(): boolean{
+        return this.ready[0] && this.ready[1] && this.ready[2] && this.ready[3] && this.ready[4];
+    }
 
     ngOnInit(): void {
       this.loadUser();
@@ -74,6 +73,7 @@ export class DashboardComponent implements OnInit{
           this.user = user;
           this.normalizeUser();
           this.updatedUser = Object.assign({}, user);
+          this.ready[0] = true;
         }).catch( res => console.log('Error in loadUser' + res));
     }
 
@@ -86,6 +86,7 @@ export class DashboardComponent implements OnInit{
           res => {
             this.countries = <Country[]>res;
             this.normalizeSelects();
+            this.ready[1] = true;
           }
         )
     }
@@ -98,7 +99,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.genders = <Gender[]>res;
-              this.normalizeSelects();
+              this.ready[2] = true;
+            this.normalizeSelects();
           }
         )
     }
@@ -111,7 +113,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.schoolYears = <SchoolYear[]>res;
-              this.normalizeSelects();
+            this.ready[3] = true;
+            this.normalizeSelects();
           }
         )
     }
@@ -124,7 +127,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.departments = <Department[]>res;
-              this.normalizeSelects();
+            this.ready[4] = true;
+            this.normalizeSelects();
           }
         )
     }

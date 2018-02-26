@@ -57,8 +57,8 @@
             </tr>
         </tbody>
     </table>
+    <p>Affichage des éléments {{min(1+(page-1)*limit, search_results.length)}} à {{min(page*limit, search_results.length)}} parmi {{search_results.length}} élements</p>
     <div *ngIf="search_results.length > limit">
-        <p>Affichage des éléments {{min(1+(page-1)*limit, search_results.length)}} à {{min(page*limit, search_results.length)}} parmi {{search_results.length}} élements</p>
         <sui-pagination [collectionSize]="ceil(search_results.length/limit)"
                         [(page)]="page"
                         [maxSize]="3"

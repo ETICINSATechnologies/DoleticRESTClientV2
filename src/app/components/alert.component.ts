@@ -17,8 +17,6 @@ export class AlertComponent implements OnInit{
     messages: Array<any>;
 
     constructor(private alertService: AlertService) {
-
-        console.log("Init");
         alertService.message$.subscribe(message => {
             if(message){
                 this.messages.push(message);

@@ -67,4 +67,8 @@ export class AlertService {
 
     }
 
+    webmasterAlert(keepAfterNavigationChange = false) {
+        this.error("Erreur innatendu :", "Une erreur est survenu. Veuillez contacter le responsable DSI.", keepAfterNavigationChange);
+    }
+
 }
