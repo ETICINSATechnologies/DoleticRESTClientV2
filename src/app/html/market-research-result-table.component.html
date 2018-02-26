@@ -43,43 +43,43 @@
         </tr>
     </thead>
     <tbody *ngIf = "data; else load">   
-    <tr *ngFor = "let tuple of filtered_data | slice:(page_no-1)*page_length:page_no*page_length; trackBy: getId;">
+        <tr *ngFor = "let tuple of filtered_data | slice:(page_no-1)*page_length:page_no*page_length; trackBy: getId;">
 <!-- colonne avant ici -->
-        <td>
-            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
-            <button class="ui teal icon button" suiPopup popupText="Détails du contact"> 
-                <i class="user icon"></i> 
-            </button> 
-        </td>
-        <td>
-            <h4>{{tuple[spareColumns.name]}}</h4>
-            <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">tuple[spareColumns.mail]</a>
-        </td>
-<!-- colonne avant ici /-->
-        <td *ngFor = "let column of loopedColumns">
-            {{tuple[column]}}
-        </td>
-<!-- colonne après ici -->
-        <td>
-            ID : {{tuple[spareColumns.prospectorId]}} <!--TODO à supprimer lorsque le lien aura un href-->
-            <a>{{tuple[spareColumns.prospector]}}</a>
-        </td>
-        <td> 
-            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
-            <div class="ui icon buttons">
-                <button class="ui blue icon button" suiPopup popupText="Modifier"> 
-                    <i class="write icon"></i> 
+            <td>
+                ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+                <button class="ui teal icon button" suiPopup popupText="Détails du contact"> 
+                    <i class="user icon"></i> 
                 </button> 
-                <button class="ui orange icon button" suiPopup popupText="Demander une prospection"> 
-                    <i class="reply icon"></i> 
-                </button>
-                <button class="ui yellow icon button" suiPopup popupText="Marquer comme client"> 
-                    <i class="suitcase icon"></i> 
-                </button>
-            </div>
-        </td> 
+            </td>
+            <td>
+                <b>{{tuple[spareColumns.name]}}</b>
+                <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">{{tuple[spareColumns.mail]}}</a>
+            </td>
+<!-- colonne avant ici /-->
+            <td *ngFor = "let column of loopedColumns">
+                {{tuple[column]}}
+            </td>
+<!-- colonne après ici -->
+            <td>
+                ID : {{tuple[spareColumns.prospectorId]}} <!--TODO à supprimer lorsque le lien aura un href-->
+                <a>{{tuple[spareColumns.prospector]}}</a>
+            </td>
+            <td> 
+                ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+                <div class="ui icon buttons">
+                    <button class="ui blue icon button" suiPopup popupText="Modifier"> 
+                        <i class="write icon"></i> 
+                    </button> 
+                    <button class="ui orange icon button" suiPopup popupText="Demander une prospection"> 
+                        <i class="reply icon"></i> 
+                    </button>
+                    <button class="ui yellow icon button" suiPopup popupText="Marquer comme client"> 
+                        <i class="suitcase icon"></i> 
+                    </button>
+                </div>
+            </td> 
 <!-- colonne après ici /-->
-    </tr> 
+        </tr> 
     </tbody>
     <ng-template #load>
         <tbody class="ui active inverted dimmer">
@@ -87,8 +87,11 @@
         </tbody>
     </ng-template>    
 </table>
+
+<p *ngIf="filtered_data.length == 0"><b>Aucun résultat</b></p>
 <p>Affichage des éléments {{min(1+(page_no-1)*page_length, filtered_data.length)}} à {{min(page_no*page_length, filtered_data.length)}} parmi {{filtered_data.length}} élements</p>
-<sui-pagination [collectionSize]="ceil(filtered_data.length/page_length)" 
+<sui-pagination *ngIf="filtered_data.length > page_length"
+                [collectionSize]="ceil(filtered_data.length/page_length)" 
                 [(page)]="page_no" 
                 [maxSize]="3" 
                 [pageSize]="1"> 
