@@ -12,6 +12,7 @@ import {Gender} from "../../entities/gender";
 import {AlertService} from '../../services/alert.service';
 import {EditPassword} from "../../entities/edit-password";
 import {NewPassword} from "../../entities/password.new";
+import {RecruitmentEvent} from "../../entities/recruitment-event";
 
 @Component({
     selector: 'doletic-dashboard',
@@ -182,9 +183,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.genders.length && !find){
-                if(this.genders[i].label == this.updatedUser.gender.label){
+                if((this.genders[i] as Gender).label == (this.updatedUser.gender as Gender).label){
                     find = true;
-                    this.updatedUser.gender = this.genders[i].id;
+                    this.updatedUser.gender = (this.genders[i] as Gender).id;
                 }
                 i++;
             }
@@ -193,9 +194,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.countries.length && !find){
-                if(this.countries[i].label == this.updatedUser.country.label){
+                if((this.countries[i] as Country).label == (this.updatedUser.country as Country).label){
                     find = true;
-                    this.updatedUser.country = this.countries[i].id;
+                    this.updatedUser.country = (this.countries[i] as Country).id;
                 }
                 i++;
             }
@@ -204,9 +205,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.departments.length && !find){
-                if(this.departments[i].label == this.updatedUser.department.label){
+                if((this.departments[i] as Department).label == (this.updatedUser.department as Department).label){
                     find = true;
-                    this.updatedUser.department = this.departments[i].id;
+                    this.updatedUser.department = (this.departments[i] as Department).id;
                 }
                 i++;
             }
@@ -215,14 +216,14 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.schoolYears.length && !find){
-                if(this.schoolYears[i].year == this.updatedUser.schoolYear.year){
+                if((this.schoolYears[i] as SchoolYear).year == (this.updatedUser.schoolYear as SchoolYear).year){
                     find = true;
-                    this.updatedUser.schoolYear = this.schoolYears[i].id;
+                    this.updatedUser.schoolYear = (this.schoolYears[i] as SchoolYear).id;
                 }
                 i++;
             }
         }
-        if(this.updatedUser.recruitmentEvent) this.updatedUser.recruitmentEvent = this.updatedUser.recruitmentEvent.id;
+        if(this.updatedUser.recruitmentEvent) this.updatedUser.recruitmentEvent = (this.updatedUser.recruitmentEvent as RecruitmentEvent).id;
     }
 }
 
