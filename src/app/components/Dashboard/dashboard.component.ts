@@ -138,7 +138,7 @@ export class DashboardComponent implements OnInit{
         setTimeout(this.normalizeUpdatedUser(), 4000);
         this.formError = false;
       this.formLoading = true;
-      this.userService.update(this.updatedUser).then(user =>
+      this.userService.editCurrent(this.updatedUser).then(user =>
       {
         this.user = user;
           this.normalizeUser();
@@ -222,6 +222,7 @@ export class DashboardComponent implements OnInit{
                 i++;
             }
         }
+        if(this.updatedUser.recruitmentEvent) this.updatedUser.recruitmentEvent = this.updatedUser.recruitmentEvent.id;
     }
 }
 

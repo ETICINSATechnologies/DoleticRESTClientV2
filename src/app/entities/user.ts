@@ -26,7 +26,7 @@ export class User{
         public department?:any,
         public gender?:any,
         public country?:any,
-        public recruitmentEvent?:RecruitmentEvent,
+        public recruitmentEvent?:any,
         public consultantMembership?:ConsultantMembership,
         public administratorMemberships?:AdministratorMembership[]
     ){
