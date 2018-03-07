@@ -22,11 +22,11 @@ export class User{
         public address?:string,
         public city?:string,
         public postalCode?:number,
-        public schoolYear?:any,
-        public department?:any,
-        public gender?:any,
-        public country?:any,
-        public recruitmentEvent?:RecruitmentEvent,
+        public schoolYear?:SchoolYear|number,
+        public department?:Department|number,
+        public gender?:Gender|number,
+        public country?:Country|number,
+        public recruitmentEvent?:RecruitmentEvent|number,
         public consultantMembership?:ConsultantMembership,
         public administratorMemberships?:AdministratorMembership[]
     ){

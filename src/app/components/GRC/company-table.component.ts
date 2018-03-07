@@ -6,11 +6,13 @@ import { FirmService } from '../../services/firm.service'
 import { Firm } from '../../entities/firm';
 import { FirmTypeService } from '../../services/firm-type.service';
 import { FirmType } from '../../entities/firm-type';
+import { CountryService } from '../../services/country.service';
+import { Country } from '../../entities/country';
 
 @Component({
   selector: 'doletic-company-table',
   templateUrl: '../../html/company-table.component.html',
-  providers: [FirmService, FirmTypeService]
+  providers: [FirmService, FirmTypeService, CountryService]
 })
 export class CompanyTableComponent extends TableTemplate implements OnInit {
 
@@ -22,20 +24,27 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
   loadingEditFirm: boolean = false;
 
   firmTypes: FirmType[];
+  countries: Country[];
 
-  constructor(
-    private firmService: FirmService,
-    private firmTypeService: FirmTypeService)
-  {
+  constructor(private firmService: FirmService,
+              private firmTypeService: FirmTypeService,
+              private countryService: CountryService) {
     super(firmService)
   }
+
+  cancel(): void
+  {
+    this.showEditFirm = this.errorEditFirm = this.loadingEditFirm = false;
+  }
+
 
   ngOnInit(): void {
     super.ngOnInit();
     this.loadFirmTypes();
+    this.loadCountries();
   }
 
-  startEditFirm(id : string) {
+  startEditFirm(id: string) {
     this.firmService.getById(id).then(firm => {
       this.activeFirm = firm;
       this.showEditFirm = true;
@@ -53,7 +62,42 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
       res => {
         this.firmTypes = <FirmType[]>res;
       }
-    ).catch( res => {console.log('Error in getFirmTypes : ' + res);})
+    ).catch(res => {
+      console.log('Error in getFirmTypes : ' + res);
+    })
   }
 
+  loadCountries(): void {
+    this.countryService.getAll().then(
+      res => {
+        this.countries = <Country[]>res;
+      }
+    ).catch(res => {
+      console.log('Error in getCountries : ' + res);
+    })
+  }
+
+  loadData(remoteData: any): void {
+    for (let i = remoteData.length - 1; i >= 0; i--) {
+      this.data.push(
+        [
+          remoteData[i].name, remoteData[i].siret, remoteData[i].type.label,
+          remoteData[i].adress, remoteData[i].postalCode, remoteData[i].city,
+          remoteData[i].country.label, remoteData[i].id
+        ]);
+    }
+  }
+
+  submitEditFirm(): void {
+    this.errorEditFirm = false;
+    this.loadingEditFirm = true;
+    this.firmService.editCurrent(this.activeFirm).then(firm => {
+      this.activeFirm = firm;
+      this.cancel();
+    }).catch(() => {
+      this.loadingEditFirm = false;
+      this.errorEditFirm = true
+    });
+  }
 }
+

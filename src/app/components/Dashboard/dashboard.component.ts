@@ -12,6 +12,7 @@ import {Gender} from "../../entities/gender";
 import {AlertService} from '../../services/alert.service';
 import {EditPassword} from "../../entities/edit-password";
 import {NewPassword} from "../../entities/password.new";
+import {RecruitmentEvent} from "../../entities/recruitment-event";
 
 @Component({
     selector: 'doletic-dashboard',
@@ -22,6 +23,7 @@ import {NewPassword} from "../../entities/password.new";
 export class DashboardComponent implements OnInit{
     showModal: boolean = false;
     formError: boolean = false;
+    ready: Array<boolean> = [false, false, false, false, false];
     formLoading: boolean = false;
     showModal2: boolean = false;
     formError2: boolean = false;
@@ -32,13 +34,7 @@ export class DashboardComponent implements OnInit{
     genders: Gender[];
     user: User;
     updatedUser: User;
-    editPassword: EditPassword = {
-        old: "",
-        newPass: {
-            first: "",
-            second: ""
-        }
-    };
+    editPassword: EditPassword = new EditPassword("", new NewPassword("", ""));
 
     constructor(
       private userService: UserService,
@@ -47,6 +43,10 @@ export class DashboardComponent implements OnInit{
       private schoolYearService: SchoolYearService,
       private departmentService: DepartmentService
     ) {}
+
+    get formReady(): boolean{
+        return this.ready[0] && this.ready[1] && this.ready[2] && this.ready[3] && this.ready[4];
+    }
 
     ngOnInit(): void {
       this.loadUser();
@@ -74,6 +74,7 @@ export class DashboardComponent implements OnInit{
           this.user = user;
           this.normalizeUser();
           this.updatedUser = Object.assign({}, user);
+          this.ready[0] = true;
         }).catch( res => console.log('Error in loadUser' + res));
     }
 
@@ -86,6 +87,7 @@ export class DashboardComponent implements OnInit{
           res => {
             this.countries = <Country[]>res;
             this.normalizeSelects();
+            this.ready[1] = true;
           }
         )
     }
@@ -98,7 +100,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.genders = <Gender[]>res;
-              this.normalizeSelects();
+              this.ready[2] = true;
+            this.normalizeSelects();
           }
         )
     }
@@ -111,7 +114,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.schoolYears = <SchoolYear[]>res;
-              this.normalizeSelects();
+            this.ready[3] = true;
+            this.normalizeSelects();
           }
         )
     }
@@ -124,7 +128,8 @@ export class DashboardComponent implements OnInit{
         .then(
           res => {
             this.departments = <Department[]>res;
-              this.normalizeSelects();
+            this.ready[4] = true;
+            this.normalizeSelects();
           }
         )
     }
@@ -134,7 +139,7 @@ export class DashboardComponent implements OnInit{
         setTimeout(this.normalizeUpdatedUser(), 4000);
         this.formError = false;
       this.formLoading = true;
-      this.userService.update(this.updatedUser).then(user =>
+      this.userService.editCurrent(this.updatedUser).then(user =>
       {
         this.user = user;
           this.normalizeUser();
@@ -178,9 +183,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.genders.length && !find){
-                if(this.genders[i].label == this.updatedUser.gender.label){
+                if((this.genders[i] as Gender).label == (this.updatedUser.gender as Gender).label){
                     find = true;
-                    this.updatedUser.gender = this.genders[i].id;
+                    this.updatedUser.gender = (this.genders[i] as Gender).id;
                 }
                 i++;
             }
@@ -189,9 +194,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.countries.length && !find){
-                if(this.countries[i].label == this.updatedUser.country.label){
+                if((this.countries[i] as Country).label == (this.updatedUser.country as Country).label){
                     find = true;
-                    this.updatedUser.country = this.countries[i].id;
+                    this.updatedUser.country = (this.countries[i] as Country).id;
                 }
                 i++;
             }
@@ -200,9 +205,9 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.departments.length && !find){
-                if(this.departments[i].label == this.updatedUser.department.label){
+                if((this.departments[i] as Department).label == (this.updatedUser.department as Department).label){
                     find = true;
-                    this.updatedUser.department = this.departments[i].id;
+                    this.updatedUser.department = (this.departments[i] as Department).id;
                 }
                 i++;
             }
@@ -211,13 +216,14 @@ export class DashboardComponent implements OnInit{
             let i=0;
             let find = false;
             while(i<this.schoolYears.length && !find){
-                if(this.schoolYears[i].year == this.updatedUser.schoolYear.year){
+                if((this.schoolYears[i] as SchoolYear).year == (this.updatedUser.schoolYear as SchoolYear).year){
                     find = true;
-                    this.updatedUser.schoolYear = this.schoolYears[i].id;
+                    this.updatedUser.schoolYear = (this.schoolYears[i] as SchoolYear).id;
                 }
                 i++;
             }
         }
+        if(this.updatedUser.recruitmentEvent) this.updatedUser.recruitmentEvent = (this.updatedUser.recruitmentEvent as RecruitmentEvent).id;
     }
 }
 

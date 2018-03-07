@@ -35,8 +35,11 @@ export class LoginPageComponent {
                     if(error.error == 'invalid_grant'){
                         this.alertService.error("Identifiants incorrectes", "Combinaison pseudo/mot de passe incorrecte");
                     }
-                    if(error.error == 'invalid_request'){
+                    else if(error.error == 'invalid_request'){
                         this.alertService.error("Mauvaise saisie", "Veuillez entrer votre pseudo et votre mot de passe");
+                    }
+                    else {
+                        this.alertService.webmasterAlert();
                     }
                 }
             );

@@ -178,7 +178,7 @@ export class ProjectService{
             .catch(this.handleError);
     }
 
-    getAllByAuditor(auditorId: string): Promise<Array<Project>>{
+    getAllByAuditor(auditorId: number): Promise<Array<Project>>{
         return this.http
             .get(this.projectApiUrl + "s/auditor/" + auditorId, {headers: this.headers})
             .toPromise()
@@ -188,7 +188,7 @@ export class ProjectService{
             .catch(this.handleError);
     }
 
-    getAllByConsultant(consultantId: string): Promise<Array<Project>>{
+    getAllByConsultant(consultantId: number): Promise<Array<Project>>{
         return this.http
             .get(this.projectApiUrl + "s/consultant/" + consultantId, {headers: this.headers})
             .toPromise()

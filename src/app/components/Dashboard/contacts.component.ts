@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import { Contact } from '../../entities/contact';
 import { ContactService } from '../../services/contact.service';
@@ -10,6 +10,8 @@ import { ContactService } from '../../services/contact.service';
   providers: [ContactService]
 })
 export class ContactsComponent implements OnInit {
+    @Input() creatorId;
+    ready: boolean = false;
 	limits: number[] = [5, 10, 25, 50];
 	limit: number = 5;
   page: number = 1;
@@ -29,8 +31,11 @@ export class ContactsComponent implements OnInit {
   }
 
   getAllByCurrentUser(): void {
-  	this.contactService.getAllByCurrentUser()
-  		.then(contacts => this.contacts = this.search_results = contacts);
+  	this.contactService.getAllByCreator(this.creatorId)
+  		.then(contacts =>{
+  		    this.contacts = this.search_results = contacts;
+  		    this.ready = true;
+        });
   }  
 
   search(): void {

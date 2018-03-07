@@ -105,13 +105,11 @@ export class FirmService {
                 return res.json() as string[][];
             })
             .catch(this.handleError);*/
-        let data: string[][] =
-        [
-            ['EDF', '324432', '', '20 Avenue Albert Einstein', '69100', 'Villeurbanne', 'France', '12/11/2017', '1'],
-            ['AXA', '567765', '', '22 Rue de la Rigolle', '75000', 'Paris', 'France', '05/01/2018', '2'],
-            ['DAXA', '567775', '', '12 Rue de la Rigolle', '75000', 'Paris', 'France', '15/01/2018', '3']
-        ];   
-        return data;  
+      return [
+          ['EDF', '324432', '', '20 Avenue Albert Einstein', '69100', 'Villeurbanne', 'France', '12/11/2017', '1'],
+          ['AXA', '567765', '', '22 Rue de la Rigolle', '75000', 'Paris', 'France', '05/01/2018', '2'],
+          ['DAXA', '567775', '', '12 Rue de la Rigolle', '75000', 'Paris', 'France', '15/01/2018', '3']
+        ];
     }
 }
 

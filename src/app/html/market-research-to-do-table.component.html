@@ -16,6 +16,7 @@
     <thead>
         <tr>
 <!-- headers avant ici -->
+            <th></th>
 <!-- headers avant ici /-->
             <th *ngFor = "let header of headers; let i = index">
                 <div (click)="sortData(i)" style="cursor: pointer">
@@ -31,18 +32,50 @@
                 </div>   
             </th>
 <!-- headers après ici -->
+            <th>Actions
+                <div>
+                    <button class="small ui violet icon button" suiPopup popupText="Effacer les filtres" (click)="resetFilters()"> 
+                        <i class="erase icon"></i> 
+                    </button> 
+                </div>
+            </th>
 <!-- headers après ici /-->
         </tr>
     </thead>
     <tbody *ngIf = "data; else load">   
     <tr *ngFor = "let tuple of filtered_data | slice:(page_no-1)*page_length:page_no*page_length; trackBy: getId;">
-<!-- colonnes avant ici -->
-<!-- colonnes avant ici /-->
-        <td *ngFor = "let header of headers; let i = index">
-            {{tuple[i]}}
+<!-- colonne avant ici -->
+        <td>
+            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+            <button class="ui teal icon button" suiPopup popupText="Détails du contact"> 
+                <i class="user icon"></i> 
+            </button> 
         </td>
-<!-- colonnes après ici -->
-<!-- colonnes après ici /-->
+        <td>
+            <b>{{tuple[spareColumns.name]}}</b>
+            <a href="mailto:{{tuple[spareColumns.mail]}}" target="_blank">{{tuple[spareColumns.mail]}}</a>
+        </td>
+<!-- colonne avant ici /-->
+        <td *ngFor = "let column of loopedColumns">
+            {{tuple[column]}}
+        </td>
+<!-- colonne après ici -->
+        <td>
+            ID : {{tuple[spareColumns.prospectorId]}} <!--TODO à supprimer lorsque le lien aura un href-->
+            <a>{{tuple[spareColumns.prospector]}}</a>
+        </td>
+        <td> 
+            ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
+            <div class="ui icon buttons">
+                <button class="ui blue icon button" suiPopup popupText="Modifier"> 
+                    <i class="write icon"></i> 
+                </button> 
+                <button class="ui yellow icon button" suiPopup popupText="Marquer comme prospecté"> 
+                    <i class="call icon"></i> 
+                </button>
+            </div>
+        </td> 
+<!-- colonne après ici /-->
     </tr> 
     </tbody>
     <ng-template #load>
