@@ -32,8 +32,7 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
     super(firmService)
   }
 
-  cancel(): void
-  {
+  cancelEditFirm(): void {
     this.showEditFirm = this.errorEditFirm = this.loadingEditFirm = false;
   }
 
@@ -49,12 +48,6 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
       this.activeFirm = firm;
       this.showEditFirm = true;
     }).catch(res => console.log('Error in startEditFirm : ' + res));
-  }
-
-  cancelEditFirm(): void {
-    this.showEditFirm = false;
-    this.errorEditFirm = false;
-    this.loadingEditFirm = false;
   }
 
   loadFirmTypes(): void {
@@ -91,9 +84,10 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
   submitEditFirm(): void {
     this.errorEditFirm = false;
     this.loadingEditFirm = true;
-    this.firmService.editCurrent(this.activeFirm).then(firm => {
+    this.firmService.update(this.activeFirm).then(firm => {
+    //this.firmService.editCurrent(this.activeFirm).then(firm => {
       this.activeFirm = firm;
-      this.cancel();
+      this.cancelEditFirm();
     }).catch(() => {
       this.loadingEditFirm = false;
       this.errorEditFirm = true
