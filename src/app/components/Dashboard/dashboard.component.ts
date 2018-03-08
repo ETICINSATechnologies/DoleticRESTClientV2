@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit{
 
     normalizeUser(): void {
         let date = new Date(this.user.birthDate);
-        if(date) this.user.birthDate= date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+        if(date) this.user.birthDate= date.toLocaleDateString("fr-FR");
     }
 
     normalizeSelects(): void{
@@ -73,7 +73,7 @@ export class DashboardComponent implements OnInit{
         {
           this.user = user;
           this.normalizeUser();
-          this.updatedUser = Object.assign({}, user);
+          this.updatedUser = user;
           this.ready[0] = true;
         }).catch( res => console.log('Error in loadUser' + res));
     }
