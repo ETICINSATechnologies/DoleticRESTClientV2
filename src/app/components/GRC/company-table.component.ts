@@ -35,6 +35,7 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
   cancelEditFirm(): void {
     this.showEditFirm = this.errorEditFirm = this.loadingEditFirm = false;
   }
+
   loadData(d: any): void
   {
     for(let i = d.length-1; i>=0; i--)
@@ -45,12 +46,7 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
             d[i].adress, d[i].postalCode, d[i].city,
             d[i].country?d[i].country.label:"", d[i].id
           ]);
-    } 
-
-  ngOnInit(): void {
-    super.ngOnInit();
-    this.loadFirmTypes();
-    this.loadCountries();
+    }
   }
 
   startEditFirm(id: string) {
@@ -78,17 +74,6 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
     ).catch(res => {
       console.log('Error in getCountries : ' + res);
     })
-  }
-
-  loadData(remoteData: any): void {
-    for (let i = remoteData.length - 1; i >= 0; i--) {
-      this.data.push(
-        [
-          remoteData[i].name, remoteData[i].siret, remoteData[i].type.label,
-          remoteData[i].adress, remoteData[i].postalCode, remoteData[i].city,
-          remoteData[i].country.label, remoteData[i].id
-        ]);
-    }
   }
 
   submitEditFirm(): void {
