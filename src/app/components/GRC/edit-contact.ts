@@ -15,7 +15,7 @@ import {ContactTypeService} from "../../services/contact-type.service";
 })
 export class EditContactComponent implements OnInit {
 
-  @Input() contactId: number;
+  @Input() contactId: string;
 
   headers: string[] = ["Prénom", "Nom", "Civilité", "Type de contact", "Mail", "Téléphone", "Téléphone mobile",
       "Société", "Poste", "Origine des coordonnées", "Prochaine prospection", "Issu de la prospection", "Assigné à",
