@@ -35,7 +35,17 @@ export class CompanyTableComponent extends TableTemplate implements OnInit {
   cancelEditFirm(): void {
     this.showEditFirm = this.errorEditFirm = this.loadingEditFirm = false;
   }
-
+  loadData(d: any): void
+  {
+    for(let i = d.length-1; i>=0; i--)
+    {
+        this.data.push(
+          [
+            d[i].name, d[i].siret, d[i].type?d[i].type.label:"",
+            d[i].adress, d[i].postalCode, d[i].city,
+            d[i].country?d[i].country.label:"", d[i].id
+          ]);
+    } 
 
   ngOnInit(): void {
     super.ngOnInit();

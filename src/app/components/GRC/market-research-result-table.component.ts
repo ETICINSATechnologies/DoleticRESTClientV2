@@ -27,9 +27,9 @@ export class MarketResearchResultTableComponent extends TableTemplate {
       const coord: string = d[i].error ? "Erronées":"À jour";
       this.data.push(
         [
-          nameAndMail, d[i].firm.name, d[i].role, 
-          d[i].nextProspecting, coord, d[i].creator.fullName,
-          d[i].fullName, d[i].email, d[i].creator.id,
+          nameAndMail, d[i].firm?d[i].firm.name:"", d[i].role, 
+          d[i].nextProspecting, coord, d[i].creator?d[i].creator.fullName:"",
+          d[i].fullName, d[i].email, d[i].creator?d[i].creator.id:"",
           d[i].id
         ]);
     } 

@@ -27,8 +27,8 @@ export class MarketResearchToDoTableComponent extends TableTemplate {
         this.data.push(
           [
             nameAndMail, d[i].phone, d[i].cellPhone,
-            d[i].firm.name, d[i].role, d[i].creator.fullName,
-            d[i].fullName, d[i].email, d[i].creator.id,
+            d[i].firm?d[i].firm.name:"", d[i].role, d[i].creator?d[i].creator.fullName:"",
+            d[i].fullName, d[i].email, d[i].creator?d[i].creator.id:"",
             d[i].id
           ]);
     } 
