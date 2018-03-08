@@ -1,0 +1,71 @@
+<button (click)="startEditContact()" class="ui blue icon button" suiPopup popupText="Édition d'un contact">
+    <i class="write icon"></i>
+</button>
+
+<sui-modal [isClosable]="true" *ngIf="showEditContact" (dismissed) = "cancelEditContact()">
+    <div class="header">Edition de la société {{activeContact.name}}</div>
+    <div class="content">
+        <form class="ui form">
+            <!-- SIRET -->
+            <div class="field">
+                <label>SIRET</label>
+                <input type="text" [(ngModel)]="activeContact.siret" name="old" placeholder="SIRET...">
+            </div>
+            <!-- Nom -->
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" [(ngModel)]="activeContact.name" name="old" placeholder="Nom...">
+            </div>
+            <!-- Type de société -->
+            <div class="field">
+                <label></label>
+                <label>Type de société</label>
+                <select  [(ngModel)]="activeContact.type.label" name="type">
+                    <option *ngFor="let type of contactTypes" [value]="type.label">
+                        {{type.label}}
+                    </option>
+                </select>
+            </div>
+            <!-- Adresse -->
+            <div class="field">
+                <label>Adresse</label>
+                <input type="text" [(ngModel)]="activeContact.address" name="first" placeholder="Adresse...">
+            </div>
+            <!-- Code Postal -->
+            <div class="field">
+                <label>Code Postal</label>
+                <input type="text" [(ngModel)]="activeContact.postalCode" name="first" placeholder="Code Postal...">
+            </div>
+            <!-- Ville -->
+            <div class="field">
+                <label>Ville</label>
+                <input type="text" [(ngModel)]="activeContact.city" name="second" placeholder="Ville...">
+            </div>
+            <!-- Nom -->
+            <div class="field">
+                <label></label>
+                <label>Pays</label>
+                <select  [(ngModel)]="activeContact.country.label" name="country">
+                    <option *ngFor="let country of countries" [value]="country.label">
+                        {{country.label}}
+                    </option>
+                </select>
+            </div>
+        </form>
+        <div *ngIf = "errorEditContact" class="ui center aligned basic segment">
+            <div class="ui compact negative message">
+                <div class="header">Code 500 : erreur interne du serveur</div>
+                <p>La connexion au serveur n'a pas pu être établie. Veuillez réessayer ultérieurement.</p>
+            </div>
+        </div>
+        <div *ngIf = "loadingEditContact" class="ui basic segment">
+            <div class="ui active inverted dimmer">
+                <div class="ui loader"></div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui red button" (click) = "cancelEditContact()" >Annuler</button>
+        <button class="ui green button" autofocus (click) = "submitEditContact()" [disabled] = "loadingEditContact">Envoyer</button>
+    </div>
+</sui-modal>
