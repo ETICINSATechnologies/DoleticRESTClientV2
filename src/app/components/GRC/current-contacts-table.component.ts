@@ -28,7 +28,7 @@ export class CurrentContactsTableComponent extends TableTemplate {
         this.data.push(
           [
             nameAndMail, d[i].phone, d[i].cellPhone, 
-            d[i].firm.name, d[i].role, prospected, 
+            d[i].firm?d[i].firm.name:"", d[i].role, prospected, 
             d[i].fullName, d[i].email, d[i].id
           ]);
     } 
