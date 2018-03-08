@@ -67,9 +67,9 @@
         <td> 
             ID : {{getId(tuple)}} <!--TODO pour tester, à supprimer-->
             <div class="ui icon buttons">
-                <button class="ui blue icon button" suiPopup popupText="Modifier"> 
-                    <i class="write icon"></i> 
-                </button> 
+
+                <edit-contact [contactId]="getId(tuple)"></edit-contact>
+
                 <button class="ui yellow icon button" suiPopup popupText="Marquer comme prospecté"> 
                     <i class="call icon"></i> 
                 </button>
