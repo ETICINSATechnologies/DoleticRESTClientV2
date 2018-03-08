@@ -1,0 +1,65 @@
+<button (click)="startEditFirm()" class="ui blue icon button" suiPopup popupText="Édition d'une société">
+    <i class="write icon"></i>
+</button>
+
+<sui-modal [isClosable]="true" *ngIf="showEditFirm" (dismissed)="cancelEditFirm()">
+    <div class="header">Edition de la société {{activeFirm.name}}</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>SIRET</label>
+                <input type="text" [(ngModel)]="activeFirm.siret" name="old" placeholder="SIRET...">
+            </div>
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" [(ngModel)]="activeFirm.name" name="old" placeholder="Nom...">
+            </div>
+            <div class="field">
+                <label></label>
+                <label>Type de société</label>
+                <select [(ngModel)]="activeFirm.type.label" name="type">
+                    <option *ngFor="let type of firmTypes" [value]="type.label">
+                        {{type.label}}
+                    </option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Adresse</label>
+                <input type="text" [(ngModel)]="activeFirm.address" name="first" placeholder="Adresse...">
+            </div>
+            <div class="field">
+                <label>Code Postal</label>
+                <input type="text" [(ngModel)]="activeFirm.postalCode" name="first" placeholder="Code Postal...">
+            </div>
+            <div class="field">
+                <label>Ville</label>
+                <input type="text" [(ngModel)]="activeFirm.city" name="second" placeholder="Ville...">
+            </div>
+            <div class="field">
+                <label></label>
+                <label>Pays</label>
+                <select [(ngModel)]="activeFirm.country.label" name="country">
+                    <option *ngFor="let country of countries" [value]="country.label">
+                        {{country.label}}
+                    </option>
+                </select>
+            </div>
+        </form>
+        <div *ngIf="errorEditFirm" class="ui center aligned basic segment">
+            <div class="ui compact negative message">
+                <div class="header">Code 500 : erreur interne du serveur</div>
+                <p>La connexion au serveur n'a pas pu être établie. Veuillez réessayer ultérieurement.</p>
+            </div>
+        </div>
+        <div *ngIf="loadingEditFirm" class="ui basic segment">
+            <div class="ui active inverted dimmer">
+                <div class="ui loader"></div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui red button" (click)="cancelEditFirm()">Annuler</button>
+        <button class="ui green button" autofocus (click)="submitEditFirm()" [disabled]="loadingEditFirm">Envoyer
+        </button>
+    </div>
+</sui-modal>
