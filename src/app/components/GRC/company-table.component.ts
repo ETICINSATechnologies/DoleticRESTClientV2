@@ -23,9 +23,9 @@ export class CompanyTableComponent extends TableTemplate {
     {
         this.data.push(
           [
-            d[i].name, d[i].siret, d[i].type?d[i].type.label:"",
+            d[i].name, d[i].siret, d[i].type,
             d[i].adress, d[i].postalCode, d[i].city,
-            d[i].country?d[i].country.label:"", d[i].id
+            d[i].country, d[i].id
           ]);
     }
   }
