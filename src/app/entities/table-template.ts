@@ -93,6 +93,7 @@ export abstract class TableTemplate implements OnInit {
     this.filtered_data = this.data;
   }
 
+  /*Could fail if a " were to be followed by a \t in one of the table's field*/
   exportToCSV(fileName: string): void
   {
     const quote: string = '"';
