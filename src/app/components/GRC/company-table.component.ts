@@ -1,37 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { TableTemplate } from '../../entities/table-template'
+import {TableTemplate} from '../../entities/table-template'
 
-import { FirmService } from '../../services/firm.service'
-import { Firm } from '../../entities/firm';
-import { FirmTypeService } from '../../services/firm-type.service';
-import { FirmType } from '../../entities/firm-type';
-import { CountryService } from '../../services/country.service';
-import { Country } from '../../entities/country';
+import {FirmService} from '../../services/firm.service'
 
 @Component({
   selector: 'doletic-company-table',
   templateUrl: '../../html/company-table.component.html',
-  providers: [FirmService, FirmTypeService, CountryService]
+  providers: [FirmService]
 })
-export class CompanyTableComponent extends TableTemplate implements OnInit {
+export class CompanyTableComponent extends TableTemplate {
 
   headers: string[] = ["Nom", "SIRET", "Type", "Adresse", "Code Postal", "Ville", "Pays"]; // + id
-  activeFirm: Firm;
 
-  showEditFirm: boolean = false;
-  errorEditFirm: boolean = false;
-  loadingEditFirm: boolean = false;
-
-  firmTypes: FirmType[];
-  countries: Country[];
-
-  constructor(private firmService: FirmService,
-              private firmTypeService: FirmTypeService,
-              private countryService: CountryService) {
+  constructor(private firmService: FirmService) {
     super(firmService)
   }
-
+  
   cancelEditFirm(): void {
     this.showEditFirm = this.errorEditFirm = this.loadingEditFirm = false;
   }

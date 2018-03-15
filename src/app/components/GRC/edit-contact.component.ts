@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import {ContactService} from "../../services/contact.service";
 import {Contact} from "../../entities/contact";
@@ -7,19 +7,19 @@ import {FirmService} from "../../services/firm.service";
 import {Gender} from "../../entities/gender";
 import {GenderService} from "../../services/gender.service";
 import {ContactTypeService} from "../../services/contact-type.service";
+import {Firm} from "../../entities/firm";
+import {User} from "../../entities/user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'edit-contact',
   templateUrl: '../../html/edit-contact.component.html',
-  providers: [ContactService, FirmService, ContactTypeService]
+  providers: [ContactService, FirmService, ContactTypeService, UserService]
 })
-export class EditContactComponent implements OnInit {
+export class EditContactComponent {
 
   @Input() contactId: string;
 
-  headers: string[] = ["Prénom", "Nom", "Civilité", "Type de contact", "Mail", "Téléphone", "Téléphone mobile",
-      "Société", "Poste", "Origine des coordonnées", "Prochaine prospection", "Issu de la prospection", "Assigné à",
-      "Erreur dans les coordonnées", "Notes"];
   activeContact: Contact;
 
   showEditContact: boolean = false;
@@ -28,24 +28,26 @@ export class EditContactComponent implements OnInit {
 
   contactTypes: ContactType[];
   genders: Gender[];
+  firms: Firm[];
+  users: User[];
 
-  constructor(private contactService: ContactService,
-              private contactTypeService: ContactTypeService,
+  constructor(private contactTypeService: ContactTypeService,
+              private contactService: ContactService,
               private firmService: FirmService,
-              private genderService: GenderService) {}
+              private genderService: GenderService,
+              private userService: UserService) {
+  }
 
-  cancelEditContact(): void
-  {
+  cancelEditContact(): void {
     this.showEditContact = this.errorEditContact = this.loadingEditContact = false;
   }
 
-
-  ngOnInit(): void {
+  startEditContact() {
     this.loadContactTypes();
     this.loadGenders();
-  }
-
-  startEditContact() {
+    // TODO : load data
+    // this.loadFirms();
+    // this.loadUsers();
     this.contactService.getById(this.contactId).then(contact => {
       this.activeContact = contact;
       this.showEditContact = true;
@@ -58,18 +60,38 @@ export class EditContactComponent implements OnInit {
         this.contactTypes = <ContactType[]>res;
       }
     ).catch(res => {
-      console.log('Error in getContactTypes : ' + res);
+      console.log('Error in loadContactTypes : ' + res);
+    })
+  }
+
+  loadFirms(): void {
+    this.firmService.getAll().then(
+      res => {
+        this.firms = <Firm[]>res;
+      }
+    ).catch(res => {
+      console.log('Error in loadFirms : ' + res);
+    })
+  }
+
+  loadUsers(): void {
+    this.userService.getAllCurrent().then(
+      res => {
+        this.users = <User[]>res;
+      }
+    ).catch(res => {
+      console.log('Error in loadUsers : ' + res);
     })
   }
 
   loadGenders(): void {
-      this.genderService.getAll().then(
-          res => {
-              this.genders = <Gender[]>res;
-          }
-      ).catch(res => {
-          console.log('Error in getGenders : ' + res);
-      })
+    this.genderService.getAll().then(
+      res => {
+        this.genders = <Gender[]>res;
+      }
+    ).catch(res => {
+      console.log('Error in loadGenders : ' + res);
+    })
   }
 
   submitEditContact(): void {
