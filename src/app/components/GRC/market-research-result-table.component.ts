@@ -24,7 +24,7 @@ export class MarketResearchResultTableComponent extends TableTemplate {
     for(let i = d.length-1; i>=0; i--)
     {
       const nameAndMail: string = d[i].fullName + " " + d[i].email; 
-      const coord: string = d[i].error ? "Erronées":"À jour";
+      const coord: string = d[i].error ? "Érronées":"À jour";
       this.data.push(
         [
           nameAndMail, d[i].firm?d[i].firm.name:"", d[i].role, 

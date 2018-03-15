@@ -1,3 +1,10 @@
+<div class="twelve wide column">
+    <div class="ui buttons">
+        <button class="ui green button">Ajouter un contact</button>
+        <button class="ui olive button">Actualiser la liste</button>
+        <button class="ui yellow button" (click)="exportToCSV('current_contacts')">Exporter au format Excel</button>
+    </div>
+</div>
 <p> Limiter à 
     <sui-select     class="selection" 
                     placeholder="Limiter à"
