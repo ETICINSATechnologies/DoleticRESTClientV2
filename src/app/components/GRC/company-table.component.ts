@@ -14,7 +14,7 @@ export class CompanyTableComponent extends TableTemplate {
   headers: string[] = ["Nom", "SIRET", "Type", "Adresse", "Code Postal", "Ville", "Pays"]; // + id
 
   constructor(private firmService: FirmService) {
-    super(firmService)
+    super(firmService, "s")
   }
 
   loadData(d: any): void

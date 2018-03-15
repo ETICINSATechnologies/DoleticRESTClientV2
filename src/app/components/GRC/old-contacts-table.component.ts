@@ -14,7 +14,7 @@ export class OldContactsTableComponent extends CurrentContactsTableComponent {
   constructor(protected service: ContactService) 
   {
     super(service);
-    this.serviceArg = "1";
+    this.serviceArg = "s/type/1";
   }
 
 }

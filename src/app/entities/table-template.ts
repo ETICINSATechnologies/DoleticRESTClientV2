@@ -20,7 +20,17 @@ export abstract class TableTemplate implements OnInit {
 
   ngOnInit()
   {
-  	let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
+  	this.fetchData();
+  }
+  
+  /* Converts the json remoteData into a string[][] and load it into data*/
+  abstract loadData(remoteData: any): void;
+
+  fetchData(): void
+  {
+    this.data = null;
+    this.filtered_data = [];
+    let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
     promise.then(remoteData => 
     {
       this.data = [];
@@ -28,9 +38,6 @@ export abstract class TableTemplate implements OnInit {
       this.refreshView();
     });
   }
-  
-  /* Converts the json remoteData into a string[][] and load it into data*/
-  abstract loadData(remoteData: any): void;
 
   refreshView(): void
   {

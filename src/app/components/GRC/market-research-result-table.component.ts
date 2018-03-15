@@ -16,7 +16,7 @@ export class MarketResearchResultTableComponent extends TableTemplate {
 
   constructor(protected service: ContactService) 
   {
-    super(service, "4");
+    super(service, "s/type/4");
   }
 
   loadData(d: any): void
