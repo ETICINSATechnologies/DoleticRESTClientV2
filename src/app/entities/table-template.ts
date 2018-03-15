@@ -27,8 +27,6 @@ export abstract class TableTemplate implements OnInit {
       this.loadData(remoteData);
       this.refreshView();
     });
-      /*this.data = this.service.getTableData();
-      this.refreshView();*/
   }
   
   /* Converts the json remoteData into a string[][] and load it into data*/

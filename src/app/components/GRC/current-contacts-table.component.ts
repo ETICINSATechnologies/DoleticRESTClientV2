@@ -10,7 +10,7 @@ import { ContactService } from '../../services/contact.service'
   providers: [ContactService]
 })
 export class CurrentContactsTableComponent extends TableTemplate {
-  headers: string[] = ["Nom/Email", "Téléphone", "Mobile", "Société", "Rôle", "Prospecté"];
+  headers: string[] = ["Nom/Email", "Téléphone", "Mobile", "Société", "Rôle", "Prospecté"]; // + name, mail, id
   loopedColumns: number[] = [1, 2, 3, 4, 5];
   spareColumns = {name: 6, mail: 7};
 
