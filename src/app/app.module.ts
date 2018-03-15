@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule } from '@angular/platform-browser';
+import {NgModule } from '@angular/core';
 import {HttpModule} from "@angular/http";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuiModule} from 'ng2-semantic-ui';
@@ -7,7 +7,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import {AppComponent } from './app.component';
 import {LoginPageComponent} from './pages/login.page.component';
 import {DashboardComponent} from "./components/Dashboard/dashboard.component";
 import {ContactsComponent} from "./components/Dashboard/contacts.component";
@@ -25,6 +25,8 @@ import {MarketResearchToDoTableComponent} from './components/GRC/market-research
 import {MarketResearchResultTableComponent} from './components/GRC/market-research-result-table.component';
 import {CurrentContactsTableComponent} from './components/GRC/current-contacts-table.component';
 import {OldContactsTableComponent} from './components/GRC/old-contacts-table.component';
+import {EditContactComponent} from './components/GRC/edit-contact.component';
+import {EditFirmComponent} from "./components/GRC/edit-firm.component";
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -67,7 +69,8 @@ import {EditContactComponent} from "./components/GRC/edit-contact";
         MarketResearchResultTableComponent,
         CurrentContactsTableComponent,
         OldContactsTableComponent,
-        EditContactComponent
+        EditContactComponent,
+        EditFirmComponent
     ],
     imports: [
         BrowserModule,
@@ -95,7 +98,7 @@ import {EditContactComponent} from "./components/GRC/edit-contact";
         TicketStatusService,
         UserService,
         AuthGuard,
-        RecruitmentEventService, 
+        RecruitmentEventService,
         AlertService,
         FirmService
     ],
