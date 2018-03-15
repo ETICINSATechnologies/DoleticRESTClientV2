@@ -93,7 +93,8 @@ export abstract class TableTemplate implements OnInit {
     this.filtered_data = this.data;
   }
 
-  /*Could fail if a " were to be followed by a \t in one of the table's field*/
+  /* Peut créer un document mal formé si " 
+     est suivi de \t dans un des champs du tableau */
   exportToCSV(fileName: string): void
   {
     const quote: string = '"';
@@ -144,10 +145,6 @@ export abstract class TableTemplate implements OnInit {
           link.click();
           document.body.removeChild(link);
       }
-      else
-      {
-        console.log("Votre navigateur ne supporte pas cette fonctionnalité.")
-      }  
     }
   }
   
