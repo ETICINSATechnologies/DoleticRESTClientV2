@@ -46,7 +46,6 @@ import {AuthGuard} from './auth.gard';
 import {RecruitmentEventService} from './services/recruitment-event.service';
 import {AlertService} from './services/alert.service';
 import {FirmService} from "./services/firm.service";
-import {EditContactComponent} from "./components/GRC/edit-contact";
 
 
 @NgModule({
