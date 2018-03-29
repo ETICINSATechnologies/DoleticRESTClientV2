@@ -119,9 +119,9 @@ export class ContactService {
             .catch(this.handleError);
     }
 
-    getTableData(typeId: string): Promise<any> {
+    getTableData(path: string): Promise<any> {
         return this.http
-            .get(this.contactApiUrl + "s/type/" + typeId, {headers: this.headers})
+            .get(this.contactApiUrl + path, {headers: this.headers})
             .toPromise()
             .then(res => res.json())
             .catch(this.handleError);

@@ -16,7 +16,7 @@ export class CurrentContactsTableComponent extends TableTemplate {
 
   constructor(protected service: ContactService) 
   {
-    super(service, "2");
+    super(service, "s/type/2");
   }
 
   loadData(d: any): void

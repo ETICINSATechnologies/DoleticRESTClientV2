@@ -96,10 +96,10 @@ export class FirmService {
       .catch(this.handleError);
     }
 
-    getTableData(): Promise<Array<Firm>>
+    getTableData(path: string): Promise<Array<Firm>>
     {
       return this.http
-        .get(this.firmApiUrl + "s", {headers: this.headers})
+        .get(this.firmApiUrl + path, {headers: this.headers})
         .toPromise()
         .then(res=>{
             return res.json() as string[][];

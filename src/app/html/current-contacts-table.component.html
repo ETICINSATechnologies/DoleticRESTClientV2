@@ -1,17 +1,38 @@
-<p> Limiter à 
-    <sui-select     class="selection" 
-                    placeholder="Limiter à"
-                    style="min-width: 60px"
-                    [options]="PAGE_LENGTHS" 
-                    #selectPageLength 
-                    [(ngModel)]="page_length" 
-                    (ngModelChange)="page_no=1" 
-    >
-    <sui-select-option  *ngFor="let option of selectPageLength.filteredOptions" 
-                        [value]="option">
-    </sui-select-option>
-    </sui-select> éléments
-</p>
+<div style="display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 2%">
+    <div style="flex:1; text-align: left">
+        <button class="big circular ui green icon button" 
+                suiPopup popupText="Ajouter un contact">
+            <i class="plus icon"></i>
+        </button>
+        <button class="big circular ui olive icon button" 
+                suiPopup popupText="Actualiser le tableau"
+                (click)="fetchData()">
+            <i class="repeat icon"></i>
+        </button>
+        <button class="big circular ui yellow icon button" 
+                suiPopup popupText="Exporter au format Excel" 
+                (click)= "exportToCSV('current_contacts')">
+            <i class="file excel outline icon"></i>
+        </button>
+    </div>
+    <div style="flex:1">
+        Limiter à 
+        <sui-select     class="selection" 
+                        placeholder="Limiter à"
+                        style="min-width: 60px"
+                        [options]="PAGE_LENGTHS" 
+                        #selectPageLength 
+                        [(ngModel)]="page_length" 
+                        (ngModelChange)="page_no=1" 
+        >
+            <sui-select-option  *ngFor="let option of selectPageLength.filteredOptions" 
+                                [value]="option">
+            </sui-select-option>
+        </sui-select> éléments
+    </div>
+    <div style="flex:1"></div>
+</div>
 <table class="ui very basic celled table">
     <thead>
         <tr>
@@ -35,7 +56,8 @@
             <th>Actions
                 <div>
                     <button class="small ui violet icon button" suiPopup popupText="Effacer les filtres" (click)="resetFilters()"> 
-                        <i class="erase icon"></i> 
+                        <i class="eraser icon
+"></i> 
                     </button> 
                 </div>
             </th>

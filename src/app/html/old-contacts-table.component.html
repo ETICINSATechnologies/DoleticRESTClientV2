@@ -1,17 +1,33 @@
-<p> Limiter à 
-    <sui-select     class="selection" 
-                    placeholder="Limiter à"
-                    style="min-width: 60px"
-                    [options]="PAGE_LENGTHS" 
-                    #selectPageLength 
-                    [(ngModel)]="page_length" 
-                    (ngModelChange)="page_no=1" 
-    >
-    <sui-select-option  *ngFor="let option of selectPageLength.filteredOptions" 
-                        [value]="option">
-    </sui-select-option>
-    </sui-select> éléments
-</p>
+<div style="display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 2%">
+    <div style="flex:1; text-align: left">
+        <button class="big circular ui olive icon button" 
+                suiPopup popupText="Actualiser les données">
+            <i class="repeat icon"></i>
+        </button>
+        <button class="big circular ui yellow icon button" 
+                (click)= "exportToCSV('old_contacts')" 
+                suiPopup popupText="Exporter au format Excel">
+            <i class="file excel outline icon"></i>
+        </button>
+    </div>
+    <div style="flex:1">
+        Limiter à 
+        <sui-select     class="selection" 
+                        placeholder="Limiter à"
+                        style="min-width: 60px"
+                        [options]="PAGE_LENGTHS" 
+                        #selectPageLength 
+                        [(ngModel)]="page_length" 
+                        (ngModelChange)="page_no=1" 
+        >
+            <sui-select-option  *ngFor="let option of selectPageLength.filteredOptions" 
+                                [value]="option">
+            </sui-select-option>
+        </sui-select> éléments
+    </div>
+    <div style="flex:1"></div>
+</div>
 <table class="ui very basic celled table">
     <thead>
         <tr>
@@ -35,7 +51,8 @@
             <th>Actions
                 <div>
                     <button class="small ui violet icon button" suiPopup popupText="Effacer les filtres" (click)="resetFilters()"> 
-                        <i class="erase icon"></i> 
+                        <i class="eraser icon
+"></i> 
                     </button> 
                 </div>
             </th>

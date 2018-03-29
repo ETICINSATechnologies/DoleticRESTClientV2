@@ -20,7 +20,17 @@ export abstract class TableTemplate implements OnInit {
 
   ngOnInit()
   {
-  	let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
+  	this.fetchData();
+  }
+  
+  /* Converts the json remoteData into a string[][] and load it into data*/
+  abstract loadData(remoteData: any): void;
+
+  fetchData(): void
+  {
+    this.data = null;
+    this.filtered_data = [];
+    let promise: Promise<any> = this.serviceArg?this.service.getTableData(this.serviceArg):this.service.getTableData();
     promise.then(remoteData => 
     {
       this.data = [];
@@ -28,9 +38,6 @@ export abstract class TableTemplate implements OnInit {
       this.refreshView();
     });
   }
-  
-  /* Converts the json remoteData into a string[][] and load it into data*/
-  abstract loadData(remoteData: any): void;
 
   refreshView(): void
   {
@@ -84,6 +91,61 @@ export abstract class TableTemplate implements OnInit {
   {
     this.filter_criteria = [];
     this.filtered_data = this.data;
+  }
+
+  /* Peut créer un document mal formé si " 
+     est suivi de \t dans un des champs du tableau */
+  exportToCSV(fileName: string): void
+  {
+    const quote: string = '"';
+    const delim: string = "\t";
+    const new_line: string = "\n";
+    const file_type: string = "text/csv;charset=utf-8;";
+
+    /* Create unique filename */
+    const date: Date = new Date();
+    fileName += "_" + date.toLocaleDateString() + "_" 
+             + date.toLocaleTimeString()
+             + '.csv';
+
+    /* Convert filtered data to CSV */
+    let csvData: string = "";
+    for(let header of this.headers)  
+    {
+      csvData += quote + header + quote + delim;
+    }
+    csvData += new_line;
+
+    for(let tuple of this.filtered_data)
+    {
+      for(let i = 0; i<this.headers.length; i++)
+      {
+        csvData += quote + tuple[i] + quote + delim;
+      }  
+      csvData += new_line;
+    } 
+
+    /* Launch download */
+    let blob: Blob = new Blob([csvData], { type: file_type });
+    if (navigator.msSaveBlob)
+    { // IE 10+
+      navigator.msSaveBlob(blob, fileName);
+    } 
+    else 
+    {
+      let link: HTMLAnchorElement = document.createElement("a");
+      if (link.download !== undefined) 
+      {   // feature detection
+          // Browsers that support HTML5 download attribute
+          let url: string = URL.createObjectURL(blob);
+          link.setAttribute("href", url);
+          link.setAttribute("download", fileName);
+          link.setAttribute("style", "visibility:hidden");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+      }
+    }
   }
   
   // suppose que le service place l'ID dans la dernière colonne de data
