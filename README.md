@@ -1,28 +1,25 @@
 # DoleticRESTClientV2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
+Ce projet est l'application front-end de Doletic. Elle fonctionne sous Angular4.
 
-## Development server
+## Installation du projet :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Installer [npm](https://nodejs.org/fr/) avec une version supérieure ou égale à 1.4.9.
 
-## Code scaffolding
+2. Avec npm, utiliser la commande `npm install -g @angular/cli` pour installer angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+3. [Forker](https://guides.github.com/activities/forking/) le repository Git DoleticRestClientV2
 
-## Build
+4. Cloner son fork localement
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+5. A la racine du dossier DoleticRest, exécutez la commande `npm install` ou `npm i`
 
-## Running unit tests
+6. Modifier le fichier src/app/app.constants.ts de la sorte :
+&nbsp;&nbsp;&nbsp;Rentrer votre clientId dans LOGIN_CONFIG
+&nbsp;&nbsp;&nbsp;Rentrer votre secretId dans LOGIN_CONFIG
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Utilisation du server
 
-## Running end-to-end tests
+Lancez le serveur front-end avec la commande  `ng serve` puis ouvrez votre navigateur web à la [page](http://localhost:4200/) `http://localhost:4200/`. Vous pouvez également executer la commande `ng serve -o` pour ouvrir votre navigateur directement sur la bonne adresse.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Si vous modifiez un fichier alors que le serveur est en marche il recompilera directement sans que vous ayez besoin de le relancer.
