@@ -15,8 +15,8 @@ Ce projet est l'application front-end de Doletic. Elle fonctionne sous Angular4.
 5. A la racine du dossier DoleticRest, exécutez la commande `npm install` ou `npm i`
 
 6. Modifier le fichier src/app/app.constants.ts de la sorte :
-&nbsp;&nbsp;&nbsp;Rentrer votre clientId dans LOGIN_CONFIG
-&nbsp;&nbsp;&nbsp;Rentrer votre secretId dans LOGIN_CONFIG
+⋅⋅⋅Rentrer votre clientId dans LOGIN_CONFIG⋅⋅
+⋅⋅⋅Rentrer votre secretId dans LOGIN_CONFIG⋅⋅
 
 ## Utilisation du server
 
