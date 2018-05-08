@@ -172,4 +172,12 @@ export class UserService {
             })
             .catch(this.handleError);
     }
+
+    getTableData(path: string): Promise<any> {
+        return this.http
+            .get(this.userApiUrl + path, {headers: this.headers})
+            .toPromise()
+            .then(res => res.json())
+            .catch(this.handleError);
+    }
 }

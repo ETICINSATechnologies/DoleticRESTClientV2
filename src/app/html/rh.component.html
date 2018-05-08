@@ -14,9 +14,9 @@
         <sui-tabset>
             <div class="ui top attached tabular menu">
                 <a class="item" suiTabHeader="1">Statistiques</a>
-                <!--<a class="item" suiTabHeader="2">Liste des membres</a>
+                <a class="item" suiTabHeader="2">Liste des membres</a>
                 <a class="item" suiTabHeader="3">Utilisateurs inactifs</a>
-                <a class="item" suiTabHeader="4">Liste des équipes</a>-->
+                <!--<a class="item" suiTabHeader="4">Liste des équipes</a>-->
             </div>
             <div class="ui bottom attached segment" suiTabContent="1">
                 <div class="ui center aligned padded grid">
@@ -25,6 +25,12 @@
                         <doletic-chart></doletic-chart>
                     </div>
                 </div>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="2">
+                <doletic-members-table></doletic-members-table>
+            </div>
+            <div class="ui bottom attached segment" suiTabContent="3">
+                <doletic-old-members-table></doletic-old-members-table>
             </div>
         </sui-tabset>
     </div>
