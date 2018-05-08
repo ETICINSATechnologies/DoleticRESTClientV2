@@ -28,6 +28,7 @@ import {OldContactsTableComponent} from './components/GRC/old-contacts-table.com
 import {EditContactComponent} from './components/GRC/edit-contact.component';
 import {EditFirmComponent} from "./components/GRC/edit-firm.component";
 import {MembersTableComponent} from './components/RH/members-table.component';
+import {OldMembersTableComponent} from './components/RH/old-members-table.component';
 
 import {AuthenticationService} from "./services/auth.service";
 import {DivisionService} from "./services/division.service";
@@ -71,7 +72,8 @@ import {FirmService} from "./services/firm.service";
         OldContactsTableComponent,
         EditContactComponent,
         EditFirmComponent,
-        MembersTableComponent
+        MembersTableComponent,
+        OldMembersTableComponent
     ],
     imports: [
         BrowserModule,
